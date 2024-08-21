@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
+  static TextStyle semiBold24 = const TextStyle(
+    fontSize: 24,
+    fontFamily: 'Matemasie',
+  );
   static TextStyle semiBold58 = const TextStyle(
     fontSize: 58,
     fontFamily: 'Inter',
