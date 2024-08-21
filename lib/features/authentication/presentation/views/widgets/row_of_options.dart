@@ -42,7 +42,7 @@ class RowOfOptions extends StatelessWidget {
           image: AppImages.facebook,
           onTap: () {},
           borderRadius: BorderRadius.circular(
-            26,
+            22,
           ),
         )
       ],

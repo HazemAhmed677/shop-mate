@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_routers.dart';
 
 class AlreadyHaveAnAccount extends StatelessWidget {
-  const AlreadyHaveAnAccount({super.key});
-
+  const AlreadyHaveAnAccount({super.key, required this.onTap});
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,11 +19,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         ),
         InkWell(
           borderRadius: BorderRadius.circular(32),
-          onTap: () {
-            GoRouter.of(context).push(
-              AppRouters.login,
-            );
-          },
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 6.0,

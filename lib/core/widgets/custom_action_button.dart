@@ -6,10 +6,10 @@ import '../utils/app_colors.dart';
 class CustomActionButton extends StatelessWidget {
   const CustomActionButton({
     super.key,
-    this.onPressed,
+    required this.onPressed,
     required this.text,
   });
-  final Function()? onPressed;
+  final void Function() onPressed;
   final String text;
   @override
   Widget build(BuildContext context) {

@@ -50,11 +50,17 @@ class WelcomeViewBody extends StatelessWidget {
         const SizedBox(
           height: 14,
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(
+        Padding(
+          padding: const EdgeInsets.symmetric(
             horizontal: 32.0,
           ),
-          child: AlreadyHaveAnAccount(),
+          child: AlreadyHaveAnAccount(
+            onTap: () {
+              GoRouter.of(context).push(
+                AppRouters.login,
+              );
+            },
+          ),
         ),
         const Expanded(
           flex: 2,

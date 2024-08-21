@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/name_and_email_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/already_have_an_account.dart';
 
+import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_action_button.dart';
 
@@ -79,7 +81,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   const SizedBox(
                     height: 32,
                   ),
-                  const AlreadyHaveAnAccount(),
+                  AlreadyHaveAnAccount(
+                    onTap: () {
+                      GoRouter.of(context).pushReplacement(
+                        AppRouters.login,
+                      );
+                    },
+                  ),
                   const SizedBox(
                     height: 34,
                   ),
