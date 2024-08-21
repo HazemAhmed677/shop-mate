@@ -9,19 +9,26 @@ class NameAndEmailPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        WordOfTextfield(text: 'Name'),
-        SizedBox(
+        const WordOfTextfield(text: 'Name'),
+        const SizedBox(
           height: 8,
         ),
         CustomTextFormField(
           hint: 'Hazem Ahmed',
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your name';
+            } else {
+              return null;
+            }
+          },
         ),
-        SizedBox(
-          height: 22,
+        const SizedBox(
+          height: 14,
         ),
-        EmailAndPasswordPart(),
+        const EmailAndPasswordPart(),
       ],
     );
   }

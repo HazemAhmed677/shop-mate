@@ -8,40 +8,53 @@ class CustomTextFormField extends StatelessWidget {
     required this.hint,
     this.obscure = false,
     this.suffixIcon,
+    this.validator,
   });
   final String hint;
   final bool obscure;
   final Widget? suffixIcon;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
       obscureText: obscure,
       cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 22,
+          vertical: 16,
+        ),
         hintFadeDuration: const Duration(milliseconds: 300),
         hintText: hint,
         hintStyle: const TextStyle(
           color: Colors.grey,
         ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.grey.shade400,
-          ),
-          borderRadius: BorderRadius.circular(26.0),
+        enabledBorder: buildBorder(
+          color: Colors.grey.shade400,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.grey.shade400,
-          ),
-          borderRadius: BorderRadius.circular(26.0),
+        focusedBorder: buildBorder(
+          color: Colors.grey.shade400,
         ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(26.0),
+        errorBorder: buildBorder(
+          color: Colors.redAccent.shade100,
+        ),
+        focusedErrorBorder: buildBorder(
+          color: Colors.redAccent.shade100,
         ),
       ),
+    );
+  }
+
+  OutlineInputBorder buildBorder({
+    required Color color,
+  }) {
+    return OutlineInputBorder(
+      borderSide: BorderSide(
+        color: color,
+      ),
+      borderRadius: BorderRadius.circular(26.0),
     );
   }
 }

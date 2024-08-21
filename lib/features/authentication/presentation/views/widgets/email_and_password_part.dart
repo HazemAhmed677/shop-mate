@@ -21,17 +21,35 @@ class _EmailAndPasswordPartState extends State<EmailAndPasswordPart> {
         const SizedBox(
           height: 8,
         ),
-        const CustomTextFormField(
+        CustomTextFormField(
           hint: 'example@gmail.com',
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your email';
+            } else if (!value.contains('@')) {
+              return 'Please enter a valid email';
+            } else {
+              return null;
+            }
+          },
         ),
         const SizedBox(
-          height: 22,
+          height: 14,
         ),
         const WordOfTextfield(text: 'Password'),
         const SizedBox(
           height: 8,
         ),
         CustomTextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter your password';
+            } else if (value.length < 6) {
+              return 'Password must be at least 6 characters';
+            } else {
+              return null;
+            }
+          },
           hint: '**********',
           suffixIcon: IconButton(
             onPressed: () {
@@ -39,7 +57,10 @@ class _EmailAndPasswordPartState extends State<EmailAndPasswordPart> {
               setState(() {});
             },
             icon: (!flag)
-                ? const Icon(Icons.visibility_off)
+                ? Icon(
+                    Icons.visibility_off,
+                    color: Colors.grey.shade800,
+                  )
                 : const Icon(
                     Icons.visibility,
                     color: AppColors.primaryColor,

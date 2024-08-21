@@ -17,7 +17,7 @@ class SignUpViewBody extends StatefulWidget {
 
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,6 +30,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Form(
+              autovalidateMode: autovalidateMode,
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,7 +58,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                      } else {}
+                        autovalidateMode = AutovalidateMode.disabled;
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                      }
+                      setState(() {});
                     },
                     text: 'Sign Up',
                   ),
