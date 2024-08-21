@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_dots.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_next_prev_button.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_page_view.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -61,13 +62,51 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             height: 22,
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CustomDots(
-              currentIndex: currentIndex,
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              (currentIndex == 0)
+                  ? const SizedBox()
+                  : CustomNextPrevButton(
+                      onPressed: () {
+                        pageController.previousPage(
+                          curve: Curves.easeInOut,
+                          duration: const Duration(
+                            milliseconds: 300,
+                          ),
+                        );
+                      },
+                      backgroundColor: AppColors.white,
+                      child: const Icon(
+                        Icons.arrow_back,
+                        color: AppColors.primaryColor,
+                        size: 26,
+                      ),
+                    ),
+              CustomDots(
+                currentIndex: currentIndex,
+              ),
+              CustomNextPrevButton(
+                onPressed: () {
+                  if (currentIndex > 2) {
+                    pageController.nextPage(
+                        curve: Curves.easeInOut,
+                        duration: const Duration(
+                          milliseconds: 300,
+                        ));
+                  } else {}
+                },
+                backgroundColor: AppColors.primaryColor,
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: AppColors.white,
+                  size: 26,
+                ),
+              )
+            ],
+          ),
         ),
         const SizedBox(
           height: 38,
