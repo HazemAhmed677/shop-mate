@@ -18,8 +18,8 @@ abstract class AppStyles {
     fontSize: 58,
     fontFamily: 'Inter',
   );
-  static TextStyle semiBoldInter32 = const TextStyle(
-    fontSize: 32,
+  static TextStyle semiBoldInter16 = const TextStyle(
+    fontSize: 14,
     fontFamily: 'Inter',
   );
 
