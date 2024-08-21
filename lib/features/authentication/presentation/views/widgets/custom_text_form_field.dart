@@ -20,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+            const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
         hintFadeDuration: const Duration(milliseconds: 300),
         hintText: hint,
         hintStyle: const TextStyle(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
-import '../../../../../core/utils/app_colors.dart';
+import '../utils/app_colors.dart';
 
-class CustomElevatedButton extends StatelessWidget {
-  const CustomElevatedButton({
+class CustomActionButton extends StatelessWidget {
+  const CustomActionButton({
     super.key,
     this.onPressed,
     required this.text,

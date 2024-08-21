@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_routers.dart';
 
 class AlreadyHaveAnAccount extends StatelessWidget {
   const AlreadyHaveAnAccount({super.key});
@@ -19,7 +21,11 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         ),
         InkWell(
           borderRadius: BorderRadius.circular(32),
-          onTap: () {},
+          onTap: () {
+            GoRouter.of(context).push(
+              AppRouters.login,
+            );
+          },
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 6.0,

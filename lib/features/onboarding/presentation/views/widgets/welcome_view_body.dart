@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
-import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_action_button.dart';
+import 'package:shop_mate/core/widgets/custom_action_button.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/lorem_text.dart';
 
 import 'already_have_an_account.dart';
@@ -40,7 +40,7 @@ class WelcomeViewBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             horizontal: 32,
           ),
-          child: CustomElevatedButton(
+          child: CustomActionButton(
             onPressed: () async {
               await GoRouter.of(context).push(AppRouters.onBoarding);
             },
