@@ -1,10 +1,89 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/name_and_email_part.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/widgets/already_have_an_account.dart';
 
-class SignUpViewBody extends StatelessWidget {
+import '../../../../../core/utils/app_styles.dart';
+import '../../../../../core/widgets/custom_action_button.dart';
+
+class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
 
   @override
+  State<SignUpViewBody> createState() => _SignUpViewBodyState();
+}
+
+class _SignUpViewBodyState extends State<SignUpViewBody> {
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SafeArea(
+      child: SizedBox(
+        width: MediaQuery.sizeOf(context).width,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 26.0,
+          ),
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Form(
+              key: formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SignWord(
+                    title: 'Create Acount',
+                    subTitle: 'Fill your information below or register',
+                    height: MediaQuery.sizeOf(context).height * 0.05,
+                  ),
+                  Text(
+                    'with your social account.',
+                    style: AppStyles.semiBoldPoppins28.copyWith(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 52,
+                  ),
+                  const NameAndEmailPart(),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  CustomActionButton(
+                    onPressed: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                      } else {}
+                    },
+                    text: 'Sign Up',
+                  ),
+                  const SizedBox(
+                    height: 42,
+                  ),
+                  const RowOfDividers(
+                    text: 'Or sign up with',
+                  ),
+                  const SizedBox(
+                    height: 42,
+                  ),
+                  const RowOfOptions(),
+                  const SizedBox(
+                    height: 32,
+                  ),
+                  const AlreadyHaveAnAccount(),
+                  const SizedBox(
+                    height: 34,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

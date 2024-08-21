@@ -3,7 +3,7 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/don
 import 'package:shop_mate/features/authentication/presentation/views/widgets/email_and_password_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
-import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_in_word.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
 
 import '../../../../../core/widgets/custom_action_button.dart';
 
@@ -23,10 +23,18 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26.0),
           child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SignInWord(),
+                SignWord(
+                  title: 'Sign In',
+                  subTitle: r"Hi! Welcome Back, you've been missed",
+                  height: MediaQuery.sizeOf(context).height * 0.1,
+                ),
+                const SizedBox(
+                  height: 52,
+                ),
                 const EmailAndPasswordPart(),
                 const SizedBox(
                   height: 22,
@@ -38,15 +46,20 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 const SizedBox(
                   height: 42,
                 ),
-                const RowOfDividers(),
+                const RowOfDividers(
+                  text: 'Or sign in with',
+                ),
                 const SizedBox(
                   height: 42,
                 ),
                 const RowOfOptions(),
                 const SizedBox(
-                  height: 42,
+                  height: 48,
                 ),
                 const DontHaveAccount(),
+                const SizedBox(
+                  height: 28,
+                ),
               ],
             ),
           ),

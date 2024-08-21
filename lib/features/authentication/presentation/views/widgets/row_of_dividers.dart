@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
 class RowOfDividers extends StatelessWidget {
-  const RowOfDividers({super.key});
-
+  const RowOfDividers({super.key, required this.text});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -23,7 +23,7 @@ class RowOfDividers extends StatelessWidget {
             width: 12,
           ),
           Text(
-            'Or sign in with',
+            text,
             style: AppStyles.semiBoldInter16.copyWith(
               color: Colors.grey,
             ),
