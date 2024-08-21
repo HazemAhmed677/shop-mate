@@ -1,10 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/widgets/custom_zooming_transition.dart';
-import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouters {
   static const String splash = '/';
+  static const String welcome = '/welcome';
   static const String home = '/home';
   static const String login = '/login';
   static const String register = '/register';
@@ -17,10 +18,10 @@ abstract class AppRouters {
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: onBoarding,
+      path: welcome,
       pageBuilder: (context, state) => CustomZoomingTransition(
         key: state.pageKey,
-        child: const OnboardingView(),
+        child: const WelcomeView(),
         duration: 800,
       ),
     ),
