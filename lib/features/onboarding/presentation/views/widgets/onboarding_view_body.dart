@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
+import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_dots.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_next_prev_button.dart';
@@ -74,7 +76,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         pageController.previousPage(
                           curve: Curves.easeInOut,
                           duration: const Duration(
-                            milliseconds: 300,
+                            milliseconds: 500,
                           ),
                         );
                       },
@@ -89,14 +91,16 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 currentIndex: currentIndex,
               ),
               CustomNextPrevButton(
-                onPressed: () {
-                  if (currentIndex > 2) {
-                    pageController.nextPage(
+                onPressed: () async {
+                  if (currentIndex < 2) {
+                    await pageController.nextPage(
                         curve: Curves.easeInOut,
                         duration: const Duration(
-                          milliseconds: 300,
+                          milliseconds: 600,
                         ));
-                  } else {}
+                  } else {
+                    GoRouter.of(context).push(AppRouters.login);
+                  }
                 },
                 backgroundColor: AppColors.primaryColor,
                 child: const Icon(

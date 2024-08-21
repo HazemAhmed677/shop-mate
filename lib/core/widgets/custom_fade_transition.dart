@@ -7,7 +7,7 @@ class CustomFadeTransition extends CustomTransitionPage<void> {
       required super.child,
       required int duration})
       : super(
-          transitionDuration: Duration(seconds: duration),
+          transitionDuration: Duration(milliseconds: duration),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return FadeTransition(
               opacity: animation,
