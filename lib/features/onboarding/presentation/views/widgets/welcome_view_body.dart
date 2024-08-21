@@ -51,7 +51,9 @@ class WelcomeViewBody extends StatelessWidget {
           height: 14,
         ),
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32.0),
+          padding: EdgeInsets.symmetric(
+            horizontal: 32.0,
+          ),
           child: AlreadyHaveAnAccount(),
         ),
         const Expanded(

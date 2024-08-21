@@ -20,9 +20,6 @@ class OnboardingHeader extends StatelessWidget {
           height: 22,
         ),
         const LoremText(),
-        const SizedBox(
-          height: 32,
-        ),
       ],
     );
   }

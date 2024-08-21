@@ -14,7 +14,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
         Text(
           'Already have an account? ',
           style: AppStyles.regular24.copyWith(
-            fontSize: 18,
+            fontSize: 15,
           ),
         ),
         InkWell(
@@ -23,12 +23,12 @@ class AlreadyHaveAnAccount extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(
               horizontal: 6.0,
-              vertical: 2,
+              vertical: 1,
             ),
             child: Text(
               'Sign In',
               style: AppStyles.regular24.copyWith(
-                  fontSize: 18,
+                  fontSize: 15,
                   decoration: TextDecoration.underline,
                   decorationColor: AppColors.primaryColor,
                   color: AppColors.primaryColor),
