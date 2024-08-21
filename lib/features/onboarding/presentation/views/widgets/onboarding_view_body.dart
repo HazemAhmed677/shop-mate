@@ -42,7 +42,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               style: TextButton.styleFrom(
                 overlayColor: AppColors.primaryColor,
               ),
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).push(AppRouters.login);
+              },
               child: Text(
                 'Skip',
                 style: AppStyles.regular24.copyWith(
