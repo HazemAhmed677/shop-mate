@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class LogoWithName extends StatefulWidget {
@@ -22,6 +24,8 @@ class _LogoWithNameState extends State<LogoWithName>
     super.initState();
     // For single resposiblity principle
     initialzeAnimationTools();
+
+    navigateToObBoarding();
   }
 
   @override
@@ -73,6 +77,7 @@ class _LogoWithNameState extends State<LogoWithName>
             child: Text(
               '.',
               style: AppStyles.semiBold24.copyWith(
+                fontSize: 32,
                 color: AppColors.primaryColor,
               ),
             ),
@@ -105,6 +110,15 @@ class _LogoWithNameState extends State<LogoWithName>
     ).animate(animationController2);
     animationController1.forward();
 
-    animationController2.fling();
+    animationController2.forward();
+  }
+
+  void navigateToObBoarding() {
+    Future.delayed(
+      const Duration(milliseconds: 1600),
+      () {
+        GoRouter.of(context).go(AppRouters.onBoarding);
+      },
+    );
   }
 }
