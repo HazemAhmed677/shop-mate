@@ -110,12 +110,12 @@ class _LogoWithNameState extends State<LogoWithName>
     ).animate(animationController2);
     animationController1.forward();
 
-    animationController2.forward();
+    animationController2.fling();
   }
 
   void navigateToObBoarding() {
     Future.delayed(
-      const Duration(milliseconds: 1600),
+      const Duration(milliseconds: 1800),
       () {
         GoRouter.of(context).go(AppRouters.welcome);
       },

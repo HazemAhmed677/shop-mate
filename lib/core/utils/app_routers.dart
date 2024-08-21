@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/widgets/custom_slider_transition.dart';
 import 'package:shop_mate/core/widgets/custom_zooming_transition.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
 
@@ -25,5 +27,13 @@ abstract class AppRouters {
         duration: 800,
       ),
     ),
+    GoRoute(
+      path: onBoarding,
+      pageBuilder: (context, state) => CustomSliderTransition(
+        key: state.pageKey,
+        child: const OnboardingView(),
+        duration: 400,
+      ),
+    )
   ]);
 }

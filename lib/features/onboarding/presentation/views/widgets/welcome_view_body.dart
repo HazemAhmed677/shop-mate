@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
-import 'package:shop_mate/core/utils/app_styles.dart';
+import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/custom_action_button.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/widgets/lorem_text.dart';
 
 import 'already_have_an_account.dart';
 import 'custom_welcom_text.dart';
@@ -29,15 +31,7 @@ class WelcomeViewBody extends StatelessWidget {
             height: 24,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          child: Text(
-            '\t\t\t\t\t\t\tLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-            style: AppStyles.semiBoldInter16.copyWith(
-              color: Colors.grey,
-            ),
-          ),
-        ),
+        const LoremText(),
         const Expanded(
           flex: 2,
           child: SizedBox(),
@@ -47,7 +41,9 @@ class WelcomeViewBody extends StatelessWidget {
             horizontal: 32,
           ),
           child: CustomElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              await GoRouter.of(context).push(AppRouters.onBoarding);
+            },
             text: r"Let's Get Started",
           ),
         ),
