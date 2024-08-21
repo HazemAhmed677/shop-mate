@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/dont_have_account.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/email_and_password_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
@@ -41,7 +42,11 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 const SizedBox(
                   height: 42,
                 ),
-                const RowOfOptions()
+                const RowOfOptions(),
+                const SizedBox(
+                  height: 42,
+                ),
+                const DontHaveAccount(),
               ],
             ),
           ),

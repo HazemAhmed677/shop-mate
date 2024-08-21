@@ -18,10 +18,7 @@ class CustomOption extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         height: hight,
-        child: AspectRatio(
-          aspectRatio: 1,
-          child: Image.asset(image),
-        ),
+        child: Image.asset(image),
       ),
     );
   }

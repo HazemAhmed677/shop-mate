@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/custom_option.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class RowOfOptions extends StatelessWidget {
   const RowOfOptions({super.key});
@@ -19,20 +20,30 @@ class RowOfOptions extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        CustomOption(
-          hight: 60,
-          image: AppImages.google,
+        InkWell(
+          borderRadius: BorderRadius.circular(
+            22,
+          ),
           onTap: () {},
-          borderRadius: BorderRadius.circular(24),
+          child: CircleAvatar(
+            radius: 26,
+            child: Center(
+              child: SvgPicture.asset(
+                AppImages.google,
+              ),
+            ),
+          ),
         ),
         const SizedBox(
           width: 10,
         ),
         CustomOption(
-          hight: 60,
+          hight: 56,
           image: AppImages.facebook,
           onTap: () {},
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(
+            26,
+          ),
         )
       ],
     );

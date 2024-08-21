@@ -5,7 +5,7 @@ class AppImages {
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
-  static const String google = "assets/images/google.png";
+  static const String google = "assets/images/google.svg";
 
   /// Assets for imagesMail
   /// assets/images/mail.svg
