@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_category_types.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_categoty_word.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/home_view_header_section.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -25,18 +24,10 @@ class HomeViewBody extends StatelessWidget {
                 height: 22,
               ),
             ),
-            SliverToBoxAdapter(
-              child: CustomCategoryWord(),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
             // changable
             SliverToBoxAdapter(
-              child: CustomCategoryTypes(),
-            )
+              child: CustomCategoryTypesSection(),
+            ),
           ],
         ),
       ),
