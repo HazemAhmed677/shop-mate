@@ -17,7 +17,9 @@ class CustomSearchTextFeild extends StatelessWidget {
           horizontal: 22,
           vertical: 12,
         ),
-        hintFadeDuration: const Duration(milliseconds: 200),
+        hintFadeDuration: const Duration(
+          milliseconds: 200,
+        ),
         prefixIcon: const Icon(
           FontAwesomeIcons.magnifyingGlass,
           color: AppColors.primaryColor,
