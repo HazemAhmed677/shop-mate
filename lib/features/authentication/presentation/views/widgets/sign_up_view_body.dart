@@ -5,7 +5,6 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/row
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/already_have_an_account.dart';
-
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_action_button.dart';
@@ -61,6 +60,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         autovalidateMode = AutovalidateMode.disabled;
+                        GoRouter.of(context).go(AppRouters.home);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                       }

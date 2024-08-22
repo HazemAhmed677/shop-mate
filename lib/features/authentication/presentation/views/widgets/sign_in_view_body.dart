@@ -29,6 +29,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Form(
+              autovalidateMode: autovalidateMode,
               key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,6 +51,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         autovalidateMode = AutovalidateMode.disabled;
+                        GoRouter.of(context).go(AppRouters.home);
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                       }

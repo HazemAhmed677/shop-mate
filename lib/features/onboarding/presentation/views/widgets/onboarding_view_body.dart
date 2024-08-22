@@ -67,7 +67,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 32.0,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -78,7 +80,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         pageController.previousPage(
                           curve: Curves.easeInOut,
                           duration: const Duration(
-                            milliseconds: 500,
+                            milliseconds: 350,
                           ),
                         );
                       },
@@ -98,7 +100,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     await pageController.nextPage(
                         curve: Curves.easeInOut,
                         duration: const Duration(
-                          milliseconds: 600,
+                          milliseconds: 400,
                         ));
                   } else {
                     GoRouter.of(context).push(AppRouters.login);
