@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
+import '../../../../../core/widgets/custom_search_text_feild.dart';
 import 'custom_location.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -37,6 +38,19 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 22,
+              ),
+            ),
+            const SliverToBoxAdapter(
+              child: CustomSearchTextFeild(),
+            ),
+            const SliverToBoxAdapter(
+              child: SizedBox(
+                height: 22,
               ),
             ),
           ],

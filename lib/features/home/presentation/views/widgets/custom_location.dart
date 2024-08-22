@@ -41,10 +41,11 @@ class CustomLocation extends StatelessWidget {
               width: 8,
             ),
             Transform.rotate(
-                angle: -1.5708,
-                child: const Icon(
-                  Icons.arrow_back_ios_new,
-                ))
+              angle: -1.5708,
+              child: const Icon(
+                Icons.arrow_back_ios_new,
+              ),
+            ),
           ],
         )
       ],
