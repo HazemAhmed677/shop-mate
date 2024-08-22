@@ -23,7 +23,7 @@ class FlashSaleRow extends StatelessWidget {
           'Closing at : ',
           style: TextStyle(
             color: Colors.grey,
-            fontSize: 15,
+            fontSize: 16,
           ),
         ),
         //

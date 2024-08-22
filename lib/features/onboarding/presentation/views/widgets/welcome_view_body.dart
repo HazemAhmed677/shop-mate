@@ -13,59 +13,66 @@ class WelcomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(
-          height: 22,
-        ),
-        Image.asset(
-          AppImages.welcome,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32.0),
-          child: CustomWelcomText(),
-        ),
-        const Expanded(
-          child: SizedBox(
-            height: 24,
-          ),
-        ),
-        const LoremText(),
-        const Expanded(
-          flex: 2,
-          child: SizedBox(),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 32,
-          ),
-          child: CustomActionButton(
-            onPressed: () async {
-              await GoRouter.of(context).push(AppRouters.onBoarding);
-            },
-            text: r"Let's Get Started",
-          ),
-        ),
-        const SizedBox(
-          height: 14,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 32.0,
-          ),
-          child: AlreadyHaveAnAccount(
-            onTap: () {
-              GoRouter.of(context).push(
-                AppRouters.login,
-              );
-            },
-          ),
-        ),
-        const Expanded(
-          flex: 2,
-          child: SizedBox(
-            height: 24,
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 22,
+              ),
+              Image.asset(
+                AppImages.welcome,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32.0),
+                child: CustomWelcomText(),
+              ),
+              const Expanded(
+                child: SizedBox(
+                  height: 24,
+                ),
+              ),
+              const LoremText(),
+              const Expanded(
+                flex: 2,
+                child: SizedBox(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32,
+                ),
+                child: CustomActionButton(
+                  onPressed: () async {
+                    await GoRouter.of(context).push(AppRouters.onBoarding);
+                  },
+                  text: r"Let's Get Started",
+                ),
+              ),
+              const SizedBox(
+                height: 14,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 32.0,
+                ),
+                child: AlreadyHaveAnAccount(
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouters.login,
+                    );
+                  },
+                ),
+              ),
+              const Expanded(
+                flex: 2,
+                child: SizedBox(
+                  height: 24,
+                ),
+              ),
+            ],
           ),
         ),
       ],

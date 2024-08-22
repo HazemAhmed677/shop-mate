@@ -1,4 +1,6 @@
 class AppImages {
+  static const String testImaagw = 'assets/images/hamdan.jpg';
+
   /// Assets for imagesFacebook
   /// assets/images/facebook.svg
   static const String facebook = "assets/images/facebook.png";

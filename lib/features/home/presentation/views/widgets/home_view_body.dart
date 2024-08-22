@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/category_list_view.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_category_types.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/custom_items_grid_view.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/flash_sale_row.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/home_view_header_section.dart';
 
@@ -45,7 +46,13 @@ class HomeViewBody extends StatelessWidget {
             ),
             SliverToBoxAdapter(
               child: CategoryListView(),
-            )
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: 22,
+              ),
+            ),
+            CustomItemsGridView(),
           ],
         ),
       ),
