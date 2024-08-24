@@ -15,6 +15,9 @@ class ShopMateApp extends StatelessWidget {
     return MaterialApp.router(
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouters.goRouter,
     );
