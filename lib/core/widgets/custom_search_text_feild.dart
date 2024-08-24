@@ -27,7 +27,7 @@ class CustomSearchTextFeild extends StatelessWidget {
         hintText: 'Search',
         hintStyle: const TextStyle(
           color: Colors.grey,
-          fontSize: 20,
+          fontSize: 18,
         ),
         enabledBorder: buildBorder(
           color: Colors.grey.shade400,

@@ -1,8 +1,10 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 
 void main() {
-  runApp(const ShopMateApp());
+  runApp(
+      DevicePreview(enabled: true, builder: (context) => const ShopMateApp()));
 }
 
 class ShopMateApp extends StatelessWidget {
@@ -11,6 +13,8 @@ class ShopMateApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouters.goRouter,
     );

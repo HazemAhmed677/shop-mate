@@ -21,7 +21,8 @@ class CategoryItem extends StatelessWidget {
           ),
           color: (isActive) ? AppColors.primaryColor : AppColors.white,
           border: Border.all(
-            color: const Color(0xffE6E6E6),
+            color:
+                (isActive) ? AppColors.primaryColor : const Color(0xffE6E6E6),
             width: 2,
           )),
       child: Padding(

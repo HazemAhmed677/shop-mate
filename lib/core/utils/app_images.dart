@@ -1,5 +1,5 @@
 class AppImages {
-  static const String testImaagw = 'assets/images/hamdan.jpg';
+  static const String testImage = 'assets/images/hamdan.jpg';
 
   /// Assets for imagesFacebook
   /// assets/images/facebook.svg

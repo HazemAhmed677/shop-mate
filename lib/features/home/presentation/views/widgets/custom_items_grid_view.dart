@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/core/utils/app_images.dart';
-import '../../../../../core/utils/app_colors.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/grid_view_item.dart';
 
 class CustomItemsGridView extends StatelessWidget {
   const CustomItemsGridView({super.key});
@@ -11,36 +10,13 @@ class CustomItemsGridView extends StatelessWidget {
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        childAspectRatio: 0.7,
+        crossAxisSpacing: 14,
+        childAspectRatio: 0.72,
       ),
       initialItemCount: 10,
       itemBuilder:
           (BuildContext context, int index, Animation<double> animation) {
-        return Stack(
-          children: [
-            AspectRatio(
-              aspectRatio: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                      image: AssetImage(AppImages.testImaagw)),
-                  borderRadius: BorderRadius.circular(
-                    16,
-                  ),
-                ),
-              ),
-            ),
-            const Positioned(
-              left: 6,
-              top: 6,
-              child: Icon(
-                Icons.favorite_outline,
-                color: AppColors.primaryColor,
-              ),
-            ),
-          ],
-        );
+        return const GridViewItem();
       },
     );
   }

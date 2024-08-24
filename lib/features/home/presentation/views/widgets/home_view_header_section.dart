@@ -10,9 +10,9 @@ class HomeViewHeaderSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        SizedBox(
-          height: 32,
-        ),
+        // SizedBox(
+        //   height: 38,
+        // ),
         Row(
           children: [
             CustomLocation(),
