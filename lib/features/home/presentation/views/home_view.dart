@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/crystal_navigation_bar.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -12,10 +11,21 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       extendBody: true,
-      body: HomeViewBody(),
-      bottomNavigationBar: CusomNavigationBar(),
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          const HomeViewBody(),
+          Positioned(
+            // right: 0,
+            // left: 0,
+            bottom: 22,
+            child: Container(),
+            // child: CusomNavigationBar(),
+          ),
+        ],
+      ),
     );
   }
 }

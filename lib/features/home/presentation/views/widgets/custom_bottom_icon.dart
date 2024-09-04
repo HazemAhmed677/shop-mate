@@ -5,18 +5,17 @@ class CustomBottomIcon extends StatelessWidget {
     super.key,
     required this.color,
     this.onPressed,
-    required this.icon,
+    required this.iconData,
   });
 
   final Color color;
   final Function()? onPressed;
-  final Icon icon;
+  final IconData iconData;
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onPressed,
-      icon: icon,
+    return Icon(
+      iconData,
     );
   }
 }
