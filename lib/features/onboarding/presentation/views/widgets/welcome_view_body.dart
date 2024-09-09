@@ -45,8 +45,8 @@ class WelcomeViewBody extends StatelessWidget {
                   horizontal: 22,
                 ),
                 child: CustomActionButton(
-                  onPressed: () async {
-                    await GoRouter.of(context).push(AppRouters.onBoarding);
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouters.onBoarding);
                   },
                   text: r"Let's Get Started",
                 ),
@@ -60,7 +60,7 @@ class WelcomeViewBody extends StatelessWidget {
                 ),
                 child: AlreadyHaveAnAccount(
                   onTap: () {
-                    GoRouter.of(context).push(
+                    GoRouter.of(context).go(
                       AppRouters.login,
                     );
                   },

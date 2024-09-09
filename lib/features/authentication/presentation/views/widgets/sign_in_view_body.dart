@@ -77,7 +77,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       ),
                       DontHaveAccount(
                         onTap: () {
-                          GoRouter.of(context).pushReplacement(
+                          GoRouter.of(context).go(
                             AppRouters.register,
                           );
                         },

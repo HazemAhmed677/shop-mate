@@ -28,72 +28,78 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           padding: const EdgeInsets.symmetric(
             horizontal: 26.0,
           ),
-          child: SingleChildScrollView(
+          child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
-            child: Form(
-              autovalidateMode: autovalidateMode,
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SignWord(
-                    title: 'Create Acount',
-                    subTitle: 'Fill your information below or register',
-                    height: MediaQuery.sizeOf(context).height * 0.05,
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Form(
+                  autovalidateMode: autovalidateMode,
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SignWord(
+                        title: 'Create Acount',
+                        subTitle: 'Fill your information below or register',
+                        height: 12,
+                      ),
+                      Text(
+                        'with your social account.',
+                        style: AppStyles.semiBoldPoppins28.copyWith(
+                          fontSize: 14,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 52,
+                      ),
+                      const NameAndEmailPart(),
+                      const SizedBox(
+                        height: 22,
+                      ),
+                      CustomActionButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            autovalidateMode = AutovalidateMode.disabled;
+                            GoRouter.of(context).go(AppRouters.home);
+                          } else {
+                            autovalidateMode = AutovalidateMode.always;
+                          }
+                          setState(() {});
+                        },
+                        text: 'Sign Up',
+                      ),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      const RowOfDividers(
+                        text: 'Or sign up with',
+                      ),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      const RowOfOptions(),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      AlreadyHaveAnAccount(
+                        onTap: () {
+                          GoRouter.of(context).go(
+                            AppRouters.login,
+                          );
+                        },
+                      ),
+                      const Expanded(
+                        flex: 2,
+                        child: SizedBox(),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'with your social account.',
-                    style: AppStyles.semiBoldPoppins28.copyWith(
-                      fontSize: 14,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 52,
-                  ),
-                  const NameAndEmailPart(),
-                  const SizedBox(
-                    height: 22,
-                  ),
-                  CustomActionButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        autovalidateMode = AutovalidateMode.disabled;
-                        GoRouter.of(context).go(AppRouters.home);
-                      } else {
-                        autovalidateMode = AutovalidateMode.always;
-                      }
-                      setState(() {});
-                    },
-                    text: 'Sign Up',
-                  ),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  const RowOfDividers(
-                    text: 'Or sign up with',
-                  ),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  const RowOfOptions(),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  AlreadyHaveAnAccount(
-                    onTap: () {
-                      GoRouter.of(context).pushReplacement(
-                        AppRouters.login,
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 34,
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),

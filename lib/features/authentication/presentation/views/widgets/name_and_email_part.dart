@@ -13,7 +13,7 @@ class NameAndEmailPart extends StatelessWidget {
       children: [
         const WordOfTextfield(text: 'Name'),
         const SizedBox(
-          height: 8,
+          height: 6,
         ),
         CustomTextFormField(
           hint: 'Hazem Ahmed',
