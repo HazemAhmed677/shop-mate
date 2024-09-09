@@ -17,23 +17,30 @@ class CustomWelcomText extends StatelessWidget {
               children: [
                 Text(
                   'The ',
-                  style: AppStyles.semiBoldPoppins28,
+                  style: AppStyles.semiBoldPoppins28.copyWith(
+                    fontSize: 26,
+                  ),
                 ),
                 Text(
                   'ShopMate App ',
                   style: AppStyles.semiBoldPoppins28.copyWith(
                     color: AppColors.primaryColor,
+                    fontSize: 26,
                   ),
                 ),
                 Text(
                   'That',
-                  style: AppStyles.semiBoldPoppins28,
+                  style: AppStyles.semiBoldPoppins28.copyWith(
+                    fontSize: 26,
+                  ),
                 )
               ],
             ),
             Text(
               'Makes You Look Your Best',
-              style: AppStyles.semiBoldPoppins28,
+              style: AppStyles.semiBoldPoppins28.copyWith(
+                fontSize: 26,
+              ),
             ),
           ],
         ),

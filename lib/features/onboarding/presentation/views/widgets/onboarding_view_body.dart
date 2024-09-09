@@ -28,6 +28,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   }
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
@@ -64,7 +70,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 ),
               ),
               const SizedBox(
-                height: 6,
+                height: 12,
               ),
               CustomPageView(
                 pageController: pageController,
@@ -76,13 +82,15 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 32.0,
+                  horizontal: 22.0,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     (currentIndex == 0)
-                        ? const SizedBox()
+                        ? const SizedBox(
+                            width: 60,
+                          )
                         : CustomNextPrevButton(
                             onPressed: () {
                               pageController.previousPage(

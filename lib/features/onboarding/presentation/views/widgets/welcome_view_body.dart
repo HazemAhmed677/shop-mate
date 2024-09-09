@@ -4,7 +4,6 @@ import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/widgets/custom_action_button.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/lorem_text.dart';
-
 import 'already_have_an_account.dart';
 import 'custom_welcom_text.dart';
 
@@ -20,20 +19,21 @@ class WelcomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 22,
-              ),
               Image.asset(
                 AppImages.welcome,
               ),
+              const Expanded(
+                child: SizedBox(),
+              ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 22.0,
+                ),
                 child: CustomWelcomText(),
               ),
               const Expanded(
-                child: SizedBox(
-                  height: 24,
-                ),
+                flex: 2,
+                child: SizedBox(),
               ),
               const LoremText(),
               const Expanded(
@@ -42,7 +42,7 @@ class WelcomeViewBody extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
+                  horizontal: 22,
                 ),
                 child: CustomActionButton(
                   onPressed: () async {
@@ -51,12 +51,12 @@ class WelcomeViewBody extends StatelessWidget {
                   text: r"Let's Get Started",
                 ),
               ),
-              const SizedBox(
-                height: 14,
+              const Expanded(
+                child: SizedBox(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 32.0,
+                  horizontal: 22.0,
                 ),
                 child: AlreadyHaveAnAccount(
                   onTap: () {
@@ -68,9 +68,7 @@ class WelcomeViewBody extends StatelessWidget {
               ),
               const Expanded(
                 flex: 2,
-                child: SizedBox(
-                  height: 24,
-                ),
+                child: SizedBox(),
               ),
             ],
           ),
