@@ -26,65 +26,71 @@ class _SignInViewBodyState extends State<SignInViewBody> {
         width: MediaQuery.sizeOf(context).width,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 26.0),
-          child: SingleChildScrollView(
+          child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
-            child: Form(
-              autovalidateMode: autovalidateMode,
-              key: formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SignWord(
-                    title: 'Sign In',
-                    subTitle: r"Hi! Welcome Back, you've been missed",
-                    height: MediaQuery.sizeOf(context).height * 0.1,
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Form(
+                  autovalidateMode: autovalidateMode,
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SignWord(
+                        title: 'Sign In',
+                        subTitle: r"Hi! Welcome Back, you've been missed",
+                        height: MediaQuery.sizeOf(context).height * 0.1,
+                      ),
+                      const SizedBox(
+                        height: 52,
+                      ),
+                      const EmailAndPasswordPart(),
+                      const SizedBox(
+                        height: 22,
+                      ),
+                      CustomActionButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            autovalidateMode = AutovalidateMode.disabled;
+                            GoRouter.of(context).go(AppRouters.home);
+                          } else {
+                            autovalidateMode = AutovalidateMode.always;
+                          }
+                          setState(() {});
+                        },
+                        text: 'Sign In',
+                      ),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      const RowOfDividers(
+                        text: 'Or sign in with',
+                      ),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      const RowOfOptions(),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
+                      DontHaveAccount(
+                        onTap: () {
+                          GoRouter.of(context).pushReplacement(
+                            AppRouters.register,
+                          );
+                        },
+                      ),
+                      const Expanded(
+                        flex: 3,
+                        child: SizedBox(),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 52,
-                  ),
-                  const EmailAndPasswordPart(),
-                  const SizedBox(
-                    height: 22,
-                  ),
-                  CustomActionButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        autovalidateMode = AutovalidateMode.disabled;
-                        GoRouter.of(context).go(AppRouters.home);
-                      } else {
-                        autovalidateMode = AutovalidateMode.always;
-                      }
-                      setState(() {});
-                    },
-                    text: 'Sign In',
-                  ),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  const RowOfDividers(
-                    text: 'Or sign in with',
-                  ),
-                  const SizedBox(
-                    height: 42,
-                  ),
-                  const RowOfOptions(),
-                  const SizedBox(
-                    height: 48,
-                  ),
-                  DontHaveAccount(
-                    onTap: () {
-                      GoRouter.of(context).pushReplacement(
-                        AppRouters.register,
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    height: 28,
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),

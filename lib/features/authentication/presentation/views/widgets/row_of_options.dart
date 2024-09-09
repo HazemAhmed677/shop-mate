@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
-import 'package:shop_mate/features/authentication/presentation/views/widgets/custom_option.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class RowOfOptions extends StatelessWidget {
@@ -11,40 +10,45 @@ class RowOfOptions extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CustomOption(
-          hight: 42,
-          image: AppImages.mail,
+        InkWell(
+          borderRadius: BorderRadius.circular(
+            8,
+          ),
           onTap: () {},
-          borderRadius: BorderRadius.circular(12),
+          child: SizedBox(
+            height: 42,
+            width: 46,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Center(
+                child: SvgPicture.asset(
+                  AppImages.gmail,
+                ),
+              ),
+            ),
+          ),
         ),
         const SizedBox(
           width: 16,
         ),
         InkWell(
           borderRadius: BorderRadius.circular(
-            22,
+            8,
           ),
           onTap: () {},
-          child: CircleAvatar(
-            radius: 26,
-            child: Center(
-              child: SvgPicture.asset(
-                AppImages.google,
+          child: SizedBox(
+            height: 42,
+            width: 46,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: Center(
+                child: SvgPicture.asset(
+                  AppImages.facebook,
+                ),
               ),
             ),
           ),
         ),
-        const SizedBox(
-          width: 10,
-        ),
-        CustomOption(
-          hight: 56,
-          image: AppImages.facebook,
-          onTap: () {},
-          borderRadius: BorderRadius.circular(
-            22,
-          ),
-        )
       ],
     );
   }

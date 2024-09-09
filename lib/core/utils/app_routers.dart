@@ -44,7 +44,7 @@ abstract class AppRouters {
       pageBuilder: (context, state) => CustomFadeTransition(
         key: state.pageKey,
         child: const SignInView(),
-        duration: 400,
+        duration: 200,
       ),
     ),
     GoRoute(

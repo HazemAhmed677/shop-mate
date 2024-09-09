@@ -1,17 +1,10 @@
 class AppImages {
   static const String testImage = 'assets/images/hamdan.jpg';
 
-  /// Assets for imagesFacebook
-  /// assets/images/facebook.svg
-  static const String facebook = "assets/images/facebook.png";
-
   /// Assets for imagesGoogle
   /// assets/images/google.svg
-  static const String google = "assets/images/google.svg";
-
-  /// Assets for imagesMail
-  /// assets/images/mail.svg
-  static const String mail = "assets/images/mail.png";
+  static const String gmail = "assets/images/gmail.svg";
+  static const String facebook = "assets/images/facebook.svg";
 
   /// Assets for imagesOnboarding1
   /// assets/images/onboarding1.png
