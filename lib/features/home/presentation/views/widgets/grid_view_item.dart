@@ -78,38 +78,50 @@ class _GridViewItemState extends State<GridViewItem> {
         const SizedBox(
           height: 6,
         ),
-        Row(
-          children: [
-            Text(
-              'Brown Jacket',
-              style: AppStyles.regular24.copyWith(
-                fontSize: 14,
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 6.0,
+          ),
+          child: Row(
+            children: [
+              Text(
+                'Brown Jacket',
+                style: AppStyles.regular24.copyWith(
+                  fontSize: 14,
+                ),
               ),
-            ),
-            const Spacer(),
-            const Icon(
-              Icons.star,
-              color: Colors.yellow,
-              size: 14,
-            ),
-            const SizedBox(
-              width: 2,
-            ),
-            Text(
-              '4.5',
-              style: AppStyles.regular24.copyWith(
-                fontSize: 12,
-                color: Colors.grey,
+              const Spacer(),
+              const Icon(
+                Icons.star,
+                color: Colors.yellow,
+                size: 14,
               ),
-            ),
-          ],
+              const SizedBox(
+                width: 2,
+              ),
+              Text(
+                '4.5',
+                style: AppStyles.regular24.copyWith(
+                  fontSize: 12,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
           height: 4,
         ),
-        Text(
-          r"$200",
-          style: AppStyles.semiBoldPoppins28.copyWith(fontSize: 12),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 6.0,
+          ),
+          child: Text(
+            r"$200",
+            style: AppStyles.semiBoldPoppins28.copyWith(
+              fontSize: 12,
+            ),
+          ),
         ),
       ],
     );

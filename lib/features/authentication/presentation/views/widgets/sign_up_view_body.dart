@@ -87,7 +87,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       AlreadyHaveAnAccount(
                         onTap: () {
                           GoRouter.of(context).go(
-                            AppRouters.login,
+                            AppRouters.signIn,
                           );
                         },
                       ),

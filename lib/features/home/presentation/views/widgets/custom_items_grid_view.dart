@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/grid_view_item.dart';
 
 class CustomItemsGridView extends StatelessWidget {
@@ -16,7 +18,17 @@ class CustomItemsGridView extends StatelessWidget {
       initialItemCount: 10,
       itemBuilder:
           (BuildContext context, int index, Animation<double> animation) {
-        return const GridViewItem();
+        return InkWell(
+          borderRadius: BorderRadius.circular(
+            12,
+          ),
+          onTap: () {
+            GoRouter.of(context).push(
+              AppRouters.productDetails,
+            );
+          },
+          child: const GridViewItem(),
+        );
       },
     );
   }

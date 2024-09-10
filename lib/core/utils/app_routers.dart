@@ -5,6 +5,7 @@ import 'package:shop_mate/core/widgets/custom_zooming_transition.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_up_view.dart';
 import 'package:shop_mate/features/home/presentation/views/home_view.dart';
+import 'package:shop_mate/features/home/presentation/views/product_details_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
@@ -13,8 +14,8 @@ abstract class AppRouters {
   static const String splash = '/';
   static const String welcome = '/welcome';
   static const String home = '/home';
-  static const String login = '/login';
-  static const String register = '/register';
+  static const String signIn = '/signIn';
+  static const String signUp = '/signUp';
   static const String onBoarding = '/onBoarding';
   static const String productDetails = '/productDetails';
 
@@ -40,7 +41,7 @@ abstract class AppRouters {
       ),
     ),
     GoRoute(
-      path: login,
+      path: signIn,
       pageBuilder: (context, state) => CustomFadeTransition(
         key: state.pageKey,
         child: const SignInView(),
@@ -48,7 +49,7 @@ abstract class AppRouters {
       ),
     ),
     GoRoute(
-      path: register,
+      path: signUp,
       pageBuilder: (context, state) => CustomFadeTransition(
         key: state.pageKey,
         child: const SignUpView(),
@@ -60,6 +61,14 @@ abstract class AppRouters {
       pageBuilder: (context, state) => CustomFadeTransition(
         key: state.pageKey,
         child: const HomeView(),
+        duration: 300,
+      ),
+    ),
+    GoRoute(
+      path: productDetails,
+      pageBuilder: (context, state) => CustomZoomingTransition(
+        key: state.pageKey,
+        child: const ProductDetailsView(),
         duration: 300,
       ),
     ),

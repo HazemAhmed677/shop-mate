@@ -11,21 +11,9 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       extendBody: true,
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          const HomeViewBody(),
-          Positioned(
-            // right: 0,
-            // left: 0,
-            bottom: 22,
-            child: Container(),
-            // child: CusomNavigationBar(),
-          ),
-        ],
-      ),
+      body: HomeViewBody(),
     );
   }
 }

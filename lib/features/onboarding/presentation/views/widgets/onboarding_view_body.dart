@@ -57,7 +57,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       overlayColor: AppColors.primaryColor,
                     ),
                     onPressed: () {
-                      GoRouter.of(context).push(AppRouters.login);
+                      GoRouter.of(context).push(AppRouters.signIn);
                     },
                     child: Text(
                       'Skip',
@@ -119,7 +119,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                                 milliseconds: 400,
                               ));
                         } else {
-                          GoRouter.of(context).push(AppRouters.login);
+                          GoRouter.of(context).push(AppRouters.signIn);
                         }
                       },
                       backgroundColor: AppColors.primaryColor,

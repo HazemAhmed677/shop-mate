@@ -12,7 +12,7 @@ class RowOfOptions extends StatelessWidget {
       children: [
         InkWell(
           borderRadius: BorderRadius.circular(
-            8,
+            12,
           ),
           onTap: () {},
           child: SizedBox(
@@ -33,7 +33,7 @@ class RowOfOptions extends StatelessWidget {
         ),
         InkWell(
           borderRadius: BorderRadius.circular(
-            8,
+            12,
           ),
           onTap: () {},
           child: SizedBox(
