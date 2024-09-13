@@ -4,7 +4,11 @@ import 'package:shop_mate/core/utils/app_routers.dart';
 
 void main() {
   runApp(
-      DevicePreview(enabled: true, builder: (context) => const ShopMateApp()));
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const ShopMateApp(),
+    ),
+  );
 }
 
 class ShopMateApp extends StatelessWidget {
