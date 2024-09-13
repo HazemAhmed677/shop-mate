@@ -1,97 +1,155 @@
-// import 'package:flutter/material.dart';
-// import 'package:iconly/iconly.dart';
-// import 'package:shop_mate/core/utils/app_colors.dart';
-// import 'package:shop_mate/features/home/presentation/views/widgets/custom_bottom_icon.dart';
+import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/custom_bottom_icon.dart';
 
-// class CusomNavigationBar extends StatefulWidget {
-//   const CusomNavigationBar({
-//     super.key,
-//   });
+import '../../../../../core/utils/app_colors.dart';
 
-//   @override
-//   State<CusomNavigationBar> createState() => _CusomNavigationBarState();
-// }
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({
+    super.key,
+  });
 
-// class _CusomNavigationBarState extends State<CusomNavigationBar> {
-//   int currentIndex = 0;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: const EdgeInsets.only(
-//         left: 52.0,
-//         right: 52,
-//       ),
-//       child: AnimatedContainer(
-//         duration: const Duration(milliseconds: 300),
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(
-//             32,
-//           ),
-//           color: const Color(
-//             0xff1F2029,
-//           ),
-//         ),
-//         child: Padding(
-//           padding: const EdgeInsets.symmetric(
-//             horizontal: 12.0,
-//             vertical: 16,
-//           ),
-//           child: Row(
-//             mainAxisSize: MainAxisSize.min,
-//             children: List.generate(
-//               4,
-//               (index) {
-//                 if (index == 0) {
-//                   // return const CustomBottomIcon(
-//                   //   color: AppColors.white,
-//                     // iconData: Icon(
-//                     //   IconlyLight.home,
-//                     //   color: AppColors.white,
-//                     //   size: 28,
-//                     // ),
-//                 } else if (index == 1) {
-//                   return const Padding(
-//                     padding: EdgeInsets.symmetric(
-//                       horizontal: 14.0,
-//                     ),
-//                     child: CustomBottomIcon(
-//                       color: AppColors.white,
-//                       iconData: Icon(
-//                         IconlyLight.heart,
-//                         color: AppColors.white,
-//                         size: 28,
-//                       ),
-//                     ),
-//                   );
-//                 } else if (index == 2) {
-//                   return const Padding(
-//                     padding: EdgeInsets.only(
-//                       right: 14.0,
-//                     ),
-//                     child: CustomBottomIcon(
-//                       color: AppColors.white,
-//                       iconData: Icon(
-//                         IconlyLight.search,
-//                         color: AppColors.white,
-//                         size: 28,
-//                       ),
-//                     ),
-//                   );
-//                 } else {
-//                   return const CustomBottomIcon(
-//                     color: AppColors.white,
-//                     iconData: Icon(
-//                       IconlyLight.profile,
-//                       color: AppColors.white,
-//                       size: 28,
-//                     ),
-//                   );
-//                 }
-//               },
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+  @override
+  State<CustomNavBar> createState() => _CusomNavigationBarState();
+}
+
+class _CusomNavigationBarState extends State<CustomNavBar> {
+  int currentIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        bottom: 18,
+        left: 22,
+        right: 22,
+      ),
+      child: Container(
+        width: MediaQuery.sizeOf(context).width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            38,
+          ),
+          color: const Color(
+            0xff1F2029,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 9.0,
+            vertical: 8,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List.generate(
+              5,
+              (index) {
+                if (index == 0) {
+                  return GestureDetector(
+                    onTap: () {
+                      currentIndex = index;
+                      setState(() {});
+                    },
+                    child: CustomBottomIcon(
+                      color: AppColors.white,
+                      icon: Icon(
+                        currentIndex == index
+                            ? IconlyBold.home
+                            : IconlyLight.home,
+                        color: currentIndex == index
+                            ? AppColors.primaryColor
+                            : AppColors.white,
+                        size: 26,
+                      ),
+                      isActive: currentIndex == index,
+                    ),
+                  );
+                } else if (index == 1) {
+                  return GestureDetector(
+                    onTap: () {
+                      currentIndex = index;
+                      setState(() {});
+                    },
+                    child: CustomBottomIcon(
+                      color: AppColors.white,
+                      icon: Icon(
+                        currentIndex == index
+                            ? IconlyBold.bag
+                            : IconlyLight.bag,
+                        color: currentIndex == index
+                            ? AppColors.primaryColor
+                            : AppColors.white,
+                        size: 26,
+                      ),
+                      isActive: currentIndex == index,
+                    ),
+                  );
+                } else if (index == 2) {
+                  return GestureDetector(
+                    onTap: () {
+                      currentIndex = index;
+                      setState(() {});
+                    },
+                    child: CustomBottomIcon(
+                      color: AppColors.white,
+                      icon: Icon(
+                        currentIndex == index
+                            ? IconlyBold.heart
+                            : IconlyLight.heart,
+                        color: currentIndex == index
+                            ? AppColors.primaryColor
+                            : AppColors.white,
+                        size: 26,
+                      ),
+                      isActive: currentIndex == index,
+                    ),
+                  );
+                } else if (index == 3) {
+                  return GestureDetector(
+                    onTap: () {
+                      currentIndex = index;
+                      setState(() {});
+                    },
+                    child: CustomBottomIcon(
+                      color: AppColors.white,
+                      icon: Icon(
+                        currentIndex == index
+                            ? IconlyBold.search
+                            : IconlyLight.search,
+                        color: currentIndex == index
+                            ? AppColors.primaryColor
+                            : AppColors.white,
+                        size: 26,
+                      ),
+                      isActive: currentIndex == index,
+                    ),
+                  );
+                } else {
+                  return GestureDetector(
+                    onTap: () {
+                      currentIndex = index;
+                      setState(() {});
+                    },
+                    child: CustomBottomIcon(
+                      color: AppColors.white,
+                      icon: Icon(
+                        currentIndex == index
+                            ? IconlyBold.profile
+                            : IconlyLight.profile,
+                        color: currentIndex == index
+                            ? AppColors.primaryColor
+                            : AppColors.white,
+                        size: 26,
+                      ),
+                      isActive: currentIndex == index,
+                    ),
+                  );
+                }
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
