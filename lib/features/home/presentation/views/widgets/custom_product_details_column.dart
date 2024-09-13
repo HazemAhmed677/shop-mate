@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/size_list_view.dart';
 
 class CustomProductDetailsColumn extends StatelessWidget {
   const CustomProductDetailsColumn({
@@ -46,7 +47,7 @@ class CustomProductDetailsColumn extends StatelessWidget {
           Text(
             "Product Details",
             style: AppStyles.semiBoldInter16.copyWith(
-              fontSize: 19,
+              fontSize: 20,
             ),
           ),
           const SizedBox(
@@ -63,7 +64,17 @@ class CustomProductDetailsColumn extends StatelessWidget {
             height: 50,
             thickness: 1,
             color: Colors.grey.withOpacity(0.9),
-          )
+          ),
+          Text(
+            'Select Size',
+            style: AppStyles.semiBoldInter16.copyWith(
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          const SizeListView(),
         ],
       ),
     );
