@@ -24,7 +24,7 @@ class _SizeListViewState extends State<SizeListView> {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(
-              right: (index != 6) ? 14 : 0,
+              right: (index != 5) ? 14 : 0,
               left: (index != 0) ? 14 : 0,
             ),
             child: GestureDetector(
