@@ -16,6 +16,7 @@ class CustomProductDetailsColumn extends StatelessWidget {
         horizontal: 22.0,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const ProductDetailsColumnTopSection(),
           Divider(
@@ -59,9 +60,6 @@ class CustomProductDetailsColumn extends StatelessWidget {
             height: 14,
           ),
           const ColorListView(),
-          const SizedBox(
-            height: 20,
-          ),
         ],
       ),
     );
