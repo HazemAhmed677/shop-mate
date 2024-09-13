@@ -8,7 +8,7 @@ class CustomDetailsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: AppColors.primaryColor,
+      splashColor: Colors.black,
       onTap: onTap,
       child: CircleAvatar(
         radius: 24,

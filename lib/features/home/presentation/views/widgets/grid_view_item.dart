@@ -34,13 +34,13 @@ class _GridViewItemState extends State<GridViewItem> {
                     ),
                   ),
                   borderRadius: BorderRadius.circular(
-                    12,
+                    16,
                   ),
                 ),
               ),
             ),
             Positioned(
-              right: 6,
+              right: 10,
               top: 6,
               child: CircleAvatar(
                 radius: 18,
@@ -80,7 +80,7 @@ class _GridViewItemState extends State<GridViewItem> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 6.0,
+            horizontal: 8.0,
           ),
           child: Row(
             children: [
@@ -114,7 +114,7 @@ class _GridViewItemState extends State<GridViewItem> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 6.0,
+            horizontal: 10.0,
           ),
           child: Text(
             r"$200",

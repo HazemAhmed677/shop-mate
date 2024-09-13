@@ -11,7 +11,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      // bottom: false,
+      bottom: false,
       left: false,
       right: false,
       maintainBottomViewPadding: true,
@@ -56,6 +56,14 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
             CustomItemsGridView(),
+            SliverToBoxAdapter(
+              child: SafeArea(
+                top: false,
+                left: false,
+                right: false,
+                child: SizedBox(),
+              ),
+            ),
           ],
         ),
       ),
