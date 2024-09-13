@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_mate/features/onboarding/presentation/views/widgets/lorem_text.dart';
+import 'package:shop_mate/core/widgets/lorem_text.dart';
 
 class OnboardingHeader extends StatelessWidget {
   const OnboardingHeader({super.key, required this.image, required this.title});

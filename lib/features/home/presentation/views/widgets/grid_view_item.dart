@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -91,21 +92,9 @@ class _GridViewItemState extends State<GridViewItem> {
                 ),
               ),
               const Spacer(),
-              const Icon(
-                Icons.star,
-                color: Colors.yellow,
-                size: 14,
-              ),
-              const SizedBox(
+              const CustomRateWidget(
                 width: 2,
-              ),
-              Text(
-                '4.5',
-                style: AppStyles.regular24.copyWith(
-                  fontSize: 12,
-                  color: Colors.grey,
-                ),
-              ),
+              )
             ],
           ),
         ),

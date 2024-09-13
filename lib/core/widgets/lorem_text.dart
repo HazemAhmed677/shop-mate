@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/app_styles.dart';
+import '../utils/app_styles.dart';
 
 class LoremText extends StatelessWidget {
   const LoremText({
@@ -20,7 +20,7 @@ class LoremText extends StatelessWidget {
               'Lorem ipsum dolor sit amet, consectetur',
               style: AppStyles.semiBoldInter16.copyWith(
                 color: Colors.grey,
-                fontSize: 16,
+                fontSize: 18,
               ),
             ),
           ),
@@ -30,7 +30,7 @@ class LoremText extends StatelessWidget {
               'adipiscing elit, sed do eiusmod tempor incididunt',
               style: AppStyles.semiBoldInter16.copyWith(
                 color: Colors.grey,
-                fontSize: 16,
+                fontSize: 18,
               ),
             ),
           ),
