@@ -15,10 +15,9 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   void initState() {
     super.initState();
-    // Trigger the fade-in effect after a short delay
     Future.delayed(const Duration(milliseconds: 200), () {
       setState(() {
-        opacity = 1.0; // Set opacity to 1 (fully visible)
+        opacity = 1.0;
       });
     });
   }

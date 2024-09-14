@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../../../../core/utils/app_colors.dart';
 
 class CustomSearchTextFeild extends StatelessWidget {
@@ -34,12 +33,6 @@ class CustomSearchTextFeild extends StatelessWidget {
         ),
         focusedBorder: buildBorder(
           color: Colors.grey.shade400,
-        ),
-        errorBorder: buildBorder(
-          color: Colors.redAccent.shade100,
-        ),
-        focusedErrorBorder: buildBorder(
-          color: Colors.redAccent.shade100,
         ),
       ),
     );
