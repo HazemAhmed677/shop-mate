@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
-import 'package:shop_mate/core/widgets/custom_action_button.dart';
 import 'package:shop_mate/features/profile/presentation/views/widgets/custom_bottom_modal_sheet.dart';
-import 'package:shop_mate/features/profile/presentation/views/widgets/custom_logout_button.dart';
 import 'package:shop_mate/features/profile/presentation/views/widgets/profile_item.dart';
-
-import '../../../../../core/utils/app_styles.dart';
 
 class ProfileItemsListView extends StatelessWidget {
   const ProfileItemsListView({super.key});

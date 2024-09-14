@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/features/profile/presentation/views/widgets/top_section.dart';
+import 'package:shop_mate/features/profile/presentation/views/widgets/profile_top_section.dart';
 
 import 'profile_items_list_view.dart';
 
@@ -17,7 +17,7 @@ class ProfileViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: TopSection(),
+            child: ProfileTopSection(),
           ),
           ProfileItemsListView(),
         ],

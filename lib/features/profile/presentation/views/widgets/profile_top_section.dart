@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_styles.dart';
 
-class TopSection extends StatelessWidget {
-  const TopSection({super.key});
+class ProfileTopSection extends StatelessWidget {
+  const ProfileTopSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class TopSection extends StatelessWidget {
         const SizedBox(
           height: 28,
         ),
-        Center(
-          child: const CircleAvatar(
+        const Center(
+          child: CircleAvatar(
             radius: 52,
             backgroundImage: AssetImage(AppImages.testImage),
           ),

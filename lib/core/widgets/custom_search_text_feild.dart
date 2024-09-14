@@ -5,11 +5,22 @@ import '../../../../../core/utils/app_colors.dart';
 class CustomSearchTextFeild extends StatelessWidget {
   const CustomSearchTextFeild({
     super.key,
+    this.validator,
+    this.onSubmitted,
+    this.onPressedOnIcon,
+    this.controller,
   });
+  final String? Function(String?)? validator;
+  final Function(String?)? onSubmitted;
+  final Function()? onPressedOnIcon;
+  // temporary
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
+      onFieldSubmitted: onSubmitted,
       cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.symmetric(
@@ -19,8 +30,9 @@ class CustomSearchTextFeild extends StatelessWidget {
         hintFadeDuration: const Duration(
           milliseconds: 200,
         ),
-        prefixIcon: const Icon(
-          FontAwesomeIcons.magnifyingGlass,
+        prefixIcon: IconButton(
+          onPressed: onPressedOnIcon,
+          icon: const Icon(FontAwesomeIcons.magnifyingGlass),
           color: AppColors.primaryColor,
         ),
         hintText: 'Search',
@@ -33,6 +45,12 @@ class CustomSearchTextFeild extends StatelessWidget {
         ),
         focusedBorder: buildBorder(
           color: Colors.grey.shade400,
+        ),
+        errorBorder: buildBorder(
+          color: Colors.redAccent.shade100,
+        ),
+        focusedErrorBorder: buildBorder(
+          color: Colors.redAccent.shade100,
         ),
       ),
     );
