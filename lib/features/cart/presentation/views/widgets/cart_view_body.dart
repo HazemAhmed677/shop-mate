@@ -12,7 +12,9 @@ class CartViewBody extends StatelessWidget {
       left: false,
       right: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22.0),
+        padding: EdgeInsets.symmetric(
+          horizontal: 22.0,
+        ),
         child: Column(
           children: [
             Text('My Cart'),

@@ -16,9 +16,10 @@ class CustomNavBar extends StatefulWidget {
 }
 
 class _CusomNavigationBarState extends State<CustomNavBar> {
-  int currentIndex = 0;
+  late int currentIndex;
   @override
   Widget build(BuildContext context) {
+    currentIndex = BlocProvider.of<SwitchViewsCubit>(context).index;
     return Padding(
       padding: const EdgeInsets.only(
         bottom: 18,
@@ -49,9 +50,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                 if (index == 0) {
                   return GestureDetector(
                     onTap: () {
-                      currentIndex = index;
-                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
                       setState(() {});
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
                     },
                     child: CustomBottomIcon(
                       color: AppColors.white,
@@ -70,10 +70,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                 } else if (index == 1) {
                   return GestureDetector(
                     onTap: () {
-                      currentIndex = index;
-                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(1);
-
                       setState(() {});
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(1);
                     },
                     child: CustomBottomIcon(
                       color: AppColors.white,
@@ -92,10 +90,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                 } else if (index == 2) {
                   return GestureDetector(
                     onTap: () {
-                      currentIndex = index;
-                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(2);
-
                       setState(() {});
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(2);
                     },
                     child: CustomBottomIcon(
                       color: AppColors.white,
@@ -114,10 +110,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                 } else if (index == 3) {
                   return GestureDetector(
                     onTap: () {
-                      currentIndex = index;
-                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
-
                       setState(() {});
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
                     },
                     child: CustomBottomIcon(
                       color: AppColors.white,
@@ -136,10 +130,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                 } else {
                   return GestureDetector(
                     onTap: () {
-                      currentIndex = index;
-                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(4);
-
                       setState(() {});
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(4);
                     },
                     child: CustomBottomIcon(
                       color: AppColors.white,

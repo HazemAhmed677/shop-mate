@@ -12,37 +12,35 @@ class FavoriteViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 22.0),
-      child: SafeArea(
-        child: CustomScrollView(
-          clipBehavior: Clip.none,
-          slivers: [
-            SliverToBoxAdapter(
-                child: SafeArea(
-                    bottom: false,
-                    left: false,
-                    right: false,
-                    child: Text('My Wishlist'))),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
+      child: CustomScrollView(
+        clipBehavior: Clip.none,
+        slivers: [
+          SliverToBoxAdapter(
+              child: SafeArea(
+                  bottom: false,
+                  left: false,
+                  right: false,
+                  child: Text('My Wishlist'))),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 22,
             ),
-            SliverToBoxAdapter(
-              child: CategoryListView(),
+          ),
+          SliverToBoxAdapter(
+            child: CategoryListView(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
+          ),
+          CustomItemsGridView(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 104,
             ),
-            CustomItemsGridView(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 78,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

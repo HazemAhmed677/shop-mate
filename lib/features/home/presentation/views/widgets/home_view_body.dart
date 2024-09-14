@@ -10,58 +10,57 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      bottom: false,
-      left: false,
-      right: false,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: 22.0,
-        ),
-        child: CustomScrollView(
-          clipBehavior: Clip.none,
-          slivers: [
-            SliverToBoxAdapter(
-              child: HomeViewHeaderSection(),
+    return const Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: 22.0,
+      ),
+      child: CustomScrollView(
+        clipBehavior: Clip.none,
+        slivers: [
+          SliverToBoxAdapter(
+            child: SafeArea(
+                bottom: false,
+                left: false,
+                right: false,
+                child: HomeViewHeaderSection()),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 22,
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
+          ),
+          // changable
+          SliverToBoxAdapter(
+            child: CustomCategoryTypesSection(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 22,
             ),
-            // changable
-            SliverToBoxAdapter(
-              child: CustomCategoryTypesSection(),
+          ),
+          SliverToBoxAdapter(
+            child: FlashSaleRow(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 22,
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
+          ),
+          SliverToBoxAdapter(
+            child: CategoryListView(),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 22,
             ),
-            SliverToBoxAdapter(
-              child: FlashSaleRow(),
+          ),
+          CustomItemsGridView(),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 104,
             ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: CategoryListView(),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
-            ),
-            CustomItemsGridView(),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 104,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
