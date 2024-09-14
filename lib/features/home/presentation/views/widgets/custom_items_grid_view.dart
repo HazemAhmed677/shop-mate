@@ -13,7 +13,7 @@ class CustomItemsGridView extends StatelessWidget {
         crossAxisCount: 2,
         mainAxisSpacing: 10,
         crossAxisSpacing: 14,
-        childAspectRatio: 0.72,
+        childAspectRatio: 0.76,
       ),
       itemCount: 10,
       itemBuilder: (
