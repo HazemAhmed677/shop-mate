@@ -4,7 +4,7 @@ part 'switch_views_state.dart';
 class SwitchViewsCubit extends Cubit<SwitchViewsState> {
   SwitchViewsCubit() : super(HomeViewState());
   int index = 0;
-  emitViews({required int currentIndex}) {
+  setIndex(int currentIndex) {
     if (currentIndex == 0) {
       index = 0;
       emit(HomeViewState());

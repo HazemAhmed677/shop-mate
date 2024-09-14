@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_bottom_icon.dart';
 
+import '../../../../../core/manager/switch_views_cubit/switch_views_cubit.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class CustomNavBar extends StatefulWidget {
@@ -48,6 +50,7 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                   return GestureDetector(
                     onTap: () {
                       currentIndex = index;
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
                       setState(() {});
                     },
                     child: CustomBottomIcon(
@@ -68,6 +71,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                   return GestureDetector(
                     onTap: () {
                       currentIndex = index;
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(1);
+
                       setState(() {});
                     },
                     child: CustomBottomIcon(
@@ -88,6 +93,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                   return GestureDetector(
                     onTap: () {
                       currentIndex = index;
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(2);
+
                       setState(() {});
                     },
                     child: CustomBottomIcon(
@@ -108,6 +115,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                   return GestureDetector(
                     onTap: () {
                       currentIndex = index;
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+
                       setState(() {});
                     },
                     child: CustomBottomIcon(
@@ -128,6 +137,8 @@ class _CusomNavigationBarState extends State<CustomNavBar> {
                   return GestureDetector(
                     onTap: () {
                       currentIndex = index;
+                      BlocProvider.of<SwitchViewsCubit>(context).setIndex(4);
+
                       setState(() {});
                     },
                     child: CustomBottomIcon(

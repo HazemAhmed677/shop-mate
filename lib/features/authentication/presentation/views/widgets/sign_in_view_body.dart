@@ -54,7 +54,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             autovalidateMode = AutovalidateMode.disabled;
-                            GoRouter.of(context).go(AppRouters.home);
+                            GoRouter.of(context).go(AppRouters.triggerSwitch);
                           } else {
                             autovalidateMode = AutovalidateMode.always;
                           }

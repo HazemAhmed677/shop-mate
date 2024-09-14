@@ -8,16 +8,18 @@ class CustomItemsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverAnimatedGrid(
+    return SliverGrid.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 10,
         crossAxisSpacing: 14,
         childAspectRatio: 0.72,
       ),
-      initialItemCount: 10,
-      itemBuilder:
-          (BuildContext context, int index, Animation<double> animation) {
+      itemCount: 10,
+      itemBuilder: (
+        BuildContext context,
+        int index,
+      ) {
         return InkWell(
           borderRadius: BorderRadius.circular(
             12,

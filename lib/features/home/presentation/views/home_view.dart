@@ -1,11 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/core/utils/app_colors.dart';
-import 'package:shop_mate/features/cart/presentation/views/cart_view.dart';
-import 'package:shop_mate/features/favorites/presentation/views/favorite_view.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_nav_bar.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/home_view_body.dart';
-import 'package:shop_mate/features/profile/presentation/views/profile_view.dart';
-import 'package:shop_mate/features/search/presentation/views/search_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -15,25 +8,25 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final List<Widget> views = [
-    const HomeViewBody(),
-    const CartView(),
-    const FavoriteView(),
-    const SearchView(),
-    const ProfileView(),
-  ];
+  double opacity = 0.0; // Initial opacity is 0 (invisible)
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 200), () {
+      setState(() {
+        opacity = 1.0;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      extendBody: true,
-      backgroundColor: AppColors.white,
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          HomeViewBody(),
-          CustomNavBar(),
-        ],
-      ),
+    return Scaffold(
+      body: AnimatedOpacity(
+          opacity: opacity,
+          duration: const Duration(milliseconds: 210),
+          child: const HomeView()),
     );
   }
 }

@@ -57,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
             CustomItemsGridView(),
             SliverToBoxAdapter(
               child: SizedBox(
-                height: 78,
+                height: 104,
               ),
             ),
           ],
