@@ -14,7 +14,6 @@ class HomeViewBody extends StatelessWidget {
       bottom: false,
       left: false,
       right: false,
-      maintainBottomViewPadding: true,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 22.0,

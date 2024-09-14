@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-
 part 'switch_views_state.dart';
 
 class SwitchViewsCubit extends Cubit<SwitchViewsState> {
