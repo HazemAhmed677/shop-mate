@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/core/utils/app_styles.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({
@@ -7,15 +8,22 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       bottom: false,
       left: false,
       right: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22.0),
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Column(
           children: [
-            Text('Search'),
+            Center(
+              child: Text(
+                'Search',
+                style: AppStyles.semiBoldInter16.copyWith(
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ],
         ),
       ),

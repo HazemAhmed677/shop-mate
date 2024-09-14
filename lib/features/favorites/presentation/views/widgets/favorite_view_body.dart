@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/core/utils/app_styles.dart';
 
 import '../../../../home/presentation/views/widgets/category_list_view.dart';
 import '../../../../home/presentation/views/widgets/custom_items_grid_view.dart';
@@ -10,32 +11,41 @@ class FavoriteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 22.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 22.0),
       child: CustomScrollView(
         clipBehavior: Clip.none,
         slivers: [
           SliverToBoxAdapter(
-              child: SafeArea(
-                  bottom: false,
-                  left: false,
-                  right: false,
-                  child: Text('My Wishlist'))),
-          SliverToBoxAdapter(
+            child: SafeArea(
+              bottom: false,
+              left: false,
+              right: false,
+              child: Center(
+                child: Text(
+                  'My Wishlist',
+                  style: AppStyles.semiBoldInter16.copyWith(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 22,
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: CategoryListView(),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 16,
             ),
           ),
-          CustomItemsGridView(),
-          SliverToBoxAdapter(
+          const CustomItemsGridView(),
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 104,
             ),

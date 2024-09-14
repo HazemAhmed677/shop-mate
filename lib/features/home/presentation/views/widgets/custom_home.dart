@@ -26,12 +26,15 @@ class _CustomHomeState extends State<CustomHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.white,
-        extendBody: true,
-        body: AnimatedOpacity(
-          opacity: opacity,
-          duration: const Duration(milliseconds: 110),
-          child: const HomeViewBody(),
-        ));
+      backgroundColor: AppColors.white,
+      extendBody: true,
+      body: AnimatedOpacity(
+        opacity: opacity,
+        duration: const Duration(
+          milliseconds: 110,
+        ),
+        child: const HomeViewBody(),
+      ),
+    );
   }
 }

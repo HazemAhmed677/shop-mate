@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/core/utils/app_styles.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({
@@ -7,15 +8,22 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       bottom: false,
       left: false,
       right: false,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 22.0),
+        padding: const EdgeInsets.symmetric(horizontal: 22.0),
         child: Column(
           children: [
-            Text('Profile'),
+            Center(
+              child: Text(
+                'Profile',
+                style: AppStyles.semiBoldInter16.copyWith(
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ],
         ),
       ),
