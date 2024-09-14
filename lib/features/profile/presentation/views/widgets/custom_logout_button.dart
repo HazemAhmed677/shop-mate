@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
 class CustomLogOutButton extends StatelessWidget {
@@ -20,22 +19,17 @@ class CustomLogOutButton extends StatelessWidget {
   final Function() onPressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.sizeOf(context).width / 2 - 32,
-      height: 50,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          28,
-        ),
-        border: Border.all(
-          width: 2,
-          color: edgeColor,
-        ),
-      ),
+      height: 54,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           overlayColor: overlayColor,
+          side: BorderSide(
+            width: 2.0, // Border width
+            color: edgeColor, // Border color
+          ),
         ),
         onPressed: onPressed,
         child: Text(

@@ -14,7 +14,7 @@ class CustomBottomModalSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 12.0,
+        horizontal: 11.0,
         vertical: 8,
       ),
       child: Column(
@@ -24,8 +24,8 @@ class CustomBottomModalSheet extends StatelessWidget {
             height: 12,
           ),
           Divider(
-            thickness: 4,
-            color: Colors.grey.shade300,
+            thickness: 3,
+            color: Colors.grey.shade400,
             indent: MediaQuery.sizeOf(context).width * 0.35,
             endIndent: MediaQuery.sizeOf(context).width * 0.35,
           ),
@@ -86,7 +86,9 @@ class CustomBottomModalSheet extends StatelessWidget {
             top: false,
             left: false,
             right: false,
-            child: SizedBox(),
+            child: SizedBox(
+              height: 12,
+            ),
           ),
         ],
       ),
