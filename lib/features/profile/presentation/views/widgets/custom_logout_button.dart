@@ -27,7 +27,7 @@ class CustomLogOutButton extends StatelessWidget {
           backgroundColor: backgroundColor,
           overlayColor: overlayColor,
           side: BorderSide(
-            width: 2.0, // Border width
+            width: 1.0, // Border width
             color: edgeColor, // Border color
           ),
         ),
