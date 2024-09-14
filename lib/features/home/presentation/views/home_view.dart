@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
-import 'package:shop_mate/features/cart/presentation/views/cart_view.dart';
+import 'package:shop_mate/features/cart/presentation/views/my_cart_view.dart';
 import 'package:shop_mate/features/favorites/presentation/views/favorite_view.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_home.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_nav_bar.dart';
@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
             (state is HomeViewState)
                 ? const CustomHome()
                 : (state is CartViewState)
-                    ? const CartView()
+                    ? const MyCartView()
                     : (state is FavoriteViewState)
                         ? const FavoriteView()
                         : (state is SearchViewState)

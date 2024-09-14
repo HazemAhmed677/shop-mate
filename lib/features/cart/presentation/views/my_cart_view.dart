@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/features/cart/presentation/views/widgets/cart_view_body.dart';
+import 'package:shop_mate/features/cart/presentation/views/widgets/my_cart_view_body.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class CartView extends StatefulWidget {
-  const CartView({super.key});
+class MyCartView extends StatefulWidget {
+  const MyCartView({super.key});
 
   @override
-  State<CartView> createState() => _CartViewState();
+  State<MyCartView> createState() => _MyCartViewState();
 }
 
-class _CartViewState extends State<CartView> {
+class _MyCartViewState extends State<MyCartView> {
   double opacity = 0.0; // Initial opacity is 0 (invisible)
 
   @override
@@ -36,7 +36,7 @@ class _CartViewState extends State<CartView> {
         duration: const Duration(
           milliseconds: 210,
         ),
-        child: const CartViewBody(),
+        child: const MyCartViewBody(),
       ),
     );
   }
