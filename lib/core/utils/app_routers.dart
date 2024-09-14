@@ -4,7 +4,7 @@ import 'package:shop_mate/core/widgets/custom_slider_transition.dart';
 import 'package:shop_mate/core/widgets/custom_zooming_transition.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_up_view.dart';
-import 'package:shop_mate/features/home/presentation/views/trigger_switch.dart';
+import 'package:shop_mate/features/home/presentation/views/home_view.dart';
 import 'package:shop_mate/features/home/presentation/views/product_details_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
@@ -13,7 +13,7 @@ import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
 abstract class AppRouters {
   static const String splash = '/';
   static const String welcome = '/welcome';
-  static const String triggerSwitch = '/triggerSwitch';
+  static const String home = '/triggerSwitch';
   static const String signIn = '/signIn';
   static const String signUp = '/signUp';
   static const String onBoarding = '/onBoarding';
@@ -58,8 +58,8 @@ abstract class AppRouters {
         ),
       ),
       GoRoute(
-        path: triggerSwitch,
-        builder: (context, state) => const TriggerSwitch(),
+        path: home,
+        builder: (context, state) => const HomeView(),
       ),
       GoRoute(
         path: productDetails,

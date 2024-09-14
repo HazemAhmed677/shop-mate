@@ -63,7 +63,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             autovalidateMode = AutovalidateMode.disabled;
-                            GoRouter.of(context).go(AppRouters.triggerSwitch);
+                            GoRouter.of(context).go(AppRouters.home);
                           } else {
                             autovalidateMode = AutovalidateMode.always;
                           }
