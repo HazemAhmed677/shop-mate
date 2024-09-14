@@ -9,18 +9,13 @@ class MyCartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 22.0,
-      ),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: MyCartTopSection(),
-          ),
-          MyCartItemListView()
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: MyCartTopSection(),
+        ),
+        MyCartItemListView()
+      ],
     );
   }
 }

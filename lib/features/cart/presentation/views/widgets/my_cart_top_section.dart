@@ -9,25 +9,30 @@ class MyCartTopSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SafeArea(
-          bottom: false,
-          left: false,
-          right: false,
-          child: Center(
-            child: Text(
-              'My Cart',
-              style: AppStyles.semiBoldInter16.copyWith(
-                fontSize: 20,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 22.0,
+      ),
+      child: Column(
+        children: [
+          SafeArea(
+            bottom: false,
+            left: false,
+            right: false,
+            child: Center(
+              child: Text(
+                'My Cart',
+                style: AppStyles.semiBoldInter16.copyWith(
+                  fontSize: 20,
+                ),
               ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 28,
-        ),
-      ],
+          const SizedBox(
+            height: 24,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -10,7 +10,11 @@ class MyCartItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList.builder(
       itemCount: 10,
-      itemBuilder: (BuildContext context, int index) => const MyCartItem(),
+      itemBuilder: (BuildContext context, int index) => (index != 9)
+          ? const MyCartItem()
+          : const MyCartItem(
+              bottomDivider: false,
+            ),
     );
   }
 }
