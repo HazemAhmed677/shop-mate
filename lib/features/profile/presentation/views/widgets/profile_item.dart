@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
+import 'package:shop_mate/core/utils/app_styles.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({
@@ -7,26 +8,37 @@ class ProfileItem extends StatelessWidget {
     required this.leadingIcon,
     required this.title,
     this.bottomDivider = false,
+    this.onTap,
   });
   final IconData leadingIcon;
   final String title;
   final bool bottomDivider;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         InkWell(
+          splashColor: AppColors.primaryColor.withOpacity(
+            0.2,
+          ),
           borderRadius: BorderRadius.circular(
             18,
           ),
-          onTap: () {},
+          onTap: onTap,
           child: ListTile(
             leading: Icon(
               leadingIcon,
               color: AppColors.primaryColor,
-              size: 32,
+              size: 26,
             ),
-            title: Text(title),
+            title: Text(
+              title,
+              style: AppStyles.semiBoldPoppins28.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w100,
+              ),
+            ),
             trailing: const Icon(
               Icons.chevron_right,
               size: 32,
@@ -35,7 +47,7 @@ class ProfileItem extends StatelessWidget {
         ),
         (bottomDivider)
             ? Divider(
-                height: 12,
+                height: 16,
                 thickness: 1,
                 color: Colors.grey.shade300,
               )
