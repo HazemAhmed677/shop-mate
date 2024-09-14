@@ -25,7 +25,7 @@ class CustomItemsGridView extends StatelessWidget {
             12,
           ),
           onTap: () {
-            GoRouter.of(context).push(
+            context.push(
               AppRouters.productDetails,
             );
           },
