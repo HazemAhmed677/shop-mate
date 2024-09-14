@@ -12,6 +12,7 @@ class SearchViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 22.0),
       child: CustomRecentUI(),
+      // child: CustomSearchResult(),
     );
   }
 }

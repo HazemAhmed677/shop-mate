@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/core/utils/app_colors.dart';
 
 class CustomRecentItem extends StatelessWidget {
   const CustomRecentItem({super.key, required this.text});
@@ -18,7 +19,11 @@ class CustomRecentItem extends StatelessWidget {
         const Spacer(),
         IconButton(
           onPressed: () {},
-          icon: const Icon(FontAwesomeIcons.circleXmark),
+          icon: const Icon(
+            FontAwesomeIcons.circleXmark,
+            color: AppColors.primaryColor,
+            size: 20,
+          ),
         ),
       ],
     );

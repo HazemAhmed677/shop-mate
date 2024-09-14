@@ -25,7 +25,7 @@ class CustomRecentUI extends StatelessWidget {
                   Text(
                     'Recent',
                     style: AppStyles.semiBoldPoppins28.copyWith(
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                   const Spacer(),
@@ -46,7 +46,7 @@ class CustomRecentUI extends StatelessWidget {
                       child: Text(
                         'Clear All',
                         style: AppStyles.semiBoldPoppins28.copyWith(
-                          fontSize: 20,
+                          fontSize: 18,
                           color: AppColors.primaryColor,
                         ),
                       ),
@@ -67,7 +67,7 @@ class CustomRecentUI extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.only(
-                  bottom: (index != 23) ? 14.0 : 104,
+                  bottom: (index != 23) ? 10.0 : 104,
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(
@@ -75,7 +75,11 @@ class CustomRecentUI extends StatelessWidget {
                   ),
                   onTap: () {},
                   child: const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
+                    padding: EdgeInsets.only(
+                      top: 2,
+                      bottom: 2,
+                      left: 12.0,
+                    ),
                     child: CustomRecentItem(
                       text: 'Blue Jack',
                     ),
