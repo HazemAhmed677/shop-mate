@@ -1,39 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/features/home/data/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_product_details_column.dart';
 
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_produst_details_stack.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/product_details_bottom_container.dart';
 
-class ProductDetailsViewBody extends StatefulWidget {
-  const ProductDetailsViewBody({super.key});
-
-  @override
-  State<ProductDetailsViewBody> createState() => _ProductDetailsViewBodyState();
-}
-
-class _ProductDetailsViewBodyState extends State<ProductDetailsViewBody> {
+class ProductDetailsViewBody extends StatelessWidget {
+  const ProductDetailsViewBody({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
-          child: CustomProdustDetailsStack(),
+          child: CustomProdustDetailsStack(
+            product: product,
+          ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: SizedBox(
             height: 32,
           ),
         ),
         SliverToBoxAdapter(
-          child: CustomProductDetailsColumn(),
+          child: CustomProductDetailsColumn(product: product),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: SizedBox(
             height: 26,
           ),
         ),
         SliverToBoxAdapter(
-          child: ProductDetailsBottomContainer(),
+          child: ProductDetailsBottomContainer(product: product),
         )
       ],
     );

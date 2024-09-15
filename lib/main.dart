@@ -13,7 +13,7 @@ void main() {
   setup();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const ShopMateApp(),
     ),
   );

@@ -37,10 +37,12 @@ class _CategoryListViewState extends State<CategoryListView> {
             ),
             child: GestureDetector(
               onTap: () {
+                if (currentIndex != index) {
+                  BlocProvider.of<FetchProductsCubit>(context).fetchProducts(
+                      category: widget.categoriesModel!.categories![index]);
+                }
                 currentIndex = index;
                 setState(() {});
-                BlocProvider.of<FetchProductsCubit>(context).fetchProducts(
-                    category: widget.categoriesModel!.categories![index]);
               },
               child: CategoryItem(
                 isActive: (currentIndex == index),

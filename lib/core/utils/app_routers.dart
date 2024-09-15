@@ -4,6 +4,7 @@ import 'package:shop_mate/core/widgets/custom_slider_transition.dart';
 import 'package:shop_mate/core/widgets/custom_zooming_transition.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_in_view.dart';
 import 'package:shop_mate/features/authentication/presentation/views/sign_up_view.dart';
+import 'package:shop_mate/features/home/data/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/home_view.dart';
 import 'package:shop_mate/features/home/presentation/views/product_details_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
@@ -65,7 +66,9 @@ abstract class AppRouters {
         path: productDetails,
         pageBuilder: (context, state) => CustomZoomingTransition(
           key: state.pageKey,
-          child: const ProductDetailsView(),
+          child: ProductDetailsView(
+            product: state.extra as Product,
+          ),
           duration: 300,
         ),
       ),

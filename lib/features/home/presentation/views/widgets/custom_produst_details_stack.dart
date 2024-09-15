@@ -1,13 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
+import 'package:shop_mate/features/home/data/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_details_icon.dart';
 
-import '../../../../../core/utils/app_images.dart';
-
 class CustomProdustDetailsStack extends StatefulWidget {
-  const CustomProdustDetailsStack({super.key});
-
+  const CustomProdustDetailsStack({super.key, required this.product});
+  final Product product;
   @override
   State<CustomProdustDetailsStack> createState() =>
       _CustomProdustDetailsStackState();
@@ -20,10 +20,12 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
     return Stack(
       children: [
         Positioned(
-          child: Image.asset(
-            AppImages.testImage,
+            child: CachedNetworkImage(
+          imageUrl: widget.product.image!,
+          errorWidget: (_, __, ___) => const Icon(
+            IconlyLight.image,
           ),
-        ),
+        )),
         Positioned(
           left: 26,
           top: 22,

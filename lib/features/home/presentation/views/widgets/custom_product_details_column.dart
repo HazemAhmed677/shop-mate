@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
+import 'package:shop_mate/features/home/data/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/color_list_view.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/product_details_column_top_section.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/size_list_view.dart';
@@ -7,8 +8,9 @@ import 'package:shop_mate/features/home/presentation/views/widgets/size_list_vie
 class CustomProductDetailsColumn extends StatelessWidget {
   const CustomProductDetailsColumn({
     super.key,
+    required this.product,
   });
-
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,7 +20,9 @@ class CustomProductDetailsColumn extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ProductDetailsColumnTopSection(),
+          ProductDetailsColumnTopSection(
+            product: product,
+          ),
           Divider(
             height: 50,
             thickness: 1,

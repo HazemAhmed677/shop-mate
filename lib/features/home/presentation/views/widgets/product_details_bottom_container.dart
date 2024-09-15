@@ -3,9 +3,11 @@ import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/add_to_cart.dart';
 
-class ProductDetailsBottomContainer extends StatelessWidget {
-  const ProductDetailsBottomContainer({super.key});
+import '../../../data/models/products_model/product.dart';
 
+class ProductDetailsBottomContainer extends StatelessWidget {
+  const ProductDetailsBottomContainer({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,11 +51,21 @@ class ProductDetailsBottomContainer extends StatelessWidget {
                 const SizedBox(
                   height: 4,
                 ),
-                Text(
-                  r'$83.97',
-                  style: AppStyles.semiBoldInter16.copyWith(
-                    fontSize: 20,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      r'$',
+                      style: AppStyles.semiBoldInter16.copyWith(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      '${product.price}',
+                      style: AppStyles.semiBoldInter16.copyWith(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

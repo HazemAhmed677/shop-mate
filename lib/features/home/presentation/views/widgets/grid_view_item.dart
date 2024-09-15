@@ -32,6 +32,7 @@ class _GridViewItemState extends State<GridViewItem> {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
+                    // fit: BoxFit.cover,
                     image: (widget.product.image == null)
                         ? const AssetImage(AppImages.noImage)
                         : CachedNetworkImageProvider(

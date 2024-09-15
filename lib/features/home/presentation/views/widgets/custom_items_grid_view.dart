@@ -4,8 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/grid_view_item.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/loading_grid_view.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-
 import '../../../../../core/utils/app_routers.dart';
 
 class CustomItemsGridView extends StatefulWidget {
@@ -49,6 +47,7 @@ class _CustomItemsGridViewState extends State<CustomItemsGridView> {
                 onTap: () {
                   context.push(
                     AppRouters.productDetails,
+                    extra: state.productsModel.products![index],
                   );
                 },
                 child: GridViewItem(

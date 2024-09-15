@@ -20,6 +20,7 @@ class HomeViewBody extends StatelessWidget {
       ),
       child: CustomScrollView(
         clipBehavior: Clip.none,
+        physics: const BouncingScrollPhysics(),
         slivers: [
           const SliverToBoxAdapter(
             child: SafeArea(
