@@ -8,7 +8,7 @@ class FetchAllCategoriesCubit extends Cubit<FetchAllCategoriesState> {
       : super(FetchAllCategoriesInitial());
   final HomeRepoImpl homeRepoImplement;
 
-  Future<void> fetchRecentSearchMeals() async {
+  Future<void> fetchAllCategories() async {
     emit(FetchAllCategoriesLoading());
     var response = await homeRepoImplement.getAllCategories();
     response.fold((failure) {

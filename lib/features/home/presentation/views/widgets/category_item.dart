@@ -7,8 +7,10 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
     required this.isActive,
+    required this.category,
   });
   final bool isActive;
+  final String category;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -31,7 +33,7 @@ class CategoryItem extends StatelessWidget {
           vertical: 10,
         ),
         child: Text(
-          'Newest',
+          capitalizeFirstLetter(category),
           style: AppStyles.regular24.copyWith(
             fontSize: 16,
             color: (isActive) ? AppColors.white : Colors.black,
@@ -39,5 +41,15 @@ class CategoryItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String capitalizeFirstLetter(String input) {
+    if (input.isEmpty) {
+      return input;
+    }
+    if (input == 'tv') {
+      return 'TV';
+    }
+    return input[0].toUpperCase() + input.substring(1);
   }
 }

@@ -1,7 +1,7 @@
 class CategoriesModel {
   String? status;
   String? message;
-  List<String>? categories;
+  List<dynamic>? categories;
 
   CategoriesModel({this.status, this.message, this.categories});
 
@@ -9,7 +9,7 @@ class CategoriesModel {
     return CategoriesModel(
       status: json['status'] as String?,
       message: json['message'] as String?,
-      categories: json['categories'] as List<String>?,
+      categories: json['categories'],
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
+import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/home_view_body.dart';
 
 class CustomHome extends StatefulWidget {
@@ -15,7 +17,7 @@ class _CustomHomeState extends State<CustomHome> {
   @override
   void initState() {
     super.initState();
-    // Trigger the fade-in effect after a short delay
+    BlocProvider.of<FetchAllCategoriesCubit>(context).fetchAllCategories();
     Future.delayed(const Duration(milliseconds: 100), () {
       setState(() {
         opacity = 1.0; // Set opacity to 1 (fully visible)

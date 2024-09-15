@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/features/home/data/models/categories_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/category_item.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({
     super.key,
+    this.categoriesModel,
   });
-
+  // nullabl temporary
+  final CategoriesModel? categoriesModel;
   @override
   State<CategoryListView> createState() => _CategoryListViewState();
 }
@@ -20,11 +23,13 @@ class _CategoryListViewState extends State<CategoryListView> {
         clipBehavior: Clip.none,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: 7,
+        itemCount: widget.categoriesModel!.categories!.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(
-              right: (index != 7) ? 8.0 : 0,
+              right: (widget.categoriesModel!.categories!.length - 1 != index)
+                  ? 8.0
+                  : 0,
               left: (index != 0) ? 8 : 0,
             ),
             child: GestureDetector(
@@ -34,6 +39,7 @@ class _CategoryListViewState extends State<CategoryListView> {
               },
               child: CategoryItem(
                 isActive: (currentIndex == index),
+                category: widget.categoriesModel!.categories![index],
               ),
             ),
           );
