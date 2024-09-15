@@ -20,7 +20,7 @@ class _CustomHomeState extends State<CustomHome> {
     BlocProvider.of<FetchAllCategoriesCubit>(context).fetchAllCategories();
     Future.delayed(const Duration(milliseconds: 100), () {
       setState(() {
-        opacity = 1.0; // Set opacity to 1 (fully visible)
+        opacity = 1.0;
       });
     });
   }

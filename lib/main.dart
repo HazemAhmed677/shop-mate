@@ -5,6 +5,7 @@ import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dar
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/service_locator.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
+import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 
 import 'features/home/data/repo/home_repo_impl.dart';
 
@@ -30,6 +31,11 @@ class ShopMateApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FetchAllCategoriesCubit(
+            homeRepoImplement: getIt.get<HomeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => FetchProductsCubit(
             homeRepoImplement: getIt.get<HomeRepoImpl>(),
           ),
         ),

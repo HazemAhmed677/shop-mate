@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/features/home/data/models/categories_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/category_item.dart';
+
+import '../../manager/fetch_products_cubit copy/fetch_products_cubit.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({
@@ -36,6 +39,8 @@ class _CategoryListViewState extends State<CategoryListView> {
               onTap: () {
                 currentIndex = index;
                 setState(() {});
+                BlocProvider.of<FetchProductsCubit>(context).fetchProducts(
+                    category: widget.categoriesModel!.categories![index]);
               },
               child: CategoryItem(
                 isActive: (currentIndex == index),

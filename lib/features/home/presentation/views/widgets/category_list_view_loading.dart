@@ -27,13 +27,7 @@ class _CategoryListViewLoadingState extends State<CategoryListViewLoading> {
               right: (index != 9) ? 8.0 : 0,
               left: (index != 0) ? 8 : 0,
             ),
-            child: GestureDetector(
-              onTap: () {
-                currentIndex = index;
-                setState(() {});
-              },
-              child: const CategoryItemLoading(),
-            ),
+            child: const CategoryItemLoading(),
           );
         },
       ),

@@ -21,4 +21,6 @@ class AppImages {
   /// Assets for imagesWelcome
   /// assets/images/welcome.png
   static const String welcome = "assets/images/welcome.png";
+
+  static const String noImage = 'assets/images/no_image.png';
 }

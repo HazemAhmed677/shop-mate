@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/features/home/data/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -8,8 +10,9 @@ import '../../../../../core/utils/app_styles.dart';
 class GridViewItem extends StatefulWidget {
   const GridViewItem({
     super.key,
+    required this.product,
   });
-
+  final Product product;
   @override
   State<GridViewItem> createState() => _GridViewItemState();
 }
@@ -28,10 +31,12 @@ class _GridViewItemState extends State<GridViewItem> {
               aspectRatio: 1,
               child: Container(
                 decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      AppImages.testImage,
-                    ),
+                  image: DecorationImage(
+                    image: (widget.product.image == null)
+                        ? const AssetImage(AppImages.noImage)
+                        : CachedNetworkImageProvider(
+                            widget.product.image!,
+                          ),
                   ),
                   borderRadius: BorderRadius.circular(
                     16,
@@ -84,10 +89,16 @@ class _GridViewItemState extends State<GridViewItem> {
           ),
           child: Row(
             children: [
-              Text(
-                'Brown Jacket',
-                style: AppStyles.regular24.copyWith(
-                  fontSize: 14,
+              ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: 104,
+                ),
+                child: Text(
+                  widget.product.title!,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppStyles.regular24.copyWith(
+                    fontSize: 14,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -104,11 +115,21 @@ class _GridViewItemState extends State<GridViewItem> {
           padding: const EdgeInsets.symmetric(
             horizontal: 10.0,
           ),
-          child: Text(
-            r"$200",
-            style: AppStyles.semiBoldPoppins28.copyWith(
-              fontSize: 12,
-            ),
+          child: Row(
+            children: [
+              Text(
+                r"$",
+                style: AppStyles.semiBoldPoppins28.copyWith(
+                  fontSize: 12,
+                ),
+              ),
+              Text(
+                "${widget.product.price}",
+                style: AppStyles.semiBoldPoppins28.copyWith(
+                  fontSize: 12,
+                ),
+              ),
+            ],
           ),
         ),
       ],
