@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
+import 'package:shop_mate/core/utils/service_locator.dart';
+import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
+
+import 'features/home/data/repo/home_repo_impl.dart';
 
 void main() {
+  setup();
   runApp(
     DevicePreview(
       enabled: true,
@@ -18,8 +23,17 @@ class ShopMateApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SwitchViewsCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => SwitchViewsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FetchAllCategoriesCubit(
+            homeRepoImplement: getIt.get<HomeRepoImpl>(),
+          ),
+        ),
+      ],
       child: MaterialApp.router(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
