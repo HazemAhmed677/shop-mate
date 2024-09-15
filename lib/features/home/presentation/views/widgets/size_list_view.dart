@@ -12,6 +12,7 @@ class SizeListView extends StatefulWidget {
 
 class _SizeListViewState extends State<SizeListView> {
   int currentIndex = 0;
+  List<String> sizes = ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,7 +21,7 @@ class _SizeListViewState extends State<SizeListView> {
         clipBehavior: Clip.none,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: 6,
+        itemCount: sizes.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(
@@ -34,6 +35,7 @@ class _SizeListViewState extends State<SizeListView> {
               },
               child: CustomSizeContainer(
                 isActive: (currentIndex == index),
+                size: sizes[index],
               ),
             ),
           );

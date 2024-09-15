@@ -37,28 +37,6 @@ class CustomProductDetailsColumn extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          Row(
-            children: [
-              Text(
-                'Select Color : ',
-                style: AppStyles.semiBoldInter16.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              Text(
-                'Brown',
-                style: AppStyles.semiBoldInter16.copyWith(
-                  fontSize: 18,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 14,
-          ),
           const ColorListView(),
         ],
       ),

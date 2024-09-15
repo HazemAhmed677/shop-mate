@@ -15,7 +15,7 @@ class FlashSaleRow extends StatelessWidget {
         Text(
           'Flash Sale',
           style: AppStyles.regular24.copyWith(
-            fontSize: 22,
+            fontSize: 18,
           ),
         ),
         const Spacer(),
@@ -23,7 +23,7 @@ class FlashSaleRow extends StatelessWidget {
           'Closing at : ',
           style: TextStyle(
             color: Colors.grey,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
         //

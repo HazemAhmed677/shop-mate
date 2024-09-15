@@ -7,8 +7,10 @@ class CustomSizeContainer extends StatelessWidget {
   const CustomSizeContainer({
     super.key,
     required this.isActive,
+    required this.size,
   });
   final bool isActive;
+  final String size;
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -31,7 +33,7 @@ class CustomSizeContainer extends StatelessWidget {
           vertical: 10,
         ),
         child: Text(
-          'XXXL',
+          size,
           style: AppStyles.regular24.copyWith(
             fontSize: 14,
             color: (isActive) ? AppColors.white : Colors.black,
