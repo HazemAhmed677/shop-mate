@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shop_mate/core/helpers/captalize_the_first_letter.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
-
 import '../../../../../core/utils/app_styles.dart';
-import '../../../data/models/products_model/product.dart';
+import '../../../../../core/models/products_model/product.dart';
 
 class ProductDetailsColumnTopSection extends StatelessWidget {
   const ProductDetailsColumnTopSection({super.key, required this.product});
@@ -15,7 +15,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         Row(
           children: [
             Text(
-              "${product.brand}",
+              capitalizeFirstLetter(product.brand!),
               style: AppStyles.regular24.copyWith(
                 color: Colors.grey,
                 fontSize: 18,

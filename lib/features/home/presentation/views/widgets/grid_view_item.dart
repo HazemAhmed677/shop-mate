@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shop_mate/features/home/data/models/products_model/product.dart';
+import 'package:shop_mate/core/models/products_model/product.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -32,7 +32,6 @@ class _GridViewItemState extends State<GridViewItem> {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    // fit: BoxFit.cover,
                     image: (widget.product.image == null)
                         ? const AssetImage(AppImages.noImage)
                         : CachedNetworkImageProvider(
@@ -50,8 +49,8 @@ class _GridViewItemState extends State<GridViewItem> {
               top: 6,
               child: CircleAvatar(
                 radius: 18,
-                backgroundColor: AppColors.white.withOpacity(
-                  0.7,
+                backgroundColor: AppColors.primaryColor.withOpacity(
+                  0.1,
                 ),
                 child: AnimatedContainer(
                   duration: const Duration(

@@ -1,3 +1,8 @@
+// import 'package:hive/hive.dart';
+
+// @HiveType(
+//   typeId: 0,
+// )
 class Product {
   int? id;
   String? title;
@@ -11,7 +16,6 @@ class Product {
   int? discount;
   bool? onSale;
   bool? popular;
-
   Product({
     this.id,
     this.title,

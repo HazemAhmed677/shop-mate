@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:shop_mate/features/home/data/models/products_model/products_model.dart';
+import 'package:shop_mate/core/models/products_model/products_model.dart';
 import 'package:shop_mate/features/home/data/repo/home_repo_impl.dart';
 part 'fetch_products_state.dart';
 

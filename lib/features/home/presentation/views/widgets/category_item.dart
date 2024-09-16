@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
+import '../../../../../core/helpers/captalize_the_first_letter.dart';
 import '../../../../../core/utils/app_colors.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -33,7 +34,9 @@ class CategoryItem extends StatelessWidget {
           vertical: 10,
         ),
         child: Text(
-          capitalizeFirstLetter(category),
+          capitalizeFirstLetter(
+            category,
+          ),
           style: AppStyles.regular24.copyWith(
             fontSize: 16,
             color: (isActive) ? AppColors.white : Colors.black,
@@ -41,15 +44,5 @@ class CategoryItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String capitalizeFirstLetter(String input) {
-    if (input.isEmpty) {
-      return input;
-    }
-    if (input == 'tv') {
-      return 'TV';
-    }
-    return input[0].toUpperCase() + input.substring(1);
   }
 }

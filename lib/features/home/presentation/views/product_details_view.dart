@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/product_details_body.dart';
 
-import '../../data/models/products_model/product.dart';
+import '../../../../core/models/products_model/product.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key, required this.product});
