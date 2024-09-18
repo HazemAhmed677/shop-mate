@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_location.dart';
 import '../../../../../core/widgets/custom_search_text_feild.dart';
 
-class HomeViewHeaderSection extends StatelessWidget {
+class HomeViewHeaderSection extends StatefulWidget {
   const HomeViewHeaderSection({super.key});
 
   @override
+  State<HomeViewHeaderSection> createState() => _HomeViewHeaderSectionState();
+}
+
+class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
+  TextEditingController textEditingController = TextEditingController();
+  String input = '';
+  @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         // SizedBox(
         //   height: 38,
         // ),
-        Row(
+        const Row(
           children: [
             CustomLocation(),
             Spacer(),
@@ -27,10 +36,25 @@ class HomeViewHeaderSection extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 22,
         ),
-        CustomSearchTextFeild(),
+        CustomSearchTextFeild(
+          controller: textEditingController,
+          onPressedOnIcon: () {
+            if (input.isNotEmpty) {
+              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+            }
+          },
+          onChanged: (value) {
+            input = value;
+          },
+          onSubmitted: (value) {
+            if (value != null || value!.isNotEmpty) {
+              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+            }
+          },
+        ),
       ],
     );
   }

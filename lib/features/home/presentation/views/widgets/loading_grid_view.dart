@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/grid_view_item_loading.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-
-import '../../../../../core/utils/app_routers.dart';
 
 class LoadingGridView extends StatelessWidget {
   const LoadingGridView({
@@ -25,18 +22,8 @@ class LoadingGridView extends StatelessWidget {
         index,
         animation,
       ) {
-        return InkWell(
-          borderRadius: BorderRadius.circular(
-            12,
-          ),
-          onTap: () {
-            context.push(
-              AppRouters.productDetails,
-            );
-          },
-          child: const Skeletonizer(
-            child: GridViewItemLoading(),
-          ),
+        return const Skeletonizer(
+          child: GridViewItemLoading(),
         );
       },
     );

@@ -24,10 +24,11 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           const SliverToBoxAdapter(
             child: SafeArea(
-                bottom: false,
-                left: false,
-                right: false,
-                child: HomeViewHeaderSection()),
+              bottom: false,
+              left: false,
+              right: false,
+              child: HomeViewHeaderSection(),
+            ),
           ),
           const SliverToBoxAdapter(
             child: SizedBox(

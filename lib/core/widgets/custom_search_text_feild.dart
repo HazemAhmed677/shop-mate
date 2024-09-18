@@ -9,16 +9,19 @@ class CustomSearchTextFeild extends StatelessWidget {
     this.onSubmitted,
     this.onPressedOnIcon,
     this.controller,
+    this.onChanged,
   });
   final String? Function(String?)? validator;
   final Function(String?)? onSubmitted;
   final Function()? onPressedOnIcon;
+  final Function(String)? onChanged;
   // temporary
   final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onChanged,
       validator: validator,
       onFieldSubmitted: onSubmitted,
       cursorColor: AppColors.primaryColor,

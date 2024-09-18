@@ -12,7 +12,7 @@ class CustomHome extends StatefulWidget {
 }
 
 class _CustomHomeState extends State<CustomHome> {
-  double opacity = 0.0; // Initial opacity is 0 (invisible)
+  double opacity = 0.0;
 
   @override
   void initState() {
