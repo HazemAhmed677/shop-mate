@@ -4,6 +4,7 @@ import 'package:iconly/iconly.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_bottom_icon.dart';
 import '../../../../../core/manager/switch_views_cubit/switch_views_cubit.dart';
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../search/presentation/manager/fetch_searched_products_cubit copy/fetch_searched_products_cubit.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({super.key});
@@ -104,6 +105,8 @@ class CustomNavBar extends StatelessWidget {
                         onTap: () {
                           BlocProvider.of<SwitchViewsCubit>(context)
                               .setIndex(3);
+                          BlocProvider.of<FetchSearchedProductsCubit>(context)
+                              .resetToInitSate();
                         },
                         child: CustomBottomIcon(
                           color: AppColors.white,

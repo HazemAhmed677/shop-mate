@@ -71,7 +71,9 @@ class HomeViewBody extends StatelessWidget {
                 );
               } else if (state is FetchAllCategoriesFailure) {
                 return SliverToBoxAdapter(
-                  child: Center(child: Text(state.errorMsg)),
+                  child: Center(
+                    child: Text(state.errorMsg),
+                  ),
                 );
               } else {
                 return const SizedBox();
