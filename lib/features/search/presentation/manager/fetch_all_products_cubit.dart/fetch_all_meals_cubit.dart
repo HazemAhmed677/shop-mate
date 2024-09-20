@@ -6,8 +6,8 @@ import '../../../../../constants.dart';
 import '../../../../../core/models/products_model/product_model.dart';
 part 'fetch_all_meals_cubit_state.dart';
 
-class FetchAllProductssCubit extends Cubit<FetchAllProductssCubitState> {
-  FetchAllProductssCubit() : super(FetchAllProductsCubitInitial());
+class FetchAllProductsCubit extends Cubit<FetchAllProductssCubitState> {
+  FetchAllProductsCubit() : super(FetchAllProductsCubitInitial());
   void fetchAllProduct() {
     try {
       var productsBox = Hive.box<ProductModel>(kProductsBox);

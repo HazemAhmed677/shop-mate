@@ -1,14 +1,20 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/helpers/get_snack_bar.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
+import '../../../../search/presentation/manager/add_product_cubit/add_product_cubit.dart';
+import '../../../../search/presentation/manager/delete_product_cubit/delete_product_cubit.dart';
+import '../../../../search/presentation/manager/fetch_all_products_cubit.dart/fetch_all_meals_cubit.dart';
 
 class GridViewItem extends StatefulWidget {
   const GridViewItem({
@@ -21,10 +27,12 @@ class GridViewItem extends StatefulWidget {
 }
 
 class _GridViewItemState extends State<GridViewItem> {
-  // Hive here
-  bool flag = false;
+  late Box<ProductModel> box;
+  late ProductModel? product;
   @override
   Widget build(BuildContext context) {
+    box = Hive.box<ProductModel>(kProductsBox);
+    product = box.get(widget.product.id);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -68,12 +76,49 @@ class _GridViewItemState extends State<GridViewItem> {
                   hoverColor: AppColors.white.withOpacity(
                     0.2,
                   ),
-                  onPressed: () {
-                    flag = !flag;
-                    setState(() {});
+                  onPressed: () async {
+                    try {
+                      if (product == null) {
+                        await BlocProvider.of<AddProductCubit>(context)
+                            .addProduct(productModle: widget.product);
+
+                        if (mounted) {
+                          setState(() {
+                            getShowSnackBar(
+                              context,
+                              'Saved successfully',
+                            );
+                            BlocProvider.of<FetchAllProductsCubit>(context)
+                                .fetchAllProduct();
+                          });
+                        }
+                      } else {
+                        await BlocProvider.of<DeleteProductCubit>(context)
+                            .deleteProduct(productModel: widget.product);
+                        if (mounted) {
+                          setState(() {
+                            getShowSnackBar(
+                              context,
+                              'Unsaved',
+                            );
+                            BlocProvider.of<FetchAllProductsCubit>(context)
+                                .fetchAllProduct();
+                          });
+                        }
+                      }
+                    } catch (e) {
+                      if (mounted) {
+                        setState(() {
+                          getShowSnackBar(context, e.toString());
+                        });
+                      }
+                    }
+                    setState(
+                      () {},
+                    );
                   },
                   icon: Icon(
-                    (!flag) ? IconlyLight.heart : IconlyBold.heart,
+                    (product == null) ? IconlyLight.heart : IconlyBold.heart,
                     color: AppColors.primaryColor,
                     size: 20,
                   ),

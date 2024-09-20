@@ -34,7 +34,7 @@ class _CustomItemsGridViewState extends State<CustomItemsGridView> {
               crossAxisSpacing: 14,
               childAspectRatio: 0.76,
             ),
-            initialItemCount: 10,
+            initialItemCount: state.productsModel.products?.length ?? 0,
             itemBuilder: (
               context,
               index,
