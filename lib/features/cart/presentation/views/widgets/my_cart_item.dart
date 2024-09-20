@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/helpers/captalize_the_first_letter.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
@@ -66,6 +67,8 @@ class MyCartItem extends StatelessWidget {
                       children: [
                         Text(
                           product.title ?? "",
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
                           style: AppStyles.semiBoldPoppins28.copyWith(
                             fontSize: 16,
                           ),
@@ -77,9 +80,14 @@ class MyCartItem extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              product.brand ?? "",
-                              style: AppStyles.regular24
-                                  .copyWith(fontSize: 16, color: Colors.grey),
+                              product.brand != null
+                                  ? capitalizeFirstLetter(product.brand!)
+                                  : "",
+                              style: AppStyles.semiBoldPoppins28.copyWith(
+                                fontSize: 16,
+                                color: Colors.grey.shade400,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             const CustomActionsRow()
                           ],
@@ -115,7 +123,7 @@ class MyCartItem extends StatelessWidget {
         ),
         (bottomDivider)
             ? Divider(
-                height: 36,
+                height: 24,
                 thickness: 1,
                 color: Colors.grey.shade300,
               )
