@@ -6,14 +6,14 @@ import '../../models/products_model/product_model.dart';
 
 part 'delete_product_cubit_state.dart';
 
-class DeleteProductCubit extends Cubit<DeleteProductCubitState> {
-  DeleteProductCubit() : super(DeleteProductCubitInitial());
+class DeleteFromFavoriteCubit extends Cubit<DeleteFavoriteCubitState> {
+  DeleteFromFavoriteCubit() : super(DeleteProductCubitInitial());
 
   Future<void> deleteProduct({
     required ProductModel productModel,
   }) async {
     try {
-      var productsBox = Hive.box<ProductModel>(kProductsBox);
+      var productsBox = Hive.box<ProductModel>(kFavoritesBox);
       await productsBox.delete(productModel.id);
       emit(DeleteProductSuccess());
     } catch (e) {

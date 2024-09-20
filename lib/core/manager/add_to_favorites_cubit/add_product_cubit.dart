@@ -6,11 +6,11 @@ import '../../../constants.dart';
 import '../../models/products_model/product_model.dart';
 part 'add_product_cubit_state.dart';
 
-class AddProductCubit extends Cubit<AddProductState> {
-  AddProductCubit() : super(AddProductInitial());
+class AddToFavoriteCubit extends Cubit<AddToFavorite> {
+  AddToFavoriteCubit() : super(AddProductInitial());
   Future<void> addProduct({required ProductModel productModle}) async {
     try {
-      var productsBox = Hive.box<ProductModel>(kProductsBox);
+      var productsBox = Hive.box<ProductModel>(kFavoritesBox);
       int id = productModle.id!;
       await productsBox.put(id, productModle);
       emit(AddProudctSuccess());

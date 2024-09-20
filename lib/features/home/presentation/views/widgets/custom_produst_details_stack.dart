@@ -8,9 +8,9 @@ import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_details_icon.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/manager/add_product_cubit/add_product_cubit.dart';
-import '../../../../../core/manager/delete_product_cubit/delete_product_cubit.dart';
-import '../../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
+import '../../../../../core/manager/add_to_favorites_cubit/add_product_cubit.dart';
+import '../../../../../core/manager/delete_from_favorites_cubit/delete_product_cubit.dart';
+import '../../../../../core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 class CustomProdustDetailsStack extends StatefulWidget {
   const CustomProdustDetailsStack({super.key, required this.product});
@@ -25,7 +25,7 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
   late ProductModel? product;
   @override
   Widget build(BuildContext context) {
-    box = Hive.box<ProductModel>(kProductsBox);
+    box = Hive.box<ProductModel>(kFavoritesBox);
     product = box.get(widget.product.id);
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.5,
@@ -64,13 +64,13 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
               onTap: () async {
                 try {
                   if (product == null) {
-                    await BlocProvider.of<AddProductCubit>(context)
+                    await BlocProvider.of<AddToFavoriteCubit>(context)
                         .addProduct(productModle: widget.product);
 
                     BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
                         .fetchAllProduct();
                   } else {
-                    await BlocProvider.of<DeleteProductCubit>(context)
+                    await BlocProvider.of<DeleteFromFavoriteCubit>(context)
                         .deleteProduct(productModel: widget.product);
 
                     BlocProvider.of<FetchAllFavoriteProductsCubit>(context)

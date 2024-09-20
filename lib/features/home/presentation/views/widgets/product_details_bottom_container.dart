@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/add_to_cart.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/custom_switch_bottom_bottons.dart';
 
 import '../../../../../core/models/products_model/product_model.dart';
 
@@ -70,7 +70,7 @@ class ProductDetailsBottomContainer extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            const AddToCart()
+            const CustomSwitchBottomBottons()
           ],
         ),
       ),

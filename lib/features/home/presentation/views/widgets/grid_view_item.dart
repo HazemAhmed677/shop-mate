@@ -11,9 +11,9 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../../core/manager/add_product_cubit/add_product_cubit.dart';
-import '../../../../../core/manager/delete_product_cubit/delete_product_cubit.dart';
-import '../../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
+import '../../../../../core/manager/add_to_favorites_cubit/add_product_cubit.dart';
+import '../../../../../core/manager/delete_from_favorites_cubit/delete_product_cubit.dart';
+import '../../../../../core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 class GridViewItem extends StatefulWidget {
   const GridViewItem({
@@ -30,7 +30,7 @@ class _GridViewItemState extends State<GridViewItem> {
   late ProductModel? product;
   @override
   Widget build(BuildContext context) {
-    box = Hive.box<ProductModel>(kProductsBox);
+    box = Hive.box<ProductModel>(kFavoritesBox);
     product = box.get(widget.product.id);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,13 +78,13 @@ class _GridViewItemState extends State<GridViewItem> {
                   onPressed: () async {
                     try {
                       if (product == null) {
-                        await BlocProvider.of<AddProductCubit>(context)
+                        await BlocProvider.of<AddToFavoriteCubit>(context)
                             .addProduct(productModle: widget.product);
 
                         BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
                             .fetchAllProduct();
                       } else {
-                        await BlocProvider.of<DeleteProductCubit>(context)
+                        await BlocProvider.of<DeleteFromFavoriteCubit>(context)
                             .deleteProduct(productModel: widget.product);
 
                         BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
@@ -130,7 +130,7 @@ class _GridViewItemState extends State<GridViewItem> {
                   children: [
                     ConstrainedBox(
                       constraints: const BoxConstraints(
-                        maxWidth: 104,
+                        maxWidth: 90,
                       ),
                       child: Text(
                         widget.product.title!,

@@ -15,6 +15,7 @@ class FavoriteViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22.0),
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         clipBehavior: Clip.none,
         slivers: [
           SliverToBoxAdapter(

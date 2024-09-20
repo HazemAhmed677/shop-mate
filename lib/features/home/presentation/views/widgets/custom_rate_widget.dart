@@ -13,7 +13,7 @@ class CustomRateWidget extends StatelessWidget {
         const Icon(
           IconlyBold.star,
           color: Color(0xffFCAF23),
-          size: 20,
+          size: 14,
         ),
         SizedBox(
           width: width,

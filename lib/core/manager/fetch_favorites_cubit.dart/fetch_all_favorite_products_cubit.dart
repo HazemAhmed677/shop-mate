@@ -11,7 +11,7 @@ class FetchAllFavoriteProductsCubit
   FetchAllFavoriteProductsCubit() : super(FetchAllFavoriteProductsInitial());
   void fetchAllProduct() {
     try {
-      var productsBox = Hive.box<ProductModel>(kProductsBox);
+      var productsBox = Hive.box<ProductModel>(kFavoritesBox);
       var storedProducts = productsBox.values.toList();
       emit(
         FetchAllFavoriteProductsSuccess(productsList: storedProducts),
