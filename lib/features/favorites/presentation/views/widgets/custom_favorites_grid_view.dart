@@ -16,24 +16,41 @@ class CustomFavoritesGridView extends StatelessWidget {
         FetchAllFavoriteProductsState>(
       builder: (context, state) {
         if (state is FetchAllFavoriteProductsSuccess) {
-          return SliverAnimatedGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 14,
-              childAspectRatio: 0.76,
-            ),
-            initialItemCount: state.productsList?.length ?? 0,
-            itemBuilder: (
-              context,
-              index,
-              animation,
-            ) {
-              return GridViewItem(
-                product: state.productsList![index],
-              );
-            },
-          );
+          var product = state.productsList;
+          return (product.isEmpty)
+              ? SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Transform.translate(
+                    offset: const Offset(0, -60),
+                    child: Center(
+                      child: Text(
+                        'No products saved yet',
+                        style: AppStyles.semiBoldPoppins28.copyWith(
+                          fontSize: 16,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : SliverGrid.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 14,
+                    childAspectRatio: 0.76,
+                  ),
+                  itemCount: state.productsList.length,
+                  itemBuilder: (
+                    context,
+                    index,
+                  ) {
+                    return GridViewItem(
+                      product: state.productsList[index],
+                    );
+                  },
+                );
         } else if (state is FetchAllFavoriteProductsFailure) {
           return SliverToBoxAdapter(
             child: Center(

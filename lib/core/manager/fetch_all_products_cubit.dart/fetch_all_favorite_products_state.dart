@@ -6,7 +6,7 @@ final class FetchAllFavoriteProductsInitial
     extends FetchAllFavoriteProductsState {}
 
 class FetchAllFavoriteProductsSuccess extends FetchAllFavoriteProductsState {
-  final List<ProductModel>? productsList;
+  final List<ProductModel> productsList;
 
   FetchAllFavoriteProductsSuccess({required this.productsList});
 }

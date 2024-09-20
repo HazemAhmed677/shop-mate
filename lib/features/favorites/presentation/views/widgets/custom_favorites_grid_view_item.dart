@@ -7,14 +7,12 @@ import 'package:iconly/iconly.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 import '../../../../../constants.dart';
-import '../../../../../core/helpers/get_snack_bar.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/manager/add_product_cubit/add_product_cubit.dart';
 import '../../../../../core/manager/delete_product_cubit/delete_product_cubit.dart';
-import '../../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 class CustomFavoritesGridViewItem extends StatefulWidget {
   const CustomFavoritesGridViewItem({
@@ -81,37 +79,12 @@ class _GridViewItemState extends State<CustomFavoritesGridViewItem> {
                       if (product == null) {
                         await BlocProvider.of<AddProductCubit>(context)
                             .addProduct(productModle: widget.product);
-
-                        if (mounted) {
-                          setState(() {
-                            getShowSnackBar(context, 'Saved successfully', 80);
-                            BlocProvider.of<FetchAllFavoriteProductsCubit>(
-                                    context)
-                                .fetchAllProduct();
-                          });
-                        }
                       } else {
                         await BlocProvider.of<DeleteProductCubit>(context)
                             .deleteProduct(productModel: widget.product);
-                        if (mounted) {
-                          setState(() {
-                            getShowSnackBar(context, 'Unsaved', 80);
-                            BlocProvider.of<FetchAllFavoriteProductsCubit>(
-                                    context)
-                                .fetchAllProduct();
-                          });
-                        }
                       }
                     } catch (e) {
-                      if (mounted) {
-                        setState(() {
-                          getShowSnackBar(
-                            context,
-                            e.toString(),
-                            80,
-                          );
-                        });
-                      }
+                      //
                     }
                     setState(
                       () {},

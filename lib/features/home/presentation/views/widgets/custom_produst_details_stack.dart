@@ -1,9 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_details_icon.dart';
+
+import '../../../../../constants.dart';
+import '../../../../../core/manager/add_product_cubit/add_product_cubit.dart';
+import '../../../../../core/manager/delete_product_cubit/delete_product_cubit.dart';
+import '../../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 class CustomProdustDetailsStack extends StatefulWidget {
   const CustomProdustDetailsStack({super.key, required this.product});
@@ -14,9 +21,12 @@ class CustomProdustDetailsStack extends StatefulWidget {
 }
 
 class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
-  bool flag = false;
+  late Box<ProductModel> box;
+  late ProductModel? product;
   @override
   Widget build(BuildContext context) {
+    box = Hive.box<ProductModel>(kProductsBox);
+    product = box.get(widget.product.id);
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.5,
       child: Stack(
@@ -51,13 +61,32 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
             right: 26,
             top: 22,
             child: CustomDetailsIcon(
-              onTap: () {
-                flag = !flag;
+              onTap: () async {
+                try {
+                  if (product == null) {
+                    await BlocProvider.of<AddProductCubit>(context)
+                        .addProduct(productModle: widget.product);
+
+                    BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
+                        .fetchAllProduct();
+                  } else {
+                    await BlocProvider.of<DeleteProductCubit>(context)
+                        .deleteProduct(productModel: widget.product);
+
+                    BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
+                        .fetchAllProduct();
+                  }
+                } catch (e) {
+                  //
+                }
+                setState(
+                  () {},
+                );
                 setState(
                   () {},
                 );
               },
-              icon: (!flag)
+              icon: (product == null)
                   ? const Icon(
                       IconlyLight.heart,
                       color: Colors.black,
