@@ -1,7 +1,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:shop_mate/constants.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
+import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/service_locator.dart';
 import 'package:shop_mate/core/utils/simple_bloc_observer.dart';
@@ -9,12 +12,15 @@ import 'package:shop_mate/features/home/presentation/manager/fetch_all_categorie
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
+
 import 'features/home/data/repo/home_repo_impl.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
   setup();
-  // await Hive.initFlutter();
+  await Hive.initFlutter();
+  Hive.registerAdapter(ProductModelAdapter());
+  await Hive.openBox<ProductModel>(kProductsBox);
   runApp(
     DevicePreview(
       enabled: true,
