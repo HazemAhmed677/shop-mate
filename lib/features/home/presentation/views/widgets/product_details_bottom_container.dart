@@ -70,7 +70,9 @@ class ProductDetailsBottomContainer extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            const CustomSwitchBottomBottons()
+            CustomSwitchBottomBottons(
+              product: product,
+            )
           ],
         ),
       ),

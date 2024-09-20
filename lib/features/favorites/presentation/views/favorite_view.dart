@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/features/favorites/presentation/views/widgets/favorite_view_body.dart';
-import '../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
+import '../../../../core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
 import '../../../../core/utils/app_colors.dart';
 
 class FavoriteView extends StatefulWidget {

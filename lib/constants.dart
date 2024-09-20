@@ -1,3 +1,4 @@
 const kPrimaryTag = 'ToDetails';
 const baseURL = 'https://fakestoreapi.in/api/products/';
-const kFavoritesBox = 'productBox';
+const kFavoritesBox = 'favoriteBox';
+const kCartBox = 'favoriteBox';

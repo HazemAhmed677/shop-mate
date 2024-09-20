@@ -82,9 +82,6 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
                 setState(
                   () {},
                 );
-                setState(
-                  () {},
-                );
               },
               icon: (product == null)
                   ? const Icon(
