@@ -1,18 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 import 'package:shop_mate/features/search/presentation/views/widgets/custom_recent_ui.dart';
+import 'package:shop_mate/features/search/presentation/views/widgets/custom_search_result.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({
     super.key,
   });
-
-  // listen here for searching
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 22.0),
-      child: CustomRecentUI(),
-      // child: CustomSearchResult(),
+    return BlocBuilder<FetchSearchedProductsCubit, FetchSearchedProductsState>(
+      builder: (context, state) {
+        if (state is FetchSaerchedProductsLoading) {
+          return const Skeletonizer(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 22,
+              ),
+              child: CustomSearchResult(),
+            ),
+          );
+        } else if (state is FetchSaerchedProductsSuccess) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 22,
+            ),
+            child: CustomSearchResult(),
+          );
+        } else if (state is FetchSaerchedProductsFailure) {
+          return Center(
+            child: Text(
+              state.errorMsg,
+            ),
+          );
+        } else {
+          return const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 22.0),
+            child: CustomRecentUI(),
+          );
+        }
+      },
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_search_text_feild.dart';
@@ -17,6 +19,7 @@ class _SearchTopSectionState extends State<SearchTopSection> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   final TextEditingController searchController = TextEditingController();
   GlobalKey textFieldKey = GlobalKey();
+  String input = '';
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +47,9 @@ class _SearchTopSectionState extends State<SearchTopSection> {
             key: formKey,
             autovalidateMode: autovalidateMode,
             child: CustomSearchTextFeild(
+              onChanged: (value) {
+                input = value;
+              },
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Enter something to search';
@@ -51,11 +57,17 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                   return null;
                 }
               },
-              onSubmitted: (input) {
-                validateSearchInput();
+              onSubmitted: (value) {
+                if (validateSearchInput()) {
+                  BlocProvider.of<FetchSearchedProductsCubit>(context)
+                      .searchProducts(category: input);
+                }
               },
               onPressedOnIcon: () {
-                validateSearchInput();
+                if (validateSearchInput()) {
+                  BlocProvider.of<FetchSearchedProductsCubit>(context)
+                      .searchProducts(category: input);
+                }
               },
               controller: searchController,
             ),
@@ -65,13 +77,16 @@ class _SearchTopSectionState extends State<SearchTopSection> {
     );
   }
 
-  void validateSearchInput() {
+  bool validateSearchInput() {
     if (formKey.currentState!.validate()) {
       autovalidateMode = AutovalidateMode.disabled;
       formKey.currentState!.save();
+      setState(() {});
+      return true;
     } else {
       autovalidateMode = AutovalidateMode.onUserInteraction;
+      setState(() {});
+      return false;
     }
-    setState(() {});
   }
 }

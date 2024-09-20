@@ -25,7 +25,9 @@ class _SignInViewBodyState extends State<SignInViewBody> {
       child: SizedBox(
         width: MediaQuery.sizeOf(context).width,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 26.0),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 26.0,
+          ),
           child: CustomScrollView(
             physics: const BouncingScrollPhysics(),
             slivers: [

@@ -4,12 +4,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/service_locator.dart';
+import 'package:shop_mate/core/utils/simple_bloc_observer.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
+import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
+import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 
 import 'features/home/data/repo/home_repo_impl.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   setup();
   runApp(
     DevicePreview(
@@ -37,6 +41,11 @@ class ShopMateApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FetchProductsCubit(
             homeRepoImplement: getIt.get<HomeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => FetchSearchedProductsCubit(
+            searchRepoImpl: getIt.get<SearchRepoImpl>(),
           ),
         ),
       ],

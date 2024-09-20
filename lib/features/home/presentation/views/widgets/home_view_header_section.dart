@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_location.dart';
 import '../../../../../core/widgets/custom_search_text_feild.dart';
+import '../../../../search/presentation/manager/fetch_searched_products_cubit copy/fetch_searched_products_cubit.dart';
 
 class HomeViewHeaderSection extends StatefulWidget {
   const HomeViewHeaderSection({super.key});
@@ -19,9 +20,6 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // SizedBox(
-        //   height: 38,
-        // ),
         const Row(
           children: [
             CustomLocation(),
@@ -33,7 +31,7 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
                 FontAwesomeIcons.solidBell,
                 color: Colors.black,
               ),
-            )
+            ),
           ],
         ),
         const SizedBox(
@@ -44,14 +42,18 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
           onPressedOnIcon: () {
             if (input.isNotEmpty) {
               BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+              BlocProvider.of<FetchSearchedProductsCubit>(context)
+                  .searchProducts(category: input);
             }
           },
           onChanged: (value) {
             input = value;
           },
           onSubmitted: (value) {
-            if (value != null || value!.isNotEmpty) {
+            if (input.isNotEmpty) {
               BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+              BlocProvider.of<FetchSearchedProductsCubit>(context)
+                  .searchProducts(category: input);
             }
           },
         ),
