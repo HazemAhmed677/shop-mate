@@ -58,15 +58,7 @@ class CustomFavoritesGridView extends StatelessWidget {
             ),
           );
         } else {
-          return SliverToBoxAdapter(
-            child: Text(
-              'No Favorite Products yet',
-              style: AppStyles.semiBoldPoppins28.copyWith(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-          );
+          return const SliverToBoxAdapter(child: SizedBox());
         }
       },
     );

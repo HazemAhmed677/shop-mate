@@ -10,11 +10,17 @@ class MyCartViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: MyCartTopSection(),
         ),
-        MyCartItemListView()
+        MyCartItemListView(),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 104,
+          ),
+        ),
       ],
     );
   }

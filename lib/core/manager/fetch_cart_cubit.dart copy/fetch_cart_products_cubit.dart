@@ -13,12 +13,11 @@ class FetchCartProductsCubit extends Cubit<FetchCartProductsState> {
       var productsBox = Hive.box<ProductModel>(kCartBox);
       var storedProducts = productsBox.values.toList();
       emit(
-        FetchAllFavoriteProductsSuccess.FetchCartProductsSuccess(
-            productsList: storedProducts),
+        FetchCartProductsSuccess(productsList: storedProducts),
       );
     } catch (e) {
       emit(
-        FetchAllFavoriteProductsFailure(e.toString()),
+        FetchCartProductsFailure(e.toString()),
       );
     }
   }

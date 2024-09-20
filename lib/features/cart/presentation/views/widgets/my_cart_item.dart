@@ -1,19 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/cart/presentation/views/widgets/custom_actions_row.dart';
 
-class MyCartItem extends StatefulWidget {
-  const MyCartItem({super.key, this.bottomDivider = true});
+class MyCartItem extends StatelessWidget {
+  const MyCartItem({
+    super.key,
+    required this.product,
+    this.bottomDivider = true,
+  });
+  final ProductModel product;
   final bool bottomDivider;
-  @override
-  State<MyCartItem> createState() => _MyCartItemState();
-}
-
-class _MyCartItemState extends State<MyCartItem> {
-  int amount = 1;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,7 +26,8 @@ class _MyCartItemState extends State<MyCartItem> {
               14,
             ),
             onTap: () {
-              GoRouter.of(context).push(AppRouters.productDetails);
+              GoRouter.of(context)
+                  .push(AppRouters.productDetails, extra: product);
             },
             child: Padding(
               padding: const EdgeInsets.only(
@@ -46,8 +48,10 @@ class _MyCartItemState extends State<MyCartItem> {
                           borderRadius: BorderRadius.circular(
                             12,
                           ),
-                          image: const DecorationImage(
-                            image: AssetImage(AppImages.testImage),
+                          image: DecorationImage(
+                            image: (product.image == null)
+                                ? const AssetImage(AppImages.testImage)
+                                : CachedNetworkImageProvider(product.image!),
                           ),
                         ),
                       ),
@@ -61,7 +65,7 @@ class _MyCartItemState extends State<MyCartItem> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Brown Jacket',
+                          product.title ?? "",
                           style: AppStyles.semiBoldPoppins28.copyWith(
                             fontSize: 16,
                           ),
@@ -73,7 +77,7 @@ class _MyCartItemState extends State<MyCartItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Size XL',
+                              product.brand ?? "",
                               style: AppStyles.regular24
                                   .copyWith(fontSize: 16, color: Colors.grey),
                             ),
@@ -83,11 +87,23 @@ class _MyCartItemState extends State<MyCartItem> {
                         const SizedBox(
                           height: 4,
                         ),
-                        Text(
-                          r'$83.97',
-                          style: AppStyles.semiBoldPoppins28.copyWith(
-                            fontSize: 16,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              r'$',
+                              style: AppStyles.semiBoldPoppins28.copyWith(
+                                fontSize: 16,
+                              ),
+                            ),
+                            (product.price == null)
+                                ? const SizedBox()
+                                : Text(
+                                    product.price.toString(),
+                                    style: AppStyles.semiBoldPoppins28.copyWith(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                          ],
                         ),
                       ],
                     ),
@@ -97,15 +113,13 @@ class _MyCartItemState extends State<MyCartItem> {
             ),
           ),
         ),
-        (widget.bottomDivider)
+        (bottomDivider)
             ? Divider(
                 height: 36,
                 thickness: 1,
                 color: Colors.grey.shade300,
               )
-            : const SizedBox(
-                height: 104,
-              ),
+            : const SizedBox(),
       ],
     );
   }
