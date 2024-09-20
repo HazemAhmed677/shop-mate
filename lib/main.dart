@@ -11,12 +11,12 @@ import 'package:shop_mate/core/utils/simple_bloc_observer.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
-import 'package:shop_mate/features/search/presentation/manager/add_product_cubit/add_product_cubit.dart';
+import 'package:shop_mate/core/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 
 import 'features/home/data/repo/home_repo_impl.dart';
-import 'features/search/presentation/manager/delete_product_cubit/delete_product_cubit.dart';
-import 'features/search/presentation/manager/fetch_all_products_cubit.dart/fetch_all_meals_cubit.dart';
+import 'core/manager/delete_product_cubit/delete_product_cubit.dart';
+import 'core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 void main() async {
   Bloc.observer = SimpleBlocObserver();
@@ -64,7 +64,7 @@ class ShopMateApp extends StatelessWidget {
           create: (context) => DeleteProductCubit(),
         ),
         BlocProvider(
-          create: (context) => FetchAllProductsCubit(),
+          create: (context) => FetchAllFavoriteProductsCubit(),
         ),
       ],
       child: MaterialApp.router(

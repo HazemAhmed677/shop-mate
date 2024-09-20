@@ -2,8 +2,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/models/products_model/product_model.dart';
+import '../../../constants.dart';
+import '../../models/products_model/product_model.dart';
 part 'add_product_cubit_state.dart';
 
 class AddProductCubit extends Cubit<AddProductState> {

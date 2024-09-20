@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
+import 'package:shop_mate/features/favorites/presentation/views/widgets/custom_favorites_grid_view.dart';
 
 import '../../../../home/presentation/views/widgets/category_list_view.dart';
 import '../../../../home/presentation/views/widgets/custom_items_grid_view.dart';
@@ -36,15 +37,15 @@ class FavoriteViewBody extends StatelessWidget {
               height: 22,
             ),
           ),
-          const SliverToBoxAdapter(
-            child: CategoryListView(),
-          ),
-          const SliverToBoxAdapter(
-            child: SizedBox(
-              height: 16,
-            ),
-          ),
-          const CustomItemsGridView(),
+          // const SliverToBoxAdapter(
+          //   child: CategoryListView(),
+          // ),
+          // const SliverToBoxAdapter(
+          //   child: SizedBox(
+          //     height: 16,
+          //   ),
+          // ),
+          const CustomFavoritesGridView(),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 104,

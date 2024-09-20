@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-void getShowSnackBar(BuildContext context, String content) {
+void getShowSnackBar(BuildContext context, String content, double padding) {
   try {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        behavior: SnackBarBehavior.fixed, // This makes the SnackBar floating
         padding: const EdgeInsets.symmetric(
           vertical: 12,
           horizontal: 13,
         ),
+        margin: EdgeInsets.only(bottom: padding),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(18),

@@ -16,17 +16,17 @@ import '../../../../../core/manager/add_product_cubit/add_product_cubit.dart';
 import '../../../../../core/manager/delete_product_cubit/delete_product_cubit.dart';
 import '../../../../../core/manager/fetch_all_products_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
-class GridViewItem extends StatefulWidget {
-  const GridViewItem({
+class CustomFavoritesGridViewItem extends StatefulWidget {
+  const CustomFavoritesGridViewItem({
     super.key,
     required this.product,
   });
   final ProductModel product;
   @override
-  State<GridViewItem> createState() => _GridViewItemState();
+  State<CustomFavoritesGridViewItem> createState() => _GridViewItemState();
 }
 
-class _GridViewItemState extends State<GridViewItem> {
+class _GridViewItemState extends State<CustomFavoritesGridViewItem> {
   late Box<ProductModel> box;
   late ProductModel? product;
   @override
@@ -84,11 +84,7 @@ class _GridViewItemState extends State<GridViewItem> {
 
                         if (mounted) {
                           setState(() {
-                            getShowSnackBar(
-                              context,
-                              'Saved successfully',
-                              80,
-                            );
+                            getShowSnackBar(context, 'Saved successfully', 80);
                             BlocProvider.of<FetchAllFavoriteProductsCubit>(
                                     context)
                                 .fetchAllProduct();
@@ -99,11 +95,7 @@ class _GridViewItemState extends State<GridViewItem> {
                             .deleteProduct(productModel: widget.product);
                         if (mounted) {
                           setState(() {
-                            getShowSnackBar(
-                              context,
-                              'Unsaved',
-                              104,
-                            );
+                            getShowSnackBar(context, 'Unsaved', 80);
                             BlocProvider.of<FetchAllFavoriteProductsCubit>(
                                     context)
                                 .fetchAllProduct();
@@ -116,7 +108,7 @@ class _GridViewItemState extends State<GridViewItem> {
                           getShowSnackBar(
                             context,
                             e.toString(),
-                            104,
+                            80,
                           );
                         });
                       }

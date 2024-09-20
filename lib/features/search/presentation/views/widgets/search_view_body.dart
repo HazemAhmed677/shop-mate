@@ -36,7 +36,9 @@ class SearchViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 22,
             ),
-            child: CustomErrorWidget(text: state.errorMsg),
+            child: CustomErrorWidget(
+              text: state.errorMsg,
+            ),
           );
         } else {
           return const Padding(

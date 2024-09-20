@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:hive/hive.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/models/products_model/product_model.dart';
+import '../../../constants.dart';
+import '../../models/products_model/product_model.dart';
 
 part 'delete_product_cubit_state.dart';
 
