@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:iconly/iconly.dart';
-import 'package:shop_mate/core/models/products_model/product.dart';
+import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_details_icon.dart';
 
 class CustomProdustDetailsStack extends StatefulWidget {
   const CustomProdustDetailsStack({super.key, required this.product});
-  final Product product;
+  final ProductModel product;
   @override
   State<CustomProdustDetailsStack> createState() =>
       _CustomProdustDetailsStackState();

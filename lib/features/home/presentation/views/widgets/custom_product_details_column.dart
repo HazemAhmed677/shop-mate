@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/core/models/products_model/product.dart';
+import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/color_list_view.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/product_details_column_top_section.dart';
 
@@ -8,7 +8,7 @@ class CustomProductDetailsColumn extends StatelessWidget {
     super.key,
     required this.product,
   });
-  final Product product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Padding(

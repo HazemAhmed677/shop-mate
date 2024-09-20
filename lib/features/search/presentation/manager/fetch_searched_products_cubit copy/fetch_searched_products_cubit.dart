@@ -7,7 +7,6 @@ class FetchSearchedProductsCubit extends Cubit<FetchSearchedProductsState> {
   FetchSearchedProductsCubit({required this.searchRepoImpl})
       : super(FetchSaerchedProductsInitial());
   final SearchRepoImpl searchRepoImpl;
-
   Future<void> searchProducts({
     required String category,
   }) async {
@@ -23,5 +22,9 @@ class FetchSearchedProductsCubit extends Cubit<FetchSearchedProductsState> {
         emit(FetchSaerchedProductsSuccess(productsModel, category));
       },
     );
+  }
+
+  void resetToInitSate() {
+    emit(FetchSaerchedProductsInitial());
   }
 }

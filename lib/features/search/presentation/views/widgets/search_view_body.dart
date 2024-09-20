@@ -6,10 +6,21 @@ import 'package:shop_mate/features/search/presentation/views/widgets/custom_load
 import 'package:shop_mate/features/search/presentation/views/widgets/custom_recent_ui.dart';
 import 'package:shop_mate/features/search/presentation/views/widgets/custom_search_result.dart';
 
-class SearchViewBody extends StatelessWidget {
+class SearchViewBody extends StatefulWidget {
   const SearchViewBody({
     super.key,
   });
+  @override
+  State<SearchViewBody> createState() => _SearchViewBodyState();
+}
+
+class _SearchViewBodyState extends State<SearchViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<FetchSearchedProductsCubit>(context).resetToInitSate();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FetchSearchedProductsCubit, FetchSearchedProductsState>(
@@ -34,13 +45,15 @@ class SearchViewBody extends StatelessWidget {
         } else if (state is FetchSaerchedProductsFailure) {
           return Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 22.0,
+              horizontal: 22,
             ),
             child: CustomErrorWidget(text: state.errorMsg),
           );
         } else {
           return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: 22,
+            ),
             child: CustomRecentUI(),
           );
         }

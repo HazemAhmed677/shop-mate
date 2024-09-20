@@ -9,12 +9,12 @@ import 'package:shop_mate/features/home/presentation/manager/fetch_all_categorie
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
-
 import 'features/home/data/repo/home_repo_impl.dart';
 
-void main() {
+void main() async {
   Bloc.observer = SimpleBlocObserver();
   setup();
+  // await Hive.initFlutter();
   runApp(
     DevicePreview(
       enabled: true,

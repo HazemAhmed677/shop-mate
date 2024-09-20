@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shop_mate/core/helpers/captalize_the_first_letter.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 import '../../../../../core/utils/app_styles.dart';
-import '../../../../../core/models/products_model/product.dart';
+import '../../../../../core/models/products_model/product_model.dart';
 
 class ProductDetailsColumnTopSection extends StatelessWidget {
   const ProductDetailsColumnTopSection({super.key, required this.product});
-  final Product product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Column(

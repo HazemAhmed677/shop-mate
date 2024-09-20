@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:shop_mate/core/models/products_model/product.dart';
+import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -12,7 +12,7 @@ class GridViewItem extends StatefulWidget {
     super.key,
     required this.product,
   });
-  final Product product;
+  final ProductModel product;
   @override
   State<GridViewItem> createState() => _GridViewItemState();
 }

@@ -3,11 +3,11 @@ import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/add_to_cart.dart';
 
-import '../../../../../core/models/products_model/product.dart';
+import '../../../../../core/models/products_model/product_model.dart';
 
 class ProductDetailsBottomContainer extends StatelessWidget {
   const ProductDetailsBottomContainer({super.key, required this.product});
-  final Product product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,22 +1,31 @@
-// import 'package:hive/hive.dart';
+import 'package:hive/hive.dart';
+part 'product_model.g.dart';
 
-// @HiveType(
-//   typeId: 0,
-// )
-class Product {
+@HiveType(
+  typeId: 0,
+)
+class ProductModel {
+  @HiveField(0)
   int? id;
+  @HiveField(1)
   String? title;
+  @HiveField(2)
   String? image;
+  @HiveField(3)
   int? price;
+  @HiveField(4)
   String? description;
+  @HiveField(5)
   String? brand;
+  @HiveField(6)
   String? model;
   String? color;
+  @HiveField(7)
   String? category;
   int? discount;
   bool? onSale;
   bool? popular;
-  Product({
+  ProductModel({
     this.id,
     this.title,
     this.image,
@@ -31,7 +40,7 @@ class Product {
     this.popular,
   });
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
         id: json['id'] as int?,
         title: json['title'] as String?,
         image: json['image'] as String?,
