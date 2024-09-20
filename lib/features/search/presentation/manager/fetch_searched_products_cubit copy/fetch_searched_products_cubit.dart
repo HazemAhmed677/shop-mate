@@ -12,20 +12,16 @@ class FetchSearchedProductsCubit extends Cubit<FetchSearchedProductsState> {
     required String category,
   }) async {
     emit(FetchSaerchedProductsLoading());
-    try {
-      var response = await searchRepoImpl.search(
-        category: category,
-      );
-      response.fold(
-        (failure) {
-          emit(FetchSaerchedProductsFailure(failure.errorMsg));
-        },
-        (productsModel) {
-          emit(FetchSaerchedProductsSuccess(productsModel));
-        },
-      );
-    } catch (e) {
-      print(e.toString());
-    }
+    var response = await searchRepoImpl.search(
+      category: category,
+    );
+    response.fold(
+      (failure) {
+        emit(FetchSaerchedProductsFailure(failure.errorMsg));
+      },
+      (productsModel) {
+        emit(FetchSaerchedProductsSuccess(productsModel));
+      },
+    );
   }
 }

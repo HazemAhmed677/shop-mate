@@ -19,7 +19,6 @@ class SearchRepoImpl extends SearchRepo {
       return left(
         FailureService.fromDioException(
           dioExecption: e.type,
-          response: e.response,
           statusCode: e.response?.statusCode,
         ),
       );

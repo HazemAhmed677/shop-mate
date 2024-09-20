@@ -7,9 +7,7 @@ class FailureService {
   FailureService(this.errorMsg);
 
   factory FailureService.fromDioException(
-      {required DioExceptionType dioExecption,
-      dynamic response,
-      int? statusCode}) {
+      {required DioExceptionType dioExecption, int? statusCode}) {
     switch (dioExecption) {
       case DioExceptionType.connectionTimeout:
         return FailureService('Connection timeout, Please try again');
@@ -21,7 +19,8 @@ class FailureService {
         return FailureService('Bad certificate, Please try later');
       case DioExceptionType.badResponse:
         return FailureService.fromBadResponse(
-            statusCode: statusCode, response: response);
+          statusCode: statusCode,
+        );
       case DioExceptionType.cancel:
         return FailureService('Request to server was canceled');
       case DioExceptionType.connectionError:
@@ -32,15 +31,17 @@ class FailureService {
         return FailureService('Oops, there something wrong!');
     }
   }
-  factory FailureService.fromBadResponse({int? statusCode, dynamic response}) {
+  factory FailureService.fromBadResponse({
+    int? statusCode,
+  }) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return FailureService(
-        response['error']['message'],
+        r"Category not found. Try again or explore others!",
       );
     } else if (statusCode == 404) {
       return FailureService('Your request not found');
     } else {
-      return FailureService('Oops, there somthing wronggvu!');
+      return FailureService('Oops, there somthing wrong!');
     }
   }
 }
