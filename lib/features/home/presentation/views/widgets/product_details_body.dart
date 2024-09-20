@@ -24,7 +24,9 @@ class ProductDetailsViewBody extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-          child: CustomProductDetailsColumn(product: product),
+          child: CustomProductDetailsColumn(
+            product: product,
+          ),
         ),
         const SliverToBoxAdapter(
           child: SizedBox(
@@ -32,7 +34,9 @@ class ProductDetailsViewBody extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(
-          child: ProductDetailsBottomContainer(product: product),
+          child: ProductDetailsBottomContainer(
+            product: product,
+          ),
         )
       ],
     );

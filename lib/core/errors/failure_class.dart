@@ -36,7 +36,7 @@ class FailureService {
   }) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return FailureService(
-        r"Category not found. Try again or explore others!",
+        "Not found",
       );
     } else if (statusCode == 404) {
       return FailureService('Your request not found');

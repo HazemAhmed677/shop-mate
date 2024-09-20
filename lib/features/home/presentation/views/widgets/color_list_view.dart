@@ -14,25 +14,15 @@ class _ColorListViewState extends State<ColorListView> {
   int currentIndex = 0;
   Map<int, String> colorMap = {
     0: 'Black',
-    1: 'Red',
-    2: 'Blue',
-    3: 'Green',
-    4: 'Yellow',
-    5: 'Orange',
-    6: 'Brown',
-    7: 'Pink',
-    8: 'Cyan',
+    1: 'Orange',
+    2: 'Brown',
+    3: 'Teal',
   };
   List<Color> colorList = [
     Colors.black,
-    Colors.red,
-    Colors.blue,
-    Colors.green,
-    Colors.yellow,
     Colors.orange,
     Colors.brown,
-    Colors.pink,
-    Colors.cyan,
+    Colors.teal,
   ];
   @override
   Widget build(BuildContext context) {

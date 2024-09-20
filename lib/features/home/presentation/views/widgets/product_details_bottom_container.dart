@@ -20,14 +20,14 @@ class ProductDetailsBottomContainer extends StatelessWidget {
         ),
         border: Border.all(
           width: 1,
-          color: Colors.grey,
+          color: Colors.grey.shade300,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 6,
-            blurRadius: 6,
-            offset: const Offset(0, 3), // changes position of shadow
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: const Offset(0, -1), // changes position of shadow
           )
         ],
       ),

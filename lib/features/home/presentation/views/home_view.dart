@@ -29,7 +29,11 @@ class HomeView extends StatelessWidget {
                             : (state is ProfileViewState)
                                 ? const ProfileView()
                                 : const SizedBox(),
-            const CustomNavBar(),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const CustomNavBar(),
+            ),
           ],
         );
       },

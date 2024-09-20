@@ -20,7 +20,7 @@ class FetchSearchedProductsCubit extends Cubit<FetchSearchedProductsState> {
         emit(FetchSaerchedProductsFailure(failure.errorMsg));
       },
       (productsModel) {
-        emit(FetchSaerchedProductsSuccess(productsModel));
+        emit(FetchSaerchedProductsSuccess(productsModel, category));
       },
     );
   }

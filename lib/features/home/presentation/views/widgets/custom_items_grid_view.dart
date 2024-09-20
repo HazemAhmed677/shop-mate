@@ -7,7 +7,9 @@ import 'package:shop_mate/features/home/presentation/views/widgets/loading_grid_
 import '../../../../../core/utils/app_routers.dart';
 
 class CustomItemsGridView extends StatefulWidget {
-  const CustomItemsGridView({super.key});
+  const CustomItemsGridView({
+    super.key,
+  });
 
   @override
   State<CustomItemsGridView> createState() => _CustomItemsGridViewState();

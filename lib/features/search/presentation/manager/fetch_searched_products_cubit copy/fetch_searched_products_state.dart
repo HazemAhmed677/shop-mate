@@ -8,7 +8,8 @@ final class FetchSaerchedProductsLoading extends FetchSearchedProductsState {}
 
 final class FetchSaerchedProductsSuccess extends FetchSearchedProductsState {
   final ProductsModel productsModel;
-  FetchSaerchedProductsSuccess(this.productsModel);
+  final String searchedWord;
+  FetchSaerchedProductsSuccess(this.productsModel, this.searchedWord);
 }
 
 final class FetchSaerchedProductsFailure extends FetchSearchedProductsState {
