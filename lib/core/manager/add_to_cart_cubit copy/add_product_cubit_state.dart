@@ -2,11 +2,11 @@ part of 'add_product_cubit.dart';
 
 sealed class AddToCartState {}
 
-final class AddProductInitial extends AddToCartState {}
+final class AddToCartInitial extends AddToCartState {}
 
-class AddProudctSuccess extends AddToCartState {}
+class AddToCartSuccess extends AddToCartState {}
 
-class AddProductFailure extends AddToCartState {
+class AddToCartFailure extends AddToCartState {
   final String errorMessege;
-  AddProductFailure(this.errorMessege);
+  AddToCartFailure(this.errorMessege);
 }

@@ -44,22 +44,21 @@ class MyCartItemListView extends StatelessWidget {
                       dismissible: DismissiblePane(
                         onDismissed: () async {
                           await BlocProvider.of<DeleteFromCartCubit>(context)
-                              .deleteProduct(
-                                  productModel: state.productsList[index]);
-
+                              .deleteFromCart(
+                            productModel: state.productsList[index],
+                          );
                           BlocProvider.of<FetchCartProductsCubit>(context)
-                              .fetchAllProduct();
+                              .fetchCartProducts();
                         },
                       ),
                       children: [
                         SlidableAction(
                           onPressed: (context) async {
                             await BlocProvider.of<DeleteFromCartCubit>(context)
-                                .deleteProduct(
+                                .deleteFromCart(
                                     productModel: state.productsList[index]);
-
                             BlocProvider.of<FetchCartProductsCubit>(context)
-                                .fetchAllProduct();
+                                .fetchCartProducts();
                           },
                           backgroundColor: Colors.red.shade400,
                           foregroundColor: Colors.white,
@@ -83,7 +82,9 @@ class MyCartItemListView extends StatelessWidget {
         } else if (state is FetchCartProductsFailure) {
           return SliverToBoxAdapter(
             child: Center(
-              child: Text(state.errorMessege),
+              child: Text(
+                state.errorMessege,
+              ),
             ),
           );
         } else {

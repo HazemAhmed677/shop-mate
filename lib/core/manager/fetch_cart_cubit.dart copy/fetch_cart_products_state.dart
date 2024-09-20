@@ -2,7 +2,7 @@ part of 'fetch_cart_products_cubit.dart';
 
 sealed class FetchCartProductsState {}
 
-final class FetchAllFavoriteProductsInitial extends FetchCartProductsState {}
+final class FetchCartProductsInitial extends FetchCartProductsState {}
 
 class FetchCartProductsSuccess extends FetchCartProductsState {
   final List<ProductModel> productsList;

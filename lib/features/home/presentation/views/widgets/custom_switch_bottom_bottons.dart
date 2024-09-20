@@ -41,9 +41,9 @@ class _CustomSwitchBottomBottonsState extends State<CustomSwitchBottomBottons> {
               onPressed: () async {
                 try {
                   await BlocProvider.of<DeleteFromCartCubit>(context)
-                      .deleteProduct(productModel: widget.product);
+                      .deleteFromCart(productModel: widget.product);
                   BlocProvider.of<FetchCartProductsCubit>(context)
-                      .fetchAllProduct();
+                      .fetchCartProducts();
                   print('x98hiu');
                 } catch (e) {
                   //
@@ -57,10 +57,10 @@ class _CustomSwitchBottomBottonsState extends State<CustomSwitchBottomBottons> {
               onPressed: () async {
                 try {
                   await BlocProvider.of<AddToCartCubit>(context)
-                      .addProduct(productModle: widget.product);
+                      .addToCart(productModle: widget.product);
 
                   BlocProvider.of<FetchCartProductsCubit>(context)
-                      .fetchAllProduct();
+                      .fetchCartProducts();
                   print('delete');
                 } catch (e) {
                   //

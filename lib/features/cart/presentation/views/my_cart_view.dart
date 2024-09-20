@@ -18,7 +18,7 @@ class _MyCartViewState extends State<MyCartView> {
   void initState() {
     super.initState();
     handleOpacity();
-    BlocProvider.of<FetchCartProductsCubit>(context).fetchAllProduct();
+    BlocProvider.of<FetchCartProductsCubit>(context).fetchCartProducts();
   }
 
   @override
