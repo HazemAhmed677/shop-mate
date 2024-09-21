@@ -8,10 +8,16 @@ import 'package:shop_mate/features/cart/presentation/views/widgets/my_cart_item.
 
 import '../../../../../core/utils/app_styles.dart';
 
-class MyCartItemListView extends StatelessWidget {
+class MyCartItemListView extends StatefulWidget {
   const MyCartItemListView({
     super.key,
   });
+
+  @override
+  State<MyCartItemListView> createState() => _MyCartItemListViewState();
+}
+
+class _MyCartItemListViewState extends State<MyCartItemListView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FetchCartProductsCubit, FetchCartProductsState>(
@@ -47,8 +53,12 @@ class MyCartItemListView extends StatelessWidget {
                               .deleteFromCart(
                             productModel: state.productsList[index],
                           );
-                          BlocProvider.of<FetchCartProductsCubit>(context)
-                              .fetchCartProducts();
+                          if (mounted) {
+                            setState(() {
+                              BlocProvider.of<FetchCartProductsCubit>(context)
+                                  .fetchCartProducts();
+                            });
+                          }
                         },
                       ),
                       children: [
@@ -57,8 +67,12 @@ class MyCartItemListView extends StatelessWidget {
                             await BlocProvider.of<DeleteFromCartCubit>(context)
                                 .deleteFromCart(
                                     productModel: state.productsList[index]);
-                            BlocProvider.of<FetchCartProductsCubit>(context)
-                                .fetchCartProducts();
+                            if (mounted) {
+                              setState(() {
+                                BlocProvider.of<FetchCartProductsCubit>(context)
+                                    .fetchCartProducts();
+                              });
+                            }
                           },
                           backgroundColor: Colors.red.shade400,
                           foregroundColor: Colors.white,

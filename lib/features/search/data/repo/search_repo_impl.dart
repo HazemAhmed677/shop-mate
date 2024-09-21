@@ -19,7 +19,7 @@ class SearchRepoImpl extends SearchRepo {
       return left(
         FailureService.fromDioException(
           dioExecption: e.type,
-          statusCode: e.response?.statusCode,
+          statusCode: e.response?.statusCode ?? 400,
         ),
       );
     } catch (e) {

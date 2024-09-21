@@ -21,6 +21,11 @@ class _RecentMiddleSectionState extends State<RecentMiddleSection> {
   //   isDisposed = true; // Set the flag to true
   //   super.dispose();
   // }
+  @override
+  // void didChangeDependencies() {
+  //   super.didChangeDependencies();
+  //   dependOnInheritedWidgetOfExactType();
+  // }
 
   @override
   Widget build(BuildContext context) {

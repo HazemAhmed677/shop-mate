@@ -18,7 +18,6 @@ class SearchTopSection extends StatefulWidget {
 class _SearchTopSectionState extends State<SearchTopSection> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  final TextEditingController searchController = TextEditingController();
   GlobalKey textFieldKey = GlobalKey();
   String input = '';
 
@@ -49,7 +48,13 @@ class _SearchTopSectionState extends State<SearchTopSection> {
             autovalidateMode: autovalidateMode,
             child: CustomSearchTextFeild(
               onChanged: (value) {
-                input = value;
+                if (value.isNotEmpty) {
+                  input = value;
+                  autovalidateMode = AutovalidateMode.disabled;
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                }
+                setState(() {});
               },
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -59,49 +64,28 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                 }
               },
               onSubmitted: (value) async {
-                if (validateSearchInput()) {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                  await BlocProvider.of<AddToSearchCubit>(context)
+                      .addToSearch(searchedProduct: input);
                   await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
-
-                  setState(() {
-                    BlocProvider.of<AddToSearchCubit>(context)
-                        .addToSearch(searchedProduct: input);
-                    // BlocProvider.of<FetchSearchBoxCubit>(context)
-                    //     .fetchSearchBox();
-                  });
                 }
               },
               onPressedOnIcon: () async {
-                if (validateSearchInput()) {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+
+                  await BlocProvider.of<AddToSearchCubit>(context)
+                      .addToSearch(searchedProduct: input);
                   await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
-
-                  setState(() {
-                    BlocProvider.of<AddToSearchCubit>(context)
-                        .addToSearch(searchedProduct: input);
-                    // BlocProvider.of<FetchSearchBoxCubit>(context)
-                    //     .fetchSearchBox();
-                  });
                 }
               },
-              controller: searchController,
             ),
           ),
         ),
       ],
     );
-  }
-
-  bool validateSearchInput() {
-    if (formKey.currentState!.validate()) {
-      autovalidateMode = AutovalidateMode.disabled;
-      formKey.currentState!.save();
-      setState(() {});
-      return true;
-    } else {
-      autovalidateMode = AutovalidateMode.onUserInteraction;
-      setState(() {});
-      return false;
-    }
   }
 }

@@ -15,7 +15,6 @@ class HomeViewHeaderSection extends StatefulWidget {
 }
 
 class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
-  TextEditingController textEditingController = TextEditingController();
   String input = '';
   @override
   Widget build(BuildContext context) {
@@ -39,24 +38,26 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
           height: 22,
         ),
         CustomSearchTextFeild(
-          controller: textEditingController,
-          onPressedOnIcon: () {
+          onPressedOnIcon: () async {
             if (input.isNotEmpty) {
+              await BlocProvider.of<AddToSearchCubit>(context)
+                  .addToSearch(searchedProduct: input);
               BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
-              BlocProvider.of<FetchSearchedProductsCubit>(context)
+              await BlocProvider.of<FetchSearchedProductsCubit>(context)
                   .searchProducts(category: input);
             }
           },
           onChanged: (value) {
             input = value;
           },
-          onSubmitted: (value) {
+          onSubmitted: (value) async {
             if (input.isNotEmpty) {
-              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
-              BlocProvider.of<FetchSearchedProductsCubit>(context)
-                  .searchProducts(category: input);
-              BlocProvider.of<AddToSearchCubit>(context)
+              await BlocProvider.of<AddToSearchCubit>(context)
                   .addToSearch(searchedProduct: input);
+              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+
+              await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                  .searchProducts(category: input);
             }
           },
         ),

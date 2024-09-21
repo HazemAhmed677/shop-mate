@@ -71,11 +71,15 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         text: 'Or sign in with',
                       ),
                       const Expanded(
-                        child: SizedBox(),
+                        child: SizedBox(
+                          height: 32,
+                        ),
                       ),
                       const RowOfOptions(),
                       const Expanded(
-                        child: SizedBox(),
+                        child: SizedBox(
+                          height: 32,
+                        ),
                       ),
                       DontHaveAccount(
                         onTap: () {
