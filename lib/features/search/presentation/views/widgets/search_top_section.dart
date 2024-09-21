@@ -62,8 +62,12 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                 if (validateSearchInput()) {
                   await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
-                  BlocProvider.of<AddToSearchCubit>(context)
-                      .addToSearch(searchedProduct: input);
+                  if (mounted) {
+                    setState(() {
+                      BlocProvider.of<AddToSearchCubit>(context)
+                          .addToSearch(searchedProduct: input);
+                    });
+                  }
                   // trigger fetch here?
                 }
               },
@@ -71,6 +75,12 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                 if (validateSearchInput()) {
                   await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
+                  if (mounted) {
+                    setState(() {
+                      BlocProvider.of<AddToSearchCubit>(context)
+                          .addToSearch(searchedProduct: input);
+                    });
+                  }
                 }
               },
               controller: searchController,

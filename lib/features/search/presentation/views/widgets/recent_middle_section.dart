@@ -4,10 +4,23 @@ import '../../../../../core/helpers/confirmation_dialog.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
 
-class RecentMiddleSection extends StatelessWidget {
+class RecentMiddleSection extends StatefulWidget {
   const RecentMiddleSection({
     super.key,
   });
+
+  @override
+  State<RecentMiddleSection> createState() => _RecentMiddleSectionState();
+}
+
+class _RecentMiddleSectionState extends State<RecentMiddleSection> {
+  bool isDisposed = false;
+
+  @override
+  void dispose() {
+    isDisposed = true; // Set the flag to true
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +41,9 @@ class RecentMiddleSection extends StatelessWidget {
                 0.2,
               ),
               onTap: () {
-                // toolTip
-                showConfirmationDialog(context);
+                if (!isDisposed && mounted) {
+                  showConfirmationDialog(context);
+                }
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(

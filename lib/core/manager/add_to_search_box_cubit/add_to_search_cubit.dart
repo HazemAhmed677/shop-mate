@@ -9,7 +9,7 @@ class AddToSearchCubit extends Cubit<AddToSearchCubitState> {
   Future<void> addToSearch({required String searchedProduct}) async {
     try {
       var saerchBox = Hive.box<String>(kSearchedProductsBox);
-      await saerchBox.add(searchedProduct);
+      await saerchBox.put(searchedProduct, searchedProduct);
       emit(AddToSearchSuccess());
     } catch (e) {
       emit(

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
 
+import '../manager/delete_from_search_box_cubit/delete_from_search_cubit.dart';
 import '../utils/app_colors.dart';
 
 void showConfirmationDialog(BuildContext context) {
   showDialog(
     context: context,
     barrierDismissible: false, // Prevents dismissing by tapping outside
-    builder: (BuildContext context) {
+    builder: (context) {
       return AlertDialog(
         backgroundColor: const Color(
           0xff1F2029,
@@ -37,9 +40,9 @@ void showConfirmationDialog(BuildContext context) {
           ),
           TextButton(
             style: TextButton.styleFrom(overlayColor: Colors.white),
-            onPressed: () {
-              // remove from db
-              //show snackbar
+            onPressed: () async {
+              await BlocProvider.of<DeleteFromSearchCubit>(context).clearAll();
+              BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
               Navigator.of(context).pop();
             },
             child: Text(

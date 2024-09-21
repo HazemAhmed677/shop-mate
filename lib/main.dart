@@ -6,7 +6,9 @@ import 'package:shop_mate/constants.dart';
 import 'package:shop_mate/core/manager/add_to_cart_cubit/add_product_cubit.dart';
 import 'package:shop_mate/core/manager/add_to_search_box_cubit/add_to_search_cubit.dart';
 import 'package:shop_mate/core/manager/delete_from_cart_cubit/delete_product_cubit.dart';
+import 'package:shop_mate/core/manager/delete_from_search_box_cubit/delete_from_search_cubit.dart';
 import 'package:shop_mate/core/manager/fetch_cart_cubit.dart/fetch_cart_products_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
@@ -82,7 +84,13 @@ class ShopMateApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AddToSearchCubit(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => DeleteFromSearchCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FetchSearchBoxCubit(),
+        ),
       ],
       child: MaterialApp.router(
         locale: DevicePreview.locale(context),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/core/manager/add_to_search_box_cubit/add_to_search_cubit.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_location.dart';
 import '../../../../../core/widgets/custom_search_text_feild.dart';
@@ -54,6 +55,8 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
               BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
               BlocProvider.of<FetchSearchedProductsCubit>(context)
                   .searchProducts(category: input);
+              BlocProvider.of<AddToSearchCubit>(context)
+                  .addToSearch(searchedProduct: input);
             }
           },
         ),
