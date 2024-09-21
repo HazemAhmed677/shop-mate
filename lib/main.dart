@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:shop_mate/constants.dart';
-import 'package:shop_mate/core/manager/add_to_cart_cubit%20copy/add_product_cubit.dart';
-import 'package:shop_mate/core/manager/delete_from_cart_cubit%20copy/delete_product_cubit.dart';
-import 'package:shop_mate/core/manager/fetch_cart_cubit.dart%20copy/fetch_cart_products_cubit.dart';
+import 'package:shop_mate/core/manager/add_to_cart_cubit/add_product_cubit.dart';
+import 'package:shop_mate/core/manager/add_to_search_box_cubit/add_to_search_cubit.dart';
+import 'package:shop_mate/core/manager/delete_from_cart_cubit/delete_product_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_cart_cubit.dart/fetch_cart_products_cubit.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
@@ -27,6 +28,7 @@ void main() async {
   Hive.registerAdapter(ProductModelAdapter());
   await Hive.openBox<ProductModel>(kFavoritesBox);
   await Hive.openBox<ProductModel>(kCartBox);
+  await Hive.openBox<String>(kSearchedProductsBox);
   runApp(
     DevicePreview(
       enabled: true,
@@ -78,6 +80,9 @@ class ShopMateApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FetchCartProductsCubit(),
         ),
+        BlocProvider(
+          create: (context) => AddToSearchCubit(),
+        )
       ],
       child: MaterialApp.router(
         locale: DevicePreview.locale(context),

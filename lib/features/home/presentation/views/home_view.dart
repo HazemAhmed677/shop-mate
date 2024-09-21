@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/core/manager/delete_from_search_box_cubit/delete_from_search_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/features/cart/presentation/views/my_cart_view.dart';
 import 'package:shop_mate/features/favorites/presentation/views/favorite_view.dart';
@@ -25,7 +27,18 @@ class HomeView extends StatelessWidget {
                     : (state is FavoriteViewState)
                         ? const FavoriteView()
                         : (state is SearchViewState)
-                            ? const SearchView()
+                            ? MultiBlocProvider(
+                                providers: [
+                                  BlocProvider(
+                                    create: (context) => FetchSearchBoxCubit(),
+                                  ),
+                                  BlocProvider(
+                                    create: (context) =>
+                                        DeleteFromSearchCubit(),
+                                  ),
+                                ],
+                                child: const SearchView(),
+                              )
                             : (state is ProfileViewState)
                                 ? const ProfileView()
                                 : const SizedBox(),

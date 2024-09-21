@@ -6,7 +6,7 @@ import 'fetch_search_box_state.dart';
 
 class FetchSearchBoxCubit extends Cubit<FetchSearchBoxState> {
   FetchSearchBoxCubit() : super(FetchSearchBoxInitial());
-  void fetchCartProducts() {
+  void fetchSearchBox() {
     try {
       var searchBox = Hive.box<String>(kSearchedProductsBox);
       var storedSearched = searchBox.values.toList();

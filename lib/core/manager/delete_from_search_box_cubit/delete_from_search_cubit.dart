@@ -6,7 +6,7 @@ import 'delete_from_search_state.dart';
 
 class DeleteFromSearchCubit extends Cubit<DeleteFromSearchState> {
   DeleteFromSearchCubit() : super(DeleteFromSearchInitial());
-  Future<void> addToCart({required String searchedProduct}) async {
+  Future<void> deleteFromSearch({required String searchedProduct}) async {
     try {
       var saerchBox = Hive.box<String>(kSearchedProductsBox);
       await saerchBox.delete(searchedProduct);

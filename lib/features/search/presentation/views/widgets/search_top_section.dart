@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/core/manager/add_to_search_box_cubit/add_to_search_cubit.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 
 import '../../../../../core/utils/app_styles.dart';
@@ -57,15 +58,18 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                   return null;
                 }
               },
-              onSubmitted: (value) {
+              onSubmitted: (value) async {
                 if (validateSearchInput()) {
-                  BlocProvider.of<FetchSearchedProductsCubit>(context)
+                  await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
+                  BlocProvider.of<AddToSearchCubit>(context)
+                      .addToSearch(searchedProduct: input);
+                  // trigger fetch here?
                 }
               },
-              onPressedOnIcon: () {
+              onPressedOnIcon: () async {
                 if (validateSearchInput()) {
-                  BlocProvider.of<FetchSearchedProductsCubit>(context)
+                  await BlocProvider.of<FetchSearchedProductsCubit>(context)
                       .searchProducts(category: input);
                 }
               },

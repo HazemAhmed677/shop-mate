@@ -6,7 +6,7 @@ part 'add_to_search_cubit_state.dart';
 
 class AddToSearchCubit extends Cubit<AddToSearchCubitState> {
   AddToSearchCubit() : super(AddToSearchInitial());
-  Future<void> addToCart({required String searchedProduct}) async {
+  Future<void> addToSearch({required String searchedProduct}) async {
     try {
       var saerchBox = Hive.box<String>(kSearchedProductsBox);
       await saerchBox.add(searchedProduct);

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:iconly/iconly.dart';
-import 'package:shop_mate/core/manager/delete_from_cart_cubit%20copy/delete_product_cubit.dart';
-import 'package:shop_mate/core/manager/fetch_cart_cubit.dart%20copy/fetch_cart_products_cubit.dart';
+import 'package:shop_mate/core/manager/delete_from_cart_cubit/delete_product_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_cart_cubit.dart/fetch_cart_products_cubit.dart';
 import 'package:shop_mate/features/cart/presentation/views/widgets/my_cart_item.dart';
 
 import '../../../../../core/utils/app_styles.dart';

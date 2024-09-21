@@ -1,94 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/features/search/presentation/views/widgets/custom_recent_item.dart';
-import 'package:shop_mate/features/search/presentation/views/widgets/search_top_section.dart';
-import '../../../../../core/helpers/confirmation_dialog.dart';
-import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_state.dart';
+import 'package:shop_mate/features/search/presentation/views/widgets/custom_recent_empty_searched.dart';
+import 'package:shop_mate/features/search/presentation/views/widgets/custom_recent_existed_searched.dart';
 
-class CustomRecentUI extends StatelessWidget {
+class CustomRecentUI extends StatefulWidget {
   const CustomRecentUI({
     super.key,
   });
 
   @override
+  State<CustomRecentUI> createState() => _CustomRecentUIState();
+}
+
+class _CustomRecentUIState extends State<CustomRecentUI> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
-      slivers: [
-        const SliverToBoxAdapter(
-          child: SearchTopSection(),
-        ),
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Recent',
-                    style: AppStyles.semiBoldPoppins28.copyWith(
-                      fontSize: 18,
-                    ),
-                  ),
-                  const Spacer(),
-                  InkWell(
-                    borderRadius: BorderRadius.circular(14),
-                    splashColor: AppColors.primaryColor.withOpacity(
-                      0.2,
-                    ),
-                    onTap: () {
-                      // toolTip
-                      showConfirmationDialog(context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 2,
-                      ),
-                      child: Text(
-                        'Clear All',
-                        style: AppStyles.semiBoldPoppins28.copyWith(
-                          fontSize: 18,
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Divider(
-                height: 34,
-                color: Colors.grey.shade300,
-                thickness: 1,
-              ),
-            ],
-          ),
-        ),
-        SliverList.builder(
-            itemCount: 24,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(
-                  bottom: (index != 23) ? 10.0 : 104,
-                ),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(
-                    18,
-                  ),
-                  onTap: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.only(
-                      top: 2,
-                      bottom: 2,
-                      left: 12.0,
-                    ),
-                    child: CustomRecentItem(
-                      text: 'Blue Jack',
-                    ),
-                  ),
-                ),
-              );
-            })
-      ],
+    return BlocBuilder<FetchSearchBoxCubit, FetchSearchBoxState>(
+      builder: (context, state) {
+        if (state is FetchSearchBoxSuccess) {
+          return (state.searchedProductsList.isNotEmpty)
+              ? CustomRecentExistedSearched(
+                  searches: state.searchedProductsList,
+                )
+              : const CustomRecentEmptySearched(
+                  text: 'No searches yet',
+                );
+        } else if (state is FetchSearchBoxFailure) {
+          return CustomRecentEmptySearched(
+            text: state.errorMessege,
+          );
+        } else {
+          return const SizedBox();
+        }
+      },
     );
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shop_mate/core/manager/delete_from_search_box_cubit/delete_from_search_cubit.dart';
+import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 
 class CustomRecentItem extends StatelessWidget {
@@ -18,7 +21,11 @@ class CustomRecentItem extends StatelessWidget {
         ),
         const Spacer(),
         IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            await BlocProvider.of<DeleteFromSearchCubit>(context)
+                .deleteFromSearch(searchedProduct: text);
+            BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
+          },
           icon: const Icon(
             FontAwesomeIcons.circleXmark,
             color: AppColors.primaryColor,
