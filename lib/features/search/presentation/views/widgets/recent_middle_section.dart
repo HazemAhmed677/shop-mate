@@ -14,13 +14,13 @@ class RecentMiddleSection extends StatefulWidget {
 }
 
 class _RecentMiddleSectionState extends State<RecentMiddleSection> {
-  bool isDisposed = false;
+  // bool isDisposed = false;
 
-  @override
-  void dispose() {
-    isDisposed = true; // Set the flag to true
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   isDisposed = true; // Set the flag to true
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _RecentMiddleSectionState extends State<RecentMiddleSection> {
                 0.2,
               ),
               onTap: () {
-                if (!isDisposed && mounted) {
+                if (mounted) {
                   showConfirmationDialog(context);
                 }
               },

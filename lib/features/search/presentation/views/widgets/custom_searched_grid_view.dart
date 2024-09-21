@@ -25,19 +25,8 @@ class CustomSearchedGridView extends StatelessWidget {
         index,
         animation,
       ) {
-        return InkWell(
-          borderRadius: BorderRadius.circular(
-            12,
-          ),
-          onTap: () {
-            context.push(
-              AppRouters.productDetails,
-              extra: productsModel.products![index],
-            );
-          },
-          child: GridViewItem(
-            product: productsModel.products![index],
-          ),
+        return GridViewItem(
+          product: productsModel.products![index],
         );
       },
     );

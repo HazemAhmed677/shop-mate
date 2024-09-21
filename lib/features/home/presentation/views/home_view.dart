@@ -7,7 +7,6 @@ import 'package:shop_mate/features/home/presentation/views/widgets/custom_home.d
 import 'package:shop_mate/features/home/presentation/views/widgets/custom_nav_bar.dart';
 import 'package:shop_mate/features/profile/presentation/views/profile_view.dart';
 import 'package:shop_mate/features/search/presentation/views/search_view.dart';
-import '../../../../core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -5,15 +5,21 @@ import 'package:shop_mate/core/manager/delete_from_search_box_cubit/delete_from_
 import 'package:shop_mate/core/manager/fetch_search_box_cubit.dart/fetch_search_box_cubit.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 
-class CustomRecentItem extends StatelessWidget {
+class CustomRecentItem extends StatefulWidget {
   const CustomRecentItem({super.key, required this.text});
   final String text;
+
+  @override
+  State<CustomRecentItem> createState() => _CustomRecentItemState();
+}
+
+class _CustomRecentItemState extends State<CustomRecentItem> {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Text(
-          text,
+          widget.text,
           style: const TextStyle(
             color: Colors.grey,
             fontSize: 18,
@@ -23,8 +29,12 @@ class CustomRecentItem extends StatelessWidget {
         IconButton(
           onPressed: () async {
             await BlocProvider.of<DeleteFromSearchCubit>(context)
-                .deleteFromSearch(searchedProduct: text);
-            BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
+                .deleteFromSearch(searchedProduct: widget.text);
+            if (mounted) {
+              setState(() {
+                BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
+              });
+            }
           },
           icon: const Icon(
             FontAwesomeIcons.circleXmark,

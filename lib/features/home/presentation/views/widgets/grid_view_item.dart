@@ -81,21 +81,31 @@ class _GridViewItemState extends State<GridViewItem> {
                         await BlocProvider.of<AddToFavoriteCubit>(context)
                             .addProduct(productModle: widget.product);
 
-                        BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
-                            .fetchAllProduct();
+                        if (mounted) {
+                          setState(() {
+                            BlocProvider.of<FetchAllFavoriteProductsCubit>(
+                                    context)
+                                .fetchAllProduct();
+                          });
+                        }
                       } else {
                         await BlocProvider.of<DeleteFromFavoriteCubit>(context)
                             .deleteProduct(productModel: widget.product);
 
-                        BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
-                            .fetchAllProduct();
+                        if (mounted) {
+                          setState(() {
+                            BlocProvider.of<FetchAllFavoriteProductsCubit>(
+                                    context)
+                                .fetchAllProduct();
+                          });
+                        }
                       }
                     } catch (e) {
                       //
                     }
-                    setState(
-                      () {},
-                    );
+                    // setState(
+                    //   () {},
+                    // );
                   },
                   icon: Icon(
                     (product == null) ? IconlyLight.heart : IconlyBold.heart,

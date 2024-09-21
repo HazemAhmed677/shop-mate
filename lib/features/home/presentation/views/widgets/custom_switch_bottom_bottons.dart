@@ -42,9 +42,12 @@ class _CustomSwitchBottomBottonsState extends State<CustomSwitchBottomBottons> {
                 try {
                   await BlocProvider.of<DeleteFromCartCubit>(context)
                       .deleteFromCart(productModel: widget.product);
-                  BlocProvider.of<FetchCartProductsCubit>(context)
-                      .fetchCartProducts();
-                  print('x98hiu');
+                  if (mounted) {
+                    setState(() {
+                      BlocProvider.of<FetchCartProductsCubit>(context)
+                          .fetchCartProducts();
+                    });
+                  }
                 } catch (e) {
                   //
                 }
@@ -59,9 +62,12 @@ class _CustomSwitchBottomBottonsState extends State<CustomSwitchBottomBottons> {
                   await BlocProvider.of<AddToCartCubit>(context)
                       .addToCart(productModle: widget.product);
 
-                  BlocProvider.of<FetchCartProductsCubit>(context)
-                      .fetchCartProducts();
-                  print('delete');
+                  if (mounted) {
+                    setState(() {
+                      BlocProvider.of<FetchCartProductsCubit>(context)
+                          .fetchCartProducts();
+                    });
+                  }
                 } catch (e) {
                   //
                 }

@@ -119,7 +119,9 @@ class _LogoWithNameState extends State<LogoWithName>
     Future.delayed(
       const Duration(milliseconds: 1800),
       () {
-        GoRouter.of(context).go(AppRouters.welcome);
+        if (mounted) {
+          GoRouter.of(context).go(AppRouters.welcome);
+        }
       },
     );
   }
