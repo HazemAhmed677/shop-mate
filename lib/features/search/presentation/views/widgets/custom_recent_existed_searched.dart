@@ -24,35 +24,36 @@ class CustomRecentExistedSearched extends StatelessWidget {
           child: RecentMiddleSection(),
         ),
         SliverList.builder(
-            itemCount: searches.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(
-                  bottom: (index != 23) ? 10.0 : 104,
+          itemCount: searches.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: (index != 23) ? 10.0 : 104,
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(
+                  18,
                 ),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(
-                    18,
+                onTap: () async {
+                  await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                      .searchProducts(
+                    category: searches[index],
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 2,
+                    bottom: 2,
+                    left: 12.0,
                   ),
-                  onTap: () async {
-                    await BlocProvider.of<FetchSearchedProductsCubit>(context)
-                        .searchProducts(
-                      category: searches[index],
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 2,
-                      bottom: 2,
-                      left: 12.0,
-                    ),
-                    child: CustomRecentItem(
-                      text: searches[index],
-                    ),
+                  child: CustomRecentItem(
+                    text: searches[index],
                   ),
                 ),
-              );
-            })
+              ),
+            );
+          },
+        ),
       ],
     );
   }

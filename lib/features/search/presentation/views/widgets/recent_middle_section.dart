@@ -14,19 +14,6 @@ class RecentMiddleSection extends StatefulWidget {
 }
 
 class _RecentMiddleSectionState extends State<RecentMiddleSection> {
-  // bool isDisposed = false;
-
-  // @override
-  // void dispose() {
-  //   isDisposed = true; // Set the flag to true
-  //   super.dispose();
-  // }
-  @override
-  // void didChangeDependencies() {
-  //   super.didChangeDependencies();
-  //   dependOnInheritedWidgetOfExactType();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "456143632018",
+    "project_id": "shop-mate-app",
+    "storage_bucket": "shop-mate-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456143632018:android:09716acc827f3c78fe184b",
+        "android_client_info": {
+          "package_name": "com.example.shop_mate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456143632018-cnbjom363lbha3j6rcc83qjgukp64f5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfjc0O7d6MXJkIC_M_7EE7k4sPJlvXuzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456143632018-cnbjom363lbha3j6rcc83qjgukp64f5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
