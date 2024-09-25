@@ -24,11 +24,15 @@ class NameAndEmailPart extends StatelessWidget {
               return null;
             }
           },
+          onChanged: (String) {},
         ),
         const SizedBox(
           height: 14,
         ),
-        const EmailAndPasswordPart(),
+        EmailAndPasswordPart(
+          onChanged1: (String) {},
+          onChanged2: (String) {},
+        ),
       ],
     );
   }

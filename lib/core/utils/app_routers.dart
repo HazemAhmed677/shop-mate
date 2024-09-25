@@ -1,3 +1,4 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/widgets/custom_fade_transition.dart';
 import 'package:shop_mate/core/widgets/custom_slider_transition.dart';
@@ -10,6 +11,7 @@ import 'package:shop_mate/features/home/presentation/views/product_details_view.
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
+import '../../features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 abstract class AppRouters {
   static const String splash = '/';
@@ -54,7 +56,10 @@ abstract class AppRouters {
         path: signUp,
         pageBuilder: (context, state) => CustomFadeTransition(
           key: state.pageKey,
-          child: const SignUpView(),
+          child: BlocProvider(
+            create: (context) => SignUpCubit(),
+            child: const SignUpView(),
+          ),
           duration: 400,
         ),
       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/widgets/custom_loading_bar.dart';
+import 'package:shop_mate/core/widgets/show_snack_bar.dart';
+import 'package:shop_mate/features/authentication/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/dont_have_account.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/email_and_password_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
@@ -19,6 +23,8 @@ class SignInViewBody extends StatefulWidget {
 class _SignInViewBodyState extends State<SignInViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,25 +53,55 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       const SizedBox(
                         height: 52,
                       ),
-                      const EmailAndPasswordPart(),
+                      EmailAndPasswordPart(
+                        onChanged1: (value) {
+                          email = value;
+                        },
+                        onChanged2: (value) {
+                          password = value;
+                        },
+                      ),
                       const SizedBox(
                         height: 22,
                       ),
-                      CustomActionButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            formKey.currentState!.save();
-                            autovalidateMode = AutovalidateMode.disabled;
-                            GoRouter.of(context).go(AppRouters.home);
+                      BlocConsumer<SignInCubit, SignInState>(
+                        builder: (context, state) {
+                          if (state is SignInLoading) {
+                            return const CustomLoadingBar();
+                          } else if (state is SignInInitial) {
+                            return CustomActionButton(
+                              onPressed: () async {
+                                if (formKey.currentState!.validate()) {
+                                  formKey.currentState!.save();
+                                  autovalidateMode = AutovalidateMode.disabled;
+                                  print('email: $email, password: $password');
+                                  await BlocProvider.of<SignInCubit>(context)
+                                      .userSignIn(
+                                          email: email, password: password);
+                                } else {
+                                  autovalidateMode = AutovalidateMode.always;
+                                }
+                                setState(() {});
+                              },
+                              text: 'Sign In',
+                            );
                           } else {
-                            autovalidateMode = AutovalidateMode.always;
+                            return const SizedBox();
                           }
-                          setState(() {});
                         },
-                        text: 'Sign In',
+                        listener: (BuildContext context, SignInState state) {
+                          if (state is SignInSuccess) {
+                            showSnackBar(context, 'Signed in successfully');
+                            GoRouter.of(context).go(AppRouters.home);
+                          } else if (state is SignInFailure) {
+                            showSnackBar(context, state.errorMsg);
+                          }
+                        },
                       ),
                       const Expanded(
-                        child: SizedBox(),
+                        child: SizedBox(
+                          height: 32,
+                        ),
                       ),
                       const RowOfDividers(
                         text: 'Or sign in with',

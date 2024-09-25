@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 part 'sign_up_states.dart';
 
-class RegisterCubit extends Cubit<SignUpState> {
-  RegisterCubit() : super(SignUpInitial());
+class SignUpCubit extends Cubit<SignUpState> {
+  SignUpCubit() : super(SignUpInitial());
 
   Future<void> userRegister(
       {required String email, required String password}) async {

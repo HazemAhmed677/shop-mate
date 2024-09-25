@@ -5,8 +5,10 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/wor
 import '../../../../../core/utils/app_colors.dart';
 
 class EmailAndPasswordPart extends StatefulWidget {
-  const EmailAndPasswordPart({super.key});
-
+  const EmailAndPasswordPart(
+      {super.key, required this.onChanged1, required this.onChanged2});
+  final void Function(String) onChanged1;
+  final void Function(String) onChanged2;
   @override
   State<EmailAndPasswordPart> createState() => _EmailAndPasswordPartState();
 }
@@ -32,6 +34,7 @@ class _EmailAndPasswordPartState extends State<EmailAndPasswordPart> {
               return null;
             }
           },
+          onChanged: widget.onChanged1,
         ),
         const SizedBox(
           height: 14,
@@ -67,6 +70,7 @@ class _EmailAndPasswordPartState extends State<EmailAndPasswordPart> {
                   ),
           ),
           obscure: !flag,
+          onChanged: widget.onChanged2,
         ),
       ],
     );
