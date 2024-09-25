@@ -15,6 +15,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         email: email,
         password: password,
       );
+      print('email = $email, password = $password');
       emit(SignUpSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -22,9 +23,9 @@ class SignUpCubit extends Cubit<SignUpState> {
       } else if (e.code == 'email-already-in-use') {
         emit(SignUpFaliure(
             errorMsg: 'The account already exists for that email'));
-      } else if (e.code == 'badly formatted') {
+      } else {
         emit(
-          SignUpFaliure(errorMsg: 'Email is invalid.'),
+          SignUpFaliure(errorMsg: 'Email is not valid!.'),
         );
       }
     } catch (e) {

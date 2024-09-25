@@ -5,8 +5,14 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/ema
 import 'word_of_textfield.dart';
 
 class NameAndEmailPart extends StatelessWidget {
-  const NameAndEmailPart({super.key});
-
+  const NameAndEmailPart(
+      {super.key,
+      required this.onChanged1,
+      required this.onChanged2,
+      required this.onChanged3});
+  final void Function(String) onChanged1;
+  final void Function(String) onChanged2;
+  final void Function(String) onChanged3;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,14 +30,14 @@ class NameAndEmailPart extends StatelessWidget {
               return null;
             }
           },
-          onChanged: (String) {},
+          onChanged: onChanged1,
         ),
         const SizedBox(
           height: 14,
         ),
         EmailAndPasswordPart(
-          onChanged1: (String) {},
-          onChanged2: (String) {},
+          onChanged1: onChanged2,
+          onChanged2: onChanged3,
         ),
       ],
     );

@@ -23,8 +23,7 @@ class SignInViewBody extends StatefulWidget {
 class _SignInViewBodyState extends State<SignInViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String email = '';
-  String password = '';
+  String email = '', password = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,30 +64,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                         height: 22,
                       ),
                       BlocConsumer<SignInCubit, SignInState>(
-                        builder: (context, state) {
-                          if (state is SignInLoading) {
-                            return const CustomLoadingBar();
-                          } else if (state is SignInInitial) {
-                            return CustomActionButton(
-                              onPressed: () async {
-                                if (formKey.currentState!.validate()) {
-                                  formKey.currentState!.save();
-                                  autovalidateMode = AutovalidateMode.disabled;
-                                  print('email: $email, password: $password');
-                                  await BlocProvider.of<SignInCubit>(context)
-                                      .userSignIn(
-                                          email: email, password: password);
-                                } else {
-                                  autovalidateMode = AutovalidateMode.always;
-                                }
-                                setState(() {});
-                              },
-                              text: 'Sign In',
-                            );
-                          } else {
-                            return const SizedBox();
-                          }
-                        },
                         listener: (BuildContext context, SignInState state) {
                           if (state is SignInSuccess) {
                             showSnackBar(context, 'Signed in successfully');
@@ -96,6 +71,27 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           } else if (state is SignInFailure) {
                             showSnackBar(context, state.errorMsg);
                           }
+                        },
+                        builder: (context, state) {
+                          if (state is SignInLoading) {
+                            return const CustomLoadingBar();
+                          }
+                          return CustomActionButton(
+                            onPressed: () async {
+                              if (formKey.currentState!.validate()) {
+                                formKey.currentState!.save();
+                                autovalidateMode = AutovalidateMode.disabled;
+
+                                await BlocProvider.of<SignInCubit>(context)
+                                    .userSignIn(
+                                        email: email, password: password);
+                              } else {
+                                autovalidateMode = AutovalidateMode.always;
+                              }
+                              setState(() {});
+                            },
+                            text: 'Sign In',
+                          );
                         },
                       ),
                       const Expanded(

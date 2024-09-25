@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/widgets/custom_loading_bar.dart';
+import 'package:shop_mate/features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/name_and_email_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
@@ -8,6 +11,7 @@ import 'package:shop_mate/features/onboarding/presentation/views/widgets/already
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_action_button.dart';
+import '../../../../../core/widgets/show_snack_bar.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
@@ -19,6 +23,7 @@ class SignUpViewBody extends StatefulWidget {
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String email = '', password = '', name = '';
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,22 +59,49 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       const SizedBox(
                         height: 52,
                       ),
-                      const NameAndEmailPart(),
+                      NameAndEmailPart(
+                        onChanged1: (value) {
+                          name = value;
+                        },
+                        onChanged2: (value) {
+                          email = value;
+                        },
+                        onChanged3: (value) {
+                          password = value;
+                        },
+                      ),
                       const SizedBox(
                         height: 22,
                       ),
-                      CustomActionButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            formKey.currentState!.save();
-                            autovalidateMode = AutovalidateMode.disabled;
+                      BlocConsumer<SignUpCubit, SignUpState>(
+                        listener: (context, state) {
+                          if (state is SignUpSuccess) {
                             GoRouter.of(context).go(AppRouters.home);
-                          } else {
-                            autovalidateMode = AutovalidateMode.always;
+                            showSnackBar(context, 'Signed in successfully');
+                          } else if (state is SignUpFaliure) {
+                            showSnackBar(context, state.errorMsg);
                           }
-                          setState(() {});
                         },
-                        text: 'Sign Up',
+                        builder: (context, state) {
+                          if (state is SignUpLoading) {
+                            return const CustomLoadingBar();
+                          }
+                          return CustomActionButton(
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                formKey.currentState!.save();
+                                autovalidateMode = AutovalidateMode.disabled;
+                                BlocProvider.of<SignUpCubit>(context)
+                                    .userRegister(
+                                        email: email, password: password);
+                              } else {
+                                autovalidateMode = AutovalidateMode.always;
+                              }
+                              setState(() {});
+                            },
+                            text: 'Sign Up',
+                          );
+                        },
                       ),
                       const Expanded(
                         child: SizedBox(),

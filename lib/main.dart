@@ -22,6 +22,7 @@ import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
 import 'package:shop_mate/core/manager/add_to_favorites_cubit/add_product_cubit.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
 import 'package:shop_mate/firebase_options.dart';
+import 'features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 import 'features/home/data/repo/home_repo_impl.dart';
 import 'core/manager/delete_from_favorites_cubit/delete_product_cubit.dart';
 import 'core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
@@ -102,6 +103,9 @@ class ShopMateApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SignInCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SignUpCubit(),
         ),
       ],
       child: MaterialApp.router(

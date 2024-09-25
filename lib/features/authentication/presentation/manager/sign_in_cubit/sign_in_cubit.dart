@@ -19,13 +19,12 @@ class SignInCubit extends Cubit<SignInState> {
         SignInSuccess(),
       );
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        emit(SignInFailure(errorMsg: 'No user found for that email'));
-      } else if (e.code == 'wrong-password') {
+      if (e.code == 'wrong-password') {
         emit(SignInFailure(errorMsg: 'Wrong password'));
+      } else {
+        emit(SignInFailure(errorMsg: 'No user found for that email'));
       }
     } catch (e) {
-      print(e.toString());
       emit(
         SignInFailure(
           errorMsg: e.toString(),
