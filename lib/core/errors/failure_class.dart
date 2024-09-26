@@ -36,7 +36,7 @@ class FailureService {
   }) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return FailureService(
-        "Not found",
+        "No founds",
       );
     } else if (statusCode == 404) {
       return FailureService('Your request not found');

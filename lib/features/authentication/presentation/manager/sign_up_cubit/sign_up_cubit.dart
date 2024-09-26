@@ -15,7 +15,6 @@ class SignUpCubit extends Cubit<SignUpState> {
         email: email,
         password: password,
       );
-      print('email = $email, password = $password');
       emit(SignUpSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

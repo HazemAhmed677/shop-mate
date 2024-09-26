@@ -9,7 +9,6 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/ema
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
-
 import '../../../../../core/utils/app_routers.dart';
 import '../../../../../core/widgets/custom_action_button.dart';
 
@@ -66,10 +65,13 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       BlocConsumer<SignInCubit, SignInState>(
                         listener: (BuildContext context, SignInState state) {
                           if (state is SignInSuccess) {
-                            showSnackBar(context, 'Signed in successfully');
+                            showSnackBar(
+                                context: context,
+                                e: 'Signed in successfully',
+                                flag: true);
                             GoRouter.of(context).go(AppRouters.home);
                           } else if (state is SignInFailure) {
-                            showSnackBar(context, state.errorMsg);
+                            showSnackBar(context: context, e: state.errorMsg);
                           }
                         },
                         builder: (context, state) {
@@ -81,7 +83,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();
                                 autovalidateMode = AutovalidateMode.disabled;
-
                                 await BlocProvider.of<SignInCubit>(context)
                                     .userSignIn(
                                         email: email, password: password);

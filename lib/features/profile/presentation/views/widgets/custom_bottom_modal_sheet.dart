@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/features/profile/presentation/views/widgets/custom_logout_button.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_styles.dart';
+import '../../../../../core/widgets/show_snack_bar.dart';
 
 class CustomBottomModalSheet extends StatelessWidget {
   const CustomBottomModalSheet({
@@ -71,8 +74,21 @@ class CustomBottomModalSheet extends StatelessWidget {
                 width: 20,
               ),
               CustomLogOutButton(
-                onPressed: () {
-                  // sign out here
+                onPressed: () async {
+                  try {
+                    await FirebaseAuth.instance.signOut();
+                    showSnackBar(
+                      context: context,
+                      e: 'You have been logged out',
+                      flag: true,
+                    );
+                    context.pop();
+                    context.go(AppRouters.streaming);
+                  } catch (e) {
+                    showSnackBar(
+                        context: context, e: 'Oops, there something wrong');
+                    context.pop();
+                  }
                 },
                 text: 'Yes, Logout',
                 edgeColor: AppColors.primaryColor,

@@ -77,9 +77,15 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         listener: (context, state) {
                           if (state is SignUpSuccess) {
                             GoRouter.of(context).go(AppRouters.home);
-                            showSnackBar(context, 'Signed in successfully');
+                            showSnackBar(
+                                context: context,
+                                e: 'Signed up successfully',
+                                flag: true);
                           } else if (state is SignUpFaliure) {
-                            showSnackBar(context, state.errorMsg);
+                            showSnackBar(
+                              context: context,
+                              e: state.errorMsg,
+                            );
                           }
                         },
                         builder: (context, state) {

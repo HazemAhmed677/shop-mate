@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
-void showSnackBar(BuildContext context, String e) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      duration: const Duration(seconds: 1),
-      backgroundColor: Colors.black,
-      shape: const BeveledRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(8),
-          topRight: Radius.circular(8),
-        ),
-      ),
-      content: Text(
-        e,
-        style: const TextStyle(color: Colors.white),
-      ),
-    ),
-  );
+void showSnackBar(
+    {required BuildContext context, required String e, bool flag = false}) {
+  flag
+      ? showTopSnackBar(
+          Overlay.of(context),
+          CustomSnackBar.success(
+            message: e,
+          ),
+        )
+      : showTopSnackBar(
+          Overlay.of(context),
+          CustomSnackBar.error(
+            message: e,
+          ),
+        );
 }

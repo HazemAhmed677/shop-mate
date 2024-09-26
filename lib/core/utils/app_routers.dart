@@ -9,24 +9,24 @@ import 'package:shop_mate/core/models/products_model/product_model.dart';
 import 'package:shop_mate/features/home/presentation/views/home_view.dart';
 import 'package:shop_mate/features/home/presentation/views/product_details_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:shop_mate/features/onboarding/presentation/views/streaming_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
-import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
 import '../../features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 abstract class AppRouters {
-  static const String splash = '/';
-  static const String welcome = '/welcome';
-  static const String home = '/triggerSwitch';
-  static const String signIn = '/signIn';
-  static const String signUp = '/signUp';
-  static const String onBoarding = '/onBoarding';
-  static const String productDetails = '/productDetails';
+  static const streaming = '/';
+  static const welcome = '/welcome';
+  static const home = '/triggerSwitch';
+  static const signIn = '/signIn';
+  static const signUp = '/signUp';
+  static const onBoarding = '/onBoarding';
+  static const productDetails = '/productDetails';
 
   static final GoRouter goRouter = GoRouter(
     routes: [
       GoRoute(
-        path: splash,
-        builder: (context, state) => const SplashView(),
+        path: streaming,
+        builder: (context, state) => const StreamingView(),
       ),
       GoRoute(
         path: welcome,

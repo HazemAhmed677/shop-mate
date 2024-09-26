@@ -13,22 +13,25 @@ class ProfileItemsListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (index == 0) {
-            return const ProfileItem(
+            return ProfileItem(
               leadingIcon: Icons.person,
               title: 'Your Profile',
               bottomDivider: true,
+              onTap: () {},
             );
           } else if (index == 1) {
-            return const ProfileItem(
+            return ProfileItem(
               leadingIcon: FontAwesomeIcons.creditCard,
               title: 'Payment Methods',
               bottomDivider: true,
+              onTap: () {},
             );
           } else if (index == 2) {
-            return const ProfileItem(
+            return ProfileItem(
               leadingIcon: FontAwesomeIcons.gear,
               title: 'Settings',
               bottomDivider: true,
+              onTap: () {},
             );
           } else if (index == 3) {
             return const ProfileItem(
@@ -37,10 +40,11 @@ class ProfileItemsListView extends StatelessWidget {
               bottomDivider: true,
             );
           } else if (index == 4) {
-            return const ProfileItem(
+            return ProfileItem(
               leadingIcon: FontAwesomeIcons.lock,
               title: 'Privacy Policy',
               bottomDivider: true,
+              onTap: () {},
             );
           } else if (index == 5) {
             return ProfileItem(
@@ -54,7 +58,7 @@ class ProfileItemsListView extends StatelessWidget {
                   sheetAnimationStyle: AnimationStyle(
                     curve: Curves.easeIn,
                     duration: const Duration(
-                      milliseconds: 350,
+                      milliseconds: 250,
                     ),
                   ),
                   shape: const RoundedRectangleBorder(

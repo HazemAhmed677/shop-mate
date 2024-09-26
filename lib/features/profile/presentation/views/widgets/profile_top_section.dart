@@ -24,7 +24,7 @@ class ProfileTopSection extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 28,
+          height: 22,
         ),
         const Center(
           child: CircleAvatar(

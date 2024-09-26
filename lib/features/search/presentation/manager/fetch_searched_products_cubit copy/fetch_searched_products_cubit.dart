@@ -16,7 +16,7 @@ class FetchSearchedProductsCubit extends Cubit<FetchSearchedProductsState> {
     );
     response.fold(
       (failure) {
-        emit(FetchSaerchedProductsFailure(failure.errorMsg));
+        emit(FetchSaerchedProductsFailure('${failure.errorMsg} for $category'));
       },
       (productsModel) {
         emit(FetchSaerchedProductsSuccess(productsModel, category));

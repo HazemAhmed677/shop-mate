@@ -22,17 +22,16 @@ class _LogoWithNameState extends State<LogoWithName>
   @override
   void initState() {
     super.initState();
-    // For single resposiblity principle
     initialzeAnimationTools();
 
-    navigateToObBoarding();
+    navigateToWelcome();
   }
 
   @override
   void dispose() {
-    super.dispose();
     animationController1.dispose();
     animationController2.dispose();
+    super.dispose();
   }
 
   @override
@@ -115,7 +114,7 @@ class _LogoWithNameState extends State<LogoWithName>
     animationController2.fling();
   }
 
-  void navigateToObBoarding() {
+  void navigateToWelcome() {
     Future.delayed(
       const Duration(milliseconds: 1800),
       () {
