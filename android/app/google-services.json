@@ -29,6 +29,13 @@
             {
               "client_id": "456143632018-cnbjom363lbha3j6rcc83qjgukp64f5b.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "456143632018-4fvd9ihq00at57senm9pq6lvk4udqtjs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shopMate"
+              }
             }
           ]
         }

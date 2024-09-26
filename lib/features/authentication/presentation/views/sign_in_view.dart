@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_in_view_body.dart';
 
 class SignInView extends StatelessWidget {
@@ -7,9 +6,6 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: AppColors.white,
-      body: SignInViewBody(),
-    );
+    return const SignInViewBody();
   }
 }
