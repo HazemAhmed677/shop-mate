@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/widgets/custom_loading_bar.dart';
 import 'package:shop_mate/core/widgets/show_snack_bar.dart';
-import 'package:shop_mate/features/authentication/presentation/manager/sign_in_cubit/sign_in_cubit.dart';
+import 'package:shop_mate/features/authentication/presentation/manager/sign_in_with_email_cubit/sign_in_with_email_cubit.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/dont_have_account.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/email_and_password_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
@@ -62,20 +62,21 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                       const SizedBox(
                         height: 22,
                       ),
-                      BlocConsumer<SignInCubit, SignInState>(
-                        listener: (BuildContext context, SignInState state) {
-                          if (state is SignInSuccess) {
+                      BlocConsumer<SignInWithEmailCubit, SignInWithEmailState>(
+                        listener:
+                            (BuildContext context, SignInWithEmailState state) {
+                          if (state is SignInWithEmailSuccess) {
                             showSnackBar(
                                 context: context,
                                 e: 'Signed in successfully',
                                 flag: true);
                             GoRouter.of(context).go(AppRouters.home);
-                          } else if (state is SignInFailure) {
+                          } else if (state is SignInWithEmailFailure) {
                             showSnackBar(context: context, e: state.errorMsg);
                           }
                         },
                         builder: (context, state) {
-                          if (state is SignInLoading) {
+                          if (state is SignInWithEmailLoading) {
                             return const CustomLoadingBar();
                           }
                           return CustomActionButton(
@@ -83,7 +84,8 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();
                                 autovalidateMode = AutovalidateMode.disabled;
-                                await BlocProvider.of<SignInCubit>(context)
+                                await BlocProvider.of<SignInWithEmailCubit>(
+                                        context)
                                     .userSignIn(
                                         email: email, password: password);
                               } else {

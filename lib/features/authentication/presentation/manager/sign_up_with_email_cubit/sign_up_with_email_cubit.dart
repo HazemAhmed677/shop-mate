@@ -2,33 +2,34 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-part 'sign_up_states.dart';
+part 'sign_up_with_email_states.dart';
 
-class SignUpCubit extends Cubit<SignUpState> {
-  SignUpCubit() : super(SignUpInitial());
+class SignUpWithEmailCubit extends Cubit<SignUpWithEmailState> {
+  SignUpWithEmailCubit() : super(SignUpWithEmailInitial());
 
   Future<void> userRegister(
       {required String email, required String password}) async {
     try {
-      emit(SignUpLoading());
+      emit(SignUpWithEmailLoading());
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      emit(SignUpSuccess());
+      emit(SignUpWithEmailSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        emit(SignUpFaliure(errorMsg: 'The password provided is too weak.'));
+        emit(SignUpWithEmailFaliure(
+            errorMsg: 'The password provided is too weak.'));
       } else if (e.code == 'email-already-in-use') {
-        emit(SignUpFaliure(
+        emit(SignUpWithEmailFaliure(
             errorMsg: 'The account already exists for that email'));
       } else {
         emit(
-          SignUpFaliure(errorMsg: 'Email is not valid!.'),
+          SignUpWithEmailFaliure(errorMsg: 'Email is not valid!.'),
         );
       }
     } catch (e) {
-      emit(SignUpFaliure(errorMsg: 'somthing went wrong'));
+      emit(SignUpWithEmailFaliure(errorMsg: 'somthing went wrong'));
     }
   }
 }

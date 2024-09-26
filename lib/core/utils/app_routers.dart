@@ -11,7 +11,7 @@ import 'package:shop_mate/features/home/presentation/views/product_details_view.
 import 'package:shop_mate/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/streaming_view.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
-import '../../features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import '../../features/authentication/presentation/manager/sign_up_with_email_cubit/sign_up_with_email_cubit.dart';
 
 abstract class AppRouters {
   static const streaming = '/';
@@ -57,7 +57,7 @@ abstract class AppRouters {
         pageBuilder: (context, state) => CustomFadeTransition(
           key: state.pageKey,
           child: BlocProvider(
-            create: (context) => SignUpCubit(),
+            create: (context) => SignUpWithEmailCubit(),
             child: const SignUpView(),
           ),
           duration: 400,

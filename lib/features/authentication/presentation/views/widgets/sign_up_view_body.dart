@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/widgets/custom_loading_bar.dart';
-import 'package:shop_mate/features/authentication/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:shop_mate/features/authentication/presentation/manager/sign_up_with_email_cubit/sign_up_with_email_cubit.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/name_and_email_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
@@ -73,15 +73,15 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       const SizedBox(
                         height: 22,
                       ),
-                      BlocConsumer<SignUpCubit, SignUpState>(
+                      BlocConsumer<SignUpWithEmailCubit, SignUpWithEmailState>(
                         listener: (context, state) {
-                          if (state is SignUpSuccess) {
+                          if (state is SignUpWithEmailSuccess) {
                             GoRouter.of(context).go(AppRouters.home);
                             showSnackBar(
                                 context: context,
                                 e: 'Signed up successfully',
                                 flag: true);
-                          } else if (state is SignUpFaliure) {
+                          } else if (state is SignUpWithEmailFaliure) {
                             showSnackBar(
                               context: context,
                               e: state.errorMsg,
@@ -89,7 +89,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           }
                         },
                         builder: (context, state) {
-                          if (state is SignUpLoading) {
+                          if (state is SignUpWithEmailLoading) {
                             return const CustomLoadingBar();
                           }
                           return CustomActionButton(
@@ -97,7 +97,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();
                                 autovalidateMode = AutovalidateMode.disabled;
-                                BlocProvider.of<SignUpCubit>(context)
+                                BlocProvider.of<SignUpWithEmailCubit>(context)
                                     .userRegister(
                                         email: email, password: password);
                               } else {
