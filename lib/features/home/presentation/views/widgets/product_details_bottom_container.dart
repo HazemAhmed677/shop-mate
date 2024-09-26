@@ -43,7 +43,7 @@ class ProductDetailsBottomContainer extends StatelessWidget {
               children: [
                 Text(
                   'Total Price',
-                  style: AppStyles.semiBoldInter16.copyWith(
+                  style: AppStyles.semiBoldInter16(context).copyWith(
                     color: Colors.grey,
                     fontSize: 18,
                   ),
@@ -55,13 +55,13 @@ class ProductDetailsBottomContainer extends StatelessWidget {
                   children: [
                     Text(
                       r'$',
-                      style: AppStyles.semiBoldInter16.copyWith(
+                      style: AppStyles.semiBoldInter16(context).copyWith(
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       '${product.price}',
-                      style: AppStyles.semiBoldInter16.copyWith(
+                      style: AppStyles.semiBoldInter16(context).copyWith(
                         fontSize: 20,
                       ),
                     ),

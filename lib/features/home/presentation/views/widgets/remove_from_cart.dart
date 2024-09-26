@@ -36,7 +36,7 @@ class RemoveFromCart extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               'Remove from Cart',
-              style: AppStyles.regular24.copyWith(
+              style: AppStyles.regular24(context).copyWith(
                 color: Colors.black,
                 fontSize: 14,
               ),

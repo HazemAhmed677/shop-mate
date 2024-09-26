@@ -20,7 +20,7 @@ class CustomErrorWidget extends StatelessWidget {
               ),
               Text(
                 text,
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   fontSize: 16,
                   color: Colors.grey,
                 ),

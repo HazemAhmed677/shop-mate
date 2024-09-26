@@ -19,15 +19,15 @@ class SecondOnboarding extends StatelessWidget {
             children: [
               Text(
                 'Whishlist: ',
-                style: AppStyles.semiBoldPoppins28,
+                style: AppStyles.semiBoldPoppins28(context),
               ),
               Text(
                 'Where ',
-                style: AppStyles.semiBoldPoppins28,
+                style: AppStyles.semiBoldPoppins28(context),
               ),
               Text(
                 'Fashion',
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
@@ -38,11 +38,11 @@ class SecondOnboarding extends StatelessWidget {
             children: [
               Text(
                 'Dreams ',
-                style: AppStyles.semiBoldPoppins28,
+                style: AppStyles.semiBoldPoppins28(context),
               ),
               Text(
                 'Begin',
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),

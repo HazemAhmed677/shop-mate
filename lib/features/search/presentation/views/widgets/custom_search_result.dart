@@ -24,26 +24,26 @@ class CustomSearchResult extends StatelessWidget {
                 children: [
                   Text(
                     r'Result for "',
-                    style: AppStyles.semiBoldPoppins28.copyWith(
+                    style: AppStyles.semiBoldPoppins28(context).copyWith(
                       fontSize: 18,
                     ),
                   ),
                   Text(
                     searchedWord,
-                    style: AppStyles.semiBoldPoppins28.copyWith(
+                    style: AppStyles.semiBoldPoppins28(context).copyWith(
                       fontSize: 18,
                     ),
                   ),
                   Text(
                     r'"',
-                    style: AppStyles.semiBoldPoppins28.copyWith(
+                    style: AppStyles.semiBoldPoppins28(context).copyWith(
                       fontSize: 18,
                     ),
                   ),
                   const Spacer(),
                   Text(
                     '${productsModel.products?.length ?? 0} founds',
-                    style: AppStyles.semiBoldPoppins28.copyWith(
+                    style: AppStyles.semiBoldPoppins28(context).copyWith(
                       fontSize: 18,
                     ),
                   ),

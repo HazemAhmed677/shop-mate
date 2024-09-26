@@ -1,14 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
-import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/features/home/presentation/views/home_view.dart';
-import 'package:shop_mate/features/onboarding/presentation/views/welcome_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
-
-import '../../../../core/widgets/custom_zooming_transition.dart';
 import '../../../../core/widgets/show_snack_bar.dart';
 
 class StreamingView extends StatelessWidget {

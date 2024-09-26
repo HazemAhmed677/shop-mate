@@ -69,7 +69,7 @@ class MyCartItem extends StatelessWidget {
                           product.title ?? "",
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
-                          style: AppStyles.semiBoldPoppins28.copyWith(
+                          style: AppStyles.semiBoldPoppins28(context).copyWith(
                             fontSize: 16,
                           ),
                         ),
@@ -83,7 +83,8 @@ class MyCartItem extends StatelessWidget {
                               product.brand != null
                                   ? capitalizeFirstLetter(product.brand!)
                                   : "",
-                              style: AppStyles.semiBoldPoppins28.copyWith(
+                              style:
+                                  AppStyles.semiBoldPoppins28(context).copyWith(
                                 fontSize: 16,
                                 color: Colors.grey.shade400,
                                 fontWeight: FontWeight.bold,
@@ -99,7 +100,8 @@ class MyCartItem extends StatelessWidget {
                           children: [
                             Text(
                               r'$',
-                              style: AppStyles.semiBoldPoppins28.copyWith(
+                              style:
+                                  AppStyles.semiBoldPoppins28(context).copyWith(
                                 fontSize: 16,
                               ),
                             ),
@@ -107,7 +109,8 @@ class MyCartItem extends StatelessWidget {
                                 ? const SizedBox()
                                 : Text(
                                     product.price.toString(),
-                                    style: AppStyles.semiBoldPoppins28.copyWith(
+                                    style: AppStyles.semiBoldPoppins28(context)
+                                        .copyWith(
                                       fontSize: 16,
                                     ),
                                   ),

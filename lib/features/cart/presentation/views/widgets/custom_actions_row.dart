@@ -36,7 +36,7 @@ class _CustomActionsRowState extends State<CustomActionsRow> {
             fit: BoxFit.scaleDown,
             child: Text(
               amount.toString(),
-              style: AppStyles.regular24.copyWith(
+              style: AppStyles.regular24(context).copyWith(
                 fontSize: 14,
               ),
             ),

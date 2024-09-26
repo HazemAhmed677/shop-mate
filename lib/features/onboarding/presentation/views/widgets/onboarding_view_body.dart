@@ -61,7 +61,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     },
                     child: Text(
                       'Skip',
-                      style: AppStyles.regular24.copyWith(
+                      style: AppStyles.regular24(context).copyWith(
                         color: AppColors.primaryColor,
                         fontSize: 18,
                       ),

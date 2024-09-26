@@ -17,7 +17,7 @@ void showConfirmationDialog(BuildContext context) {
         ),
         title: Text(
           'Are you sure to clear all data?',
-          style: AppStyles.semiBoldPoppins28.copyWith(
+          style: AppStyles.semiBoldPoppins28(context).copyWith(
             fontSize: 16,
             color: AppColors.white,
           ),
@@ -32,7 +32,7 @@ void showConfirmationDialog(BuildContext context) {
             },
             child: Text(
               'Cancel',
-              style: AppStyles.semiBoldPoppins28.copyWith(
+              style: AppStyles.semiBoldPoppins28(context).copyWith(
                 fontSize: 15,
                 color: AppColors.white,
               ),
@@ -42,12 +42,14 @@ void showConfirmationDialog(BuildContext context) {
             style: TextButton.styleFrom(overlayColor: Colors.white),
             onPressed: () async {
               await BlocProvider.of<DeleteFromSearchCubit>(context).clearAll();
-              BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
-              Navigator.of(context).pop();
+              if (context.mounted) {
+                BlocProvider.of<FetchSearchBoxCubit>(context).fetchSearchBox();
+                Navigator.of(context).pop();
+              }
             },
             child: Text(
               'Confirm',
-              style: AppStyles.semiBoldPoppins28.copyWith(
+              style: AppStyles.semiBoldPoppins28(context).copyWith(
                 fontSize: 15,
                 color: Colors.red.shade300,
               ),

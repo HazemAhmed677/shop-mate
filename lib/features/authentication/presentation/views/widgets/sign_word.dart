@@ -18,14 +18,14 @@ class SignWord extends StatelessWidget {
         SizedBox(height: height),
         Text(
           title,
-          style: AppStyles.regular24,
+          style: AppStyles.regular24(context),
         ),
         const SizedBox(
           height: 12,
         ),
         Text(
           subTitle,
-          style: AppStyles.semiBoldPoppins28.copyWith(
+          style: AppStyles.semiBoldPoppins28(context).copyWith(
             fontSize: 14,
             color: Colors.grey,
           ),

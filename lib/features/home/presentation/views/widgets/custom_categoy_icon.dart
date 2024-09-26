@@ -20,7 +20,7 @@ class CustomCategoyIcon extends StatelessWidget {
         ),
         Text(
           text,
-          style: AppStyles.semiBoldPoppins28.copyWith(
+          style: AppStyles.semiBoldPoppins28(context).copyWith(
             fontSize: 15,
           ),
         )

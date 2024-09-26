@@ -30,7 +30,7 @@ class CustomActionButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: AppStyles.regular24.copyWith(
+        style: AppStyles.regular24(context).copyWith(
           fontSize: 18,
           color: AppColors.white,
         ),

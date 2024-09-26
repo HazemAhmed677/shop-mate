@@ -20,19 +20,19 @@ class FirstOnBoarding extends StatelessWidget {
             children: [
               Text(
                 'Seamless ',
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
               Text(
                 'Shopping',
-                style: AppStyles.semiBoldPoppins28,
+                style: AppStyles.semiBoldPoppins28(context),
               ),
             ],
           ),
           Text(
             'Experience',
-            style: AppStyles.semiBoldPoppins28,
+            style: AppStyles.semiBoldPoppins28(context),
           ),
         ],
       ),

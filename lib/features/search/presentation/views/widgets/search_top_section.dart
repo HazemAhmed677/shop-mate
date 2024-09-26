@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_mate/core/manager/add_to_search_box_cubit/add_to_search_cubit.dart';
 import 'package:shop_mate/features/search/presentation/manager/fetch_searched_products_cubit%20copy/fetch_searched_products_cubit.dart';
-
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/widgets/custom_search_text_feild.dart';
 
@@ -32,7 +31,7 @@ class _SearchTopSectionState extends State<SearchTopSection> {
           child: Center(
             child: Text(
               'Search',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 fontSize: 20,
               ),
             ),
@@ -68,8 +67,10 @@ class _SearchTopSectionState extends State<SearchTopSection> {
                   formKey.currentState!.save();
                   await BlocProvider.of<AddToSearchCubit>(context)
                       .addToSearch(searchedProduct: input);
-                  await BlocProvider.of<FetchSearchedProductsCubit>(context)
-                      .searchProducts(category: input);
+                  if (context.mounted) {
+                    await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                        .searchProducts(category: input);
+                  }
                 }
               },
               onPressedOnIcon: () async {
@@ -78,8 +79,10 @@ class _SearchTopSectionState extends State<SearchTopSection> {
 
                   await BlocProvider.of<AddToSearchCubit>(context)
                       .addToSearch(searchedProduct: input);
-                  await BlocProvider.of<FetchSearchedProductsCubit>(context)
-                      .searchProducts(category: input);
+                  if (context.mounted) {
+                    await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                        .searchProducts(category: input);
+                  }
                 }
               },
             ),

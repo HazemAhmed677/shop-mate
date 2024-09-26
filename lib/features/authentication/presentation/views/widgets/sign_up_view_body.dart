@@ -51,7 +51,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       ),
                       Text(
                         'with your social account.',
-                        style: AppStyles.semiBoldPoppins28.copyWith(
+                        style: AppStyles.semiBoldPoppins28(context).copyWith(
                           fontSize: 14,
                           color: Colors.grey,
                         ),

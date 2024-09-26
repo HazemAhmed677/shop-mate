@@ -34,7 +34,7 @@ class CustomLogOutButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             color: textColor,
             fontSize: 20,
           ),

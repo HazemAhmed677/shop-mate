@@ -26,7 +26,7 @@ class FavoriteViewBody extends StatelessWidget {
               child: Center(
                 child: Text(
                   'My Wishlist',
-                  style: AppStyles.semiBoldInter16.copyWith(
+                  style: AppStyles.semiBoldInter16(context).copyWith(
                     fontSize: 20,
                   ),
                 ),

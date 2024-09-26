@@ -20,7 +20,7 @@ class CustomRateWidget extends StatelessWidget {
         ),
         Text(
           '4.5',
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 14,
             color: Colors.grey,
           ),

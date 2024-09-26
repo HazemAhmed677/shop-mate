@@ -42,9 +42,11 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
             if (input.isNotEmpty) {
               await BlocProvider.of<AddToSearchCubit>(context)
                   .addToSearch(searchedProduct: input);
-              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
-              await BlocProvider.of<FetchSearchedProductsCubit>(context)
-                  .searchProducts(category: input);
+              if (context.mounted) {
+                BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+                await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                    .searchProducts(category: input);
+              }
             }
           },
           onChanged: (value) {
@@ -54,10 +56,12 @@ class _HomeViewHeaderSectionState extends State<HomeViewHeaderSection> {
             if (input.isNotEmpty) {
               await BlocProvider.of<AddToSearchCubit>(context)
                   .addToSearch(searchedProduct: input);
-              BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
+              if (context.mounted) {
+                BlocProvider.of<SwitchViewsCubit>(context).setIndex(3);
 
-              await BlocProvider.of<FetchSearchedProductsCubit>(context)
-                  .searchProducts(category: input);
+                await BlocProvider.of<FetchSearchedProductsCubit>(context)
+                    .searchProducts(category: input);
+              }
             }
           },
         ),

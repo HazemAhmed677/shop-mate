@@ -16,7 +16,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
           children: [
             Text(
               capitalizeFirstLetter(product.brand!),
-              style: AppStyles.regular24.copyWith(
+              style: AppStyles.regular24(context).copyWith(
                 color: Colors.grey,
                 fontSize: 18,
               ),
@@ -32,7 +32,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         ),
         Text(
           "${product.title}",
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 22,
           ),
         ),
@@ -41,7 +41,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         ),
         Text(
           "Product Details",
-          style: AppStyles.semiBoldInter16.copyWith(
+          style: AppStyles.semiBoldInter16(context).copyWith(
             fontSize: 20,
           ),
         ),
@@ -50,7 +50,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         ),
         Text(
           '${product.description}',
-          style: AppStyles.semiBoldInter16.copyWith(
+          style: AppStyles.semiBoldInter16(context).copyWith(
             fontSize: 16,
             color: Colors.grey,
           ),

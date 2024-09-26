@@ -14,7 +14,7 @@ class DontHaveAccount extends StatelessWidget {
       children: [
         Text(
           'Don\'t have an account? ',
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 15,
             color: Colors.grey.shade700,
           ),
@@ -29,7 +29,7 @@ class DontHaveAccount extends StatelessWidget {
             ),
             child: Text(
               'Sign Up',
-              style: AppStyles.regular24.copyWith(
+              style: AppStyles.regular24(context).copyWith(
                   fontSize: 15,
                   decoration: TextDecoration.underline,
                   decorationColor: AppColors.primaryColor,

@@ -17,7 +17,7 @@ class ProfileTopSection extends StatelessWidget {
           child: Center(
             child: Text(
               'Profile',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 fontSize: 20,
               ),
             ),
@@ -38,7 +38,7 @@ class ProfileTopSection extends StatelessWidget {
         Center(
           child: Text(
             'Hazem Ahmed',
-            style: AppStyles.regular24.copyWith(
+            style: AppStyles.regular24(context).copyWith(
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),

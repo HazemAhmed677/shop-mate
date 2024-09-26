@@ -13,7 +13,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
       children: [
         Text(
           'Already have an account? ',
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 15,
           ),
         ),
@@ -27,7 +27,7 @@ class AlreadyHaveAnAccount extends StatelessWidget {
             ),
             child: Text(
               'Sign In',
-              style: AppStyles.regular24.copyWith(
+              style: AppStyles.regular24(context).copyWith(
                   fontSize: 15,
                   decoration: TextDecoration.underline,
                   decorationColor: AppColors.primaryColor,

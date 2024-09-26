@@ -14,7 +14,7 @@ class FlashSaleRow extends StatelessWidget {
       children: [
         Text(
           'Flash Sale',
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 18,
           ),
         ),

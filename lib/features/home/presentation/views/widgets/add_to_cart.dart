@@ -30,7 +30,7 @@ class AddToCart extends StatelessWidget {
           ),
           Text(
             'Add to Cart',
-            style: AppStyles.regular24.copyWith(
+            style: AppStyles.regular24(context).copyWith(
               color: AppColors.white,
               fontSize: 16,
             ),

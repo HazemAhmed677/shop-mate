@@ -18,7 +18,7 @@ class LoremText extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 color: Colors.grey,
                 fontSize: 18,
               ),
@@ -28,7 +28,7 @@ class LoremText extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               'adipiscing elit, sed do eiusmod tempor incididunt',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 color: Colors.grey,
                 fontSize: 18,
               ),

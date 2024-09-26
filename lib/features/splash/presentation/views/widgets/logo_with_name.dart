@@ -48,7 +48,7 @@ class _LogoWithNameState extends State<LogoWithName>
               position: sliderAnimation,
               child: Text(
                 'S',
-                style: AppStyles.semiBold24.copyWith(
+                style: AppStyles.semiBold24(context).copyWith(
                   color: AppColors.white,
                   fontSize: 32,
                 ),
@@ -65,7 +65,7 @@ class _LogoWithNameState extends State<LogoWithName>
             opacity: fadeAnimation,
             child: Text(
               'ShopMate',
-              style: AppStyles.semiBold24.copyWith(
+              style: AppStyles.semiBold24(context).copyWith(
                 fontSize: 36,
               ),
             ),
@@ -77,7 +77,7 @@ class _LogoWithNameState extends State<LogoWithName>
             position: sliderAnimation,
             child: Text(
               '.',
-              style: AppStyles.semiBold24.copyWith(
+              style: AppStyles.semiBold24(context).copyWith(
                 fontSize: 36,
                 color: AppColors.primaryColor,
               ),

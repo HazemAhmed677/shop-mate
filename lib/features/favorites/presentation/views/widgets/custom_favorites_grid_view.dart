@@ -25,7 +25,7 @@ class CustomFavoritesGridView extends StatelessWidget {
                     child: Center(
                       child: Text(
                         'No products saved yet',
-                        style: AppStyles.semiBoldPoppins28.copyWith(
+                        style: AppStyles.semiBoldPoppins28(context).copyWith(
                           fontSize: 16,
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,

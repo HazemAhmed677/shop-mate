@@ -19,17 +19,17 @@ class ThirdOnboarding extends StatelessWidget {
             children: [
               Text(
                 'Swift ',
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
               Text(
                 'and ',
-                style: AppStyles.semiBoldPoppins28,
+                style: AppStyles.semiBoldPoppins28(context),
               ),
               Text(
                 'Reliable',
-                style: AppStyles.semiBoldPoppins28.copyWith(
+                style: AppStyles.semiBoldPoppins28(context).copyWith(
                   color: AppColors.primaryColor,
                 ),
               ),
@@ -37,7 +37,7 @@ class ThirdOnboarding extends StatelessWidget {
           ),
           Text(
             'Delivery',
-            style: AppStyles.semiBoldPoppins28,
+            style: AppStyles.semiBoldPoppins28(context),
           ),
         ],
       ),

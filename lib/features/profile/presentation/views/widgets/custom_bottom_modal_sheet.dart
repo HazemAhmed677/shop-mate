@@ -37,7 +37,7 @@ class CustomBottomModalSheet extends StatelessWidget {
           ),
           Text(
             'Logout',
-            style: AppStyles.semiBoldPoppins28.copyWith(
+            style: AppStyles.semiBoldPoppins28(context).copyWith(
               fontSize: 24,
               color: Colors.grey,
             ),
@@ -49,7 +49,7 @@ class CustomBottomModalSheet extends StatelessWidget {
           ),
           Text(
             'Are you sure you want to log out?',
-            style: AppStyles.semiBoldPoppins28.copyWith(
+            style: AppStyles.semiBoldPoppins28(context).copyWith(
               fontSize: 18,
               color: Colors.grey,
             ),
@@ -77,17 +77,21 @@ class CustomBottomModalSheet extends StatelessWidget {
                 onPressed: () async {
                   try {
                     await FirebaseAuth.instance.signOut();
-                    showSnackBar(
-                      context: context,
-                      e: 'You have been logged out',
-                      flag: true,
-                    );
-                    context.pop();
-                    context.go(AppRouters.streaming);
+                    if (context.mounted) {
+                      showSnackBar(
+                        context: context,
+                        e: 'You have been logged out',
+                        flag: true,
+                      );
+                      context.pop();
+                      context.go(AppRouters.streaming);
+                    }
                   } catch (e) {
-                    showSnackBar(
-                        context: context, e: 'Oops, there something wrong');
-                    context.pop();
+                    if (context.mounted) {
+                      showSnackBar(
+                          context: context, e: 'Oops, there something wrong');
+                      context.pop();
+                    }
                   }
                 },
                 text: 'Yes, Logout',

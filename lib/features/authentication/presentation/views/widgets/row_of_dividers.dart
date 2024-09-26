@@ -24,7 +24,7 @@ class RowOfDividers extends StatelessWidget {
           ),
           Text(
             text,
-            style: AppStyles.semiBoldInter16.copyWith(
+            style: AppStyles.semiBoldInter16(context).copyWith(
               color: Colors.grey,
             ),
           ),

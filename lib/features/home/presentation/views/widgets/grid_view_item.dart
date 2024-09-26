@@ -145,7 +145,7 @@ class _GridViewItemState extends State<GridViewItem> {
                       child: Text(
                         widget.product.title!,
                         overflow: TextOverflow.ellipsis,
-                        style: AppStyles.regular24.copyWith(
+                        style: AppStyles.regular24(context).copyWith(
                           fontSize: 14,
                         ),
                       ),
@@ -168,13 +168,13 @@ class _GridViewItemState extends State<GridViewItem> {
                   children: [
                     Text(
                       r"$",
-                      style: AppStyles.semiBoldPoppins28.copyWith(
+                      style: AppStyles.semiBoldPoppins28(context).copyWith(
                         fontSize: 12,
                       ),
                     ),
                     Text(
                       "${widget.product.price}",
-                      style: AppStyles.semiBoldPoppins28.copyWith(
+                      style: AppStyles.semiBoldPoppins28(context).copyWith(
                         fontSize: 12,
                       ),
                     ),

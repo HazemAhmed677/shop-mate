@@ -14,7 +14,7 @@ class CustomLocation extends StatelessWidget {
       children: [
         Text(
           'Location',
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             color: Colors.grey,
             fontSize: 20,
           ),
@@ -33,7 +33,7 @@ class CustomLocation extends StatelessWidget {
             ),
             Text(
               'Cairo, Egypt',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 fontSize: 18,
               ),
             ),

@@ -37,7 +37,7 @@ class CategoryItem extends StatelessWidget {
           capitalizeFirstLetter(
             category,
           ),
-          style: AppStyles.regular24.copyWith(
+          style: AppStyles.regular24(context).copyWith(
             fontSize: 16,
             color: (isActive) ? AppColors.white : Colors.black,
           ),

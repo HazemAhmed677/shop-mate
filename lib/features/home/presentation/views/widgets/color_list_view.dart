@@ -32,14 +32,14 @@ class _ColorListViewState extends State<ColorListView> {
           children: [
             Text(
               'Select Color : ',
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,
               ),
             ),
             Text(
               colorMap[currentIndex]!,
-              style: AppStyles.semiBoldInter16.copyWith(
+              style: AppStyles.semiBoldInter16(context).copyWith(
                 fontSize: 18,
                 color: Colors.grey,
                 fontWeight: FontWeight.w300,
