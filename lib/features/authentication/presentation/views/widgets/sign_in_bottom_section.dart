@@ -19,7 +19,7 @@ class SignInBottomSection extends StatelessWidget {
         ),
         DontHaveAccount(
           onTap: () {
-            GoRouter.of(context).go(
+            context.go(
               AppRouters.signUp,
             );
           },

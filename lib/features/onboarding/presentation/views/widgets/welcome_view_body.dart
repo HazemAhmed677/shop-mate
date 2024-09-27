@@ -60,7 +60,7 @@ class WelcomeViewBody extends StatelessWidget {
                 ),
                 child: AlreadyHaveAnAccount(
                   onTap: () {
-                    GoRouter.of(context).go(
+                    context.go(
                       AppRouters.signIn,
                     );
                   },

@@ -13,7 +13,7 @@ class CustomSignInOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(
-        12,
+        14,
       ),
       onTap: onTap,
       child: SizedBox(

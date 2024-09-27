@@ -6,6 +6,8 @@ final class SignInWithGoogleInitial extends SignInWithGoogleState {}
 
 final class SignInWithGoogleLoading extends SignInWithGoogleState {}
 
+final class SignInWithGoogleBack extends SignInWithGoogleState {}
+
 final class SignInWithGoogleSuccess extends SignInWithGoogleState {}
 
 final class SignInWithGoogleFailure extends SignInWithGoogleState {

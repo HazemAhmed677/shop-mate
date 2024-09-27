@@ -40,5 +40,5 @@ double getResponsiveText(
 
 double getScaleFactor({required BuildContext context}) {
   double widthOfScreen = MediaQuery.of(context).size.width;
-  return widthOfScreen / 500;
+  return widthOfScreen / 400;
 }

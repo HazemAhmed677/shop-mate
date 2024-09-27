@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-part 'sign_in_with_email_states.dart';
+part 'sign_in_with_google_states.dart';
 
 class SignInWithGoogleCubit extends Cubit<SignInWithGoogleState> {
   SignInWithGoogleCubit() : super(SignInWithGoogleInitial());
@@ -11,7 +11,10 @@ class SignInWithGoogleCubit extends Cubit<SignInWithGoogleState> {
     try {
       emit(SignInWithGoogleLoading());
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      if (googleUser == null) return;
+      if (googleUser == null) {
+        emit(SignInWithGoogleBack());
+        return;
+      }
       // Obtain the auth details from the request
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;

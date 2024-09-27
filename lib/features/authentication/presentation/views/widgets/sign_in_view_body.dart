@@ -8,6 +8,7 @@ import 'package:shop_mate/features/authentication/presentation/views/widgets/cus
 import 'package:shop_mate/features/authentication/presentation/views/widgets/custom_sub_middle_section.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_in_bottom_section.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_in_top_section.dart';
+import '../../../../../core/manager/switch_views_cubit/switch_views_cubit.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_routers.dart';
@@ -72,7 +73,6 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                           ),
                         ),
                         const Expanded(
-                        
                           child: CustomSubMiddleSection(),
                         ),
                         Row(
@@ -95,22 +95,41 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                                   GoRouter.of(context).go(AppRouters.home);
                                 } else if (state is SignInWithGoogleLoading) {
                                   isAsync = true;
+                                } else if (state is SignInWithGoogleBack) {
+                                  isAsync = false;
                                 }
                                 setState(() {});
                               },
                               builder: (context, state) {
-                                return CustomSignInOption(
-                                  image: AppImages.gmail,
-                                  onTap: () async {
-                                    await BlocProvider.of<
-                                            SignInWithGoogleCubit>(context)
-                                        .googleSignIn();
-                                  },
+                                return CircleAvatar(
+                                  radius: 22,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(
+                                          32,
+                                        ),
+                                        border: Border.all(
+                                          width: 1,
+                                          color: Colors.grey.shade400,
+                                        )),
+                                    child: CustomSignInOption(
+                                      image: AppImages.gmail,
+                                      onTap: () async {
+                                        BlocProvider.of<SwitchViewsCubit>(
+                                                context)
+                                            .setIndex(0);
+
+                                        await BlocProvider.of<
+                                                SignInWithGoogleCubit>(context)
+                                            .googleSignIn();
+                                      },
+                                    ),
+                                  ),
                                 );
                               },
                             ),
                             const SizedBox(
-                              width: 16,
+                              width: 12,
                             ),
                             CustomSignInOption(
                               image: AppImages.facebook,

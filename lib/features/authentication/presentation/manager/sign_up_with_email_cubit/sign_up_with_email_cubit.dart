@@ -8,13 +8,21 @@ class SignUpWithEmailCubit extends Cubit<SignUpWithEmailState> {
   SignUpWithEmailCubit() : super(SignUpWithEmailInitial());
 
   Future<void> userRegister(
-      {required String email, required String password}) async {
+      {required String email,
+      required String password,
+      required String name}) async {
     try {
       emit(SignUpWithEmailLoading());
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      // After creating the user, update their profile with the display name and photo URL
+      await userCredential.user!.updateProfile(
+        displayName: name,
+      );
+
       emit(SignUpWithEmailSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

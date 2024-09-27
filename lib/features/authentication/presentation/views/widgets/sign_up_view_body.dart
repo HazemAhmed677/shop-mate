@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/widgets/custom_loading_bar.dart';
 import 'package:shop_mate/features/authentication/presentation/manager/sign_up_with_email_cubit/sign_up_with_email_cubit.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/custom_photo_stack.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/name_and_email_part.dart';
-import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_dividers.dart';
-import 'package:shop_mate/features/authentication/presentation/views/widgets/row_of_options.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_up_bottom_bar.dart';
+import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_up_top_section.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
 import 'package:shop_mate/features/onboarding/presentation/views/widgets/already_have_an_account.dart';
 import '../../../../../core/utils/app_routers.dart';
@@ -44,20 +46,10 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SignWord(
-                        title: 'Create Acount',
-                        subTitle: 'Fill your information below or register',
-                        height: 12,
-                      ),
-                      Text(
-                        'with your social account.',
-                        style: AppStyles.semiBoldPoppins28(context).copyWith(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
-                      ),
+                      const SignUpTopSection(),
+                      CustomPhotoStack(email: email),
                       const SizedBox(
-                        height: 52,
+                        height: 22,
                       ),
                       NameAndEmailPart(
                         onChanged1: (value) {
@@ -76,7 +68,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       BlocConsumer<SignUpWithEmailCubit, SignUpWithEmailState>(
                         listener: (context, state) {
                           if (state is SignUpWithEmailSuccess) {
-                            GoRouter.of(context).go(AppRouters.home);
+                            BlocProvider.of<SwitchViewsCubit>(context)
+                                .setIndex(0);
+                            context.go(AppRouters.home);
                             showSnackBar(
                                 context: context,
                                 e: 'Signed up successfully',
@@ -97,9 +91,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                               if (formKey.currentState!.validate()) {
                                 formKey.currentState!.save();
                                 autovalidateMode = AutovalidateMode.disabled;
+                                BlocProvider.of<SwitchViewsCubit>(context)
+                                    .setIndex(1);
                                 BlocProvider.of<SignUpWithEmailCubit>(context)
                                     .userRegister(
-                                        email: email, password: password);
+                                        email: email,
+                                        password: password,
+                                        name: name);
                               } else {
                                 autovalidateMode = AutovalidateMode.always;
                               }
@@ -110,29 +108,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         },
                       ),
                       const Expanded(
-                        child: SizedBox(),
-                      ),
-                      const RowOfDividers(
-                        text: 'Or sign up with',
-                      ),
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
-                      const RowOfOptions(),
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
-                      AlreadyHaveAnAccount(
-                        onTap: () {
-                          GoRouter.of(context).go(
-                            AppRouters.signIn,
-                          );
-                        },
-                      ),
-                      const Expanded(
-                        flex: 2,
-                        child: SizedBox(),
-                      ),
+                        child: SignUpBottomSection(),
+                      )
                     ],
                   ),
                 ),

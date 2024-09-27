@@ -1,6 +1,9 @@
+import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
 import 'package:shop_mate/features/home/presentation/views/home_view.dart';
 import 'package:shop_mate/features/splash/presentation/views/splash_view.dart';
@@ -28,6 +31,7 @@ class StreamingView extends StatelessWidget {
           if (snapshot.data == null) {
             return const SplashView();
           } else {
+            BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
             return const HomeView();
           }
         });
