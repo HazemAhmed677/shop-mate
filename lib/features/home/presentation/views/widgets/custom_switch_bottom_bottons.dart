@@ -5,7 +5,7 @@ import 'package:shop_mate/constants.dart';
 import 'package:shop_mate/core/manager/add_to_cart_cubit/add_product_cubit.dart';
 import 'package:shop_mate/core/manager/delete_from_cart_cubit/delete_product_cubit.dart';
 import 'package:shop_mate/core/manager/fetch_cart_cubit.dart/fetch_cart_products_cubit.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/checkout_button.dart';
+import 'package:shop_mate/core/widgets/checkout_button.dart';
 import '../../../../../core/models/products_model/product_model.dart';
 import 'add_to_cart.dart';
 import 'remove_from_cart.dart';

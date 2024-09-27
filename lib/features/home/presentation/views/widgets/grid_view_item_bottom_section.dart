@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
+import 'package:shop_mate/core/models/wrapper_product_model.dart';
+import 'package:shop_mate/core/widgets/custom_rate_widget.dart';
 
 import '../../../../../core/models/products_model/product_model.dart';
 import '../../../../../core/utils/app_routers.dart';
@@ -23,10 +24,13 @@ class _GridViewItemBottomSectionState extends State<GridViewItemBottomSection> {
         12,
       ),
       onTap: () {
+        WrapperProductModel wrapperProductModel = WrapperProductModel(
+          product: widget.product,
+        );
         context
             .push(
               AppRouters.productDetails,
-              extra: widget.product,
+              extra: wrapperProductModel,
             )
             .then((_) => setState(() {}));
       },

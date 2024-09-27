@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-import '../../../../../core/utils/app_styles.dart';
+import '../utils/app_styles.dart';
 
 class CustomRateWidget extends StatelessWidget {
   const CustomRateWidget({super.key, required this.width});

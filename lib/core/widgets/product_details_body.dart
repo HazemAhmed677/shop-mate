@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_product_details_column.dart';
+import 'package:shop_mate/core/widgets/custom_product_details_column.dart';
 
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_produst_details_stack.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/product_details_bottom_container.dart';
+import 'package:shop_mate/core/widgets/custom_produst_details_stack.dart';
+import 'package:shop_mate/core/widgets/product_details_bottom_container.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
-  const ProductDetailsViewBody({super.key, required this.product});
+  const ProductDetailsViewBody(
+      {super.key, required this.product, required this.isCheckout});
   final ProductModel product;
+  final bool isCheckout;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -36,6 +38,7 @@ class ProductDetailsViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: ProductDetailsBottomContainer(
             product: product,
+            isCheckOut: isCheckout,
           ),
         )
       ],

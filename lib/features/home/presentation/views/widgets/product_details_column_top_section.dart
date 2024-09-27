@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_mate/core/helpers/captalize_the_first_letter.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
+import 'package:shop_mate/core/widgets/custom_rate_widget.dart';
 import '../../../../../core/utils/app_styles.dart';
 import '../../../../../core/models/products_model/product_model.dart';
 

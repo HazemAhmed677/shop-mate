@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_rate_widget.dart';
+import 'package:shop_mate/core/models/wrapper_product_model.dart';
+import 'package:shop_mate/core/widgets/custom_rate_widget.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
@@ -105,9 +106,12 @@ class _GridViewItemState extends State<CustomFavoritesGridViewItem> {
             12,
           ),
           onTap: () {
+            WrapperProductModel wrapperProductModel = WrapperProductModel(
+              product: widget.product,
+            );
             context.push(
               AppRouters.productDetails,
-              extra: widget.product,
+              extra: wrapperProductModel,
             );
           },
           child: Column(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_mate/core/helpers/captalize_the_first_letter.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
+import 'package:shop_mate/core/models/wrapper_product_model.dart';
 import 'package:shop_mate/core/utils/app_images.dart';
 import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/app_styles.dart';
@@ -30,7 +31,12 @@ class MyCartItem extends StatelessWidget {
               14,
             ),
             onTap: () {
-              context.push(AppRouters.productDetails, extra: product);
+              WrapperProductModel wrapperProductModel = WrapperProductModel(
+                product: product,
+                isCheckout: true,
+              );
+              context.push(AppRouters.productDetails,
+                  extra: wrapperProductModel);
             },
             child: Padding(
               padding: const EdgeInsets.only(

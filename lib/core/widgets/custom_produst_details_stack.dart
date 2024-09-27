@@ -5,12 +5,12 @@ import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shop_mate/core/models/products_model/product_model.dart';
-import 'package:shop_mate/features/home/presentation/views/widgets/custom_details_icon.dart';
+import 'package:shop_mate/core/widgets/custom_details_icon.dart';
 
-import '../../../../../constants.dart';
-import '../../../../../core/manager/add_to_favorites_cubit/add_product_cubit.dart';
-import '../../../../../core/manager/delete_from_favorites_cubit/delete_product_cubit.dart';
-import '../../../../../core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
+import '../../constants.dart';
+import '../manager/add_to_favorites_cubit/add_product_cubit.dart';
+import '../manager/delete_from_favorites_cubit/delete_product_cubit.dart';
+import '../manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 class CustomProdustDetailsStack extends StatefulWidget {
   const CustomProdustDetailsStack({super.key, required this.product});
