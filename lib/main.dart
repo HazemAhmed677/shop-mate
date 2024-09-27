@@ -17,6 +17,7 @@ import 'package:shop_mate/core/utils/app_routers.dart';
 import 'package:shop_mate/core/utils/service_locator.dart';
 import 'package:shop_mate/core/utils/simple_bloc_observer.dart';
 import 'package:shop_mate/features/authentication/presentation/manager/sign_in_with_email_cubit/sign_in_with_email_cubit.dart';
+import 'package:shop_mate/features/cart/presentation/manager/stripe_cubit/stripe_cubit.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_all_categories_cubit/fetch_all_categories_cubit.dart';
 import 'package:shop_mate/features/home/presentation/manager/fetch_products_cubit%20copy/fetch_products_cubit.dart';
 import 'package:shop_mate/features/search/data/repo/search_repo_impl.dart';
@@ -112,6 +113,9 @@ class ShopMateApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SignInWithGoogleCubit(),
+        ),
+        BlocProvider(
+          create: (context) => StripeCubit(),
         ),
       ],
       child: MaterialApp.router(

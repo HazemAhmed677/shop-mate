@@ -1,10 +1,12 @@
 class AppImages {
   static const String testImage = 'assets/images/hamdan.jpg';
+
   static const String noProfileImage = 'assets/images/no_profile_image.avif';
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg
   static const String gmail = "assets/images/gmail.svg";
+
   static const String facebook = "assets/images/facebook.svg";
 
   /// Assets for imagesOnboarding1
@@ -24,4 +26,6 @@ class AppImages {
   static const String welcome = "assets/images/welcome.png";
 
   static const String noImage = 'assets/images/no_image.png';
+
+  static const String back = 'assets/images/back.svg';
 }
