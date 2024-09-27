@@ -6,8 +6,10 @@ import 'package:shop_mate/features/home/presentation/views/widgets/custom_switch
 import '../../../../../core/models/products_model/product_model.dart';
 
 class ProductDetailsBottomContainer extends StatelessWidget {
-  const ProductDetailsBottomContainer({super.key, required this.product});
+  const ProductDetailsBottomContainer(
+      {super.key, required this.product, this.isCheckOut = false});
   final ProductModel product;
+  final bool isCheckOut;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -72,6 +74,7 @@ class ProductDetailsBottomContainer extends StatelessWidget {
             const Spacer(),
             CustomSwitchBottomBottons(
               product: product,
+              isCheckout: isCheckOut,
             )
           ],
         ),

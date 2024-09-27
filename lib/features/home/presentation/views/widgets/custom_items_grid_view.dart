@@ -30,8 +30,8 @@ class _CustomItemsGridViewState extends State<CustomItemsGridView> {
           return SliverAnimatedGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 14,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 10,
               childAspectRatio: 0.76,
             ),
             initialItemCount: state.productsModel.products?.length ?? 0,

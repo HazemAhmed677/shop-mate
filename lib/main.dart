@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:shop_mate/constants.dart';
 import 'package:shop_mate/core/manager/add_to_cart_cubit/add_product_cubit.dart';
@@ -42,6 +43,7 @@ void main() async {
   await Hive.openBox<ProductModel>(kFavoritesBox);
   await Hive.openBox<ProductModel>(kCartBox);
   await Hive.openBox<String>(kSearchedProductsBox);
+  Stripe.publishableKey = kPublishableKey;
   runApp(
     DevicePreview(
       enabled: true,

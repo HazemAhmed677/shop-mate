@@ -21,14 +21,16 @@ class MyCartItem extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 18.0, right: 8),
+          padding: const EdgeInsets.only(
+            left: 18.0,
+            right: 8,
+          ),
           child: InkWell(
             borderRadius: BorderRadius.circular(
               14,
             ),
             onTap: () {
-              GoRouter.of(context)
-                  .push(AppRouters.productDetails, extra: product);
+              context.push(AppRouters.productDetails, extra: product);
             },
             child: Padding(
               padding: const EdgeInsets.only(

@@ -5,6 +5,7 @@ import 'package:shop_mate/constants.dart';
 import 'package:shop_mate/core/manager/add_to_cart_cubit/add_product_cubit.dart';
 import 'package:shop_mate/core/manager/delete_from_cart_cubit/delete_product_cubit.dart';
 import 'package:shop_mate/core/manager/fetch_cart_cubit.dart/fetch_cart_products_cubit.dart';
+import 'package:shop_mate/features/home/presentation/views/widgets/checkout_button.dart';
 import '../../../../../core/models/products_model/product_model.dart';
 import 'add_to_cart.dart';
 import 'remove_from_cart.dart';
@@ -13,9 +14,11 @@ class CustomSwitchBottomBottons extends StatefulWidget {
   const CustomSwitchBottomBottons({
     super.key,
     required this.product,
+    required this.isCheckout,
   });
 
   final ProductModel product;
+  final bool isCheckout;
   @override
   State<CustomSwitchBottomBottons> createState() =>
       _CustomSwitchBottomBottonsState();
@@ -28,54 +31,58 @@ class _CustomSwitchBottomBottonsState extends State<CustomSwitchBottomBottons> {
   Widget build(BuildContext context) {
     box = Hive.box<ProductModel>(kCartBox);
     product = box.get(widget.product.id);
-    return AnimatedSwitcher(
-      duration: const Duration(
-        milliseconds: 300,
-      ), // Animation duration
-      transitionBuilder: (Widget child, Animation<double> animation) {
-        return ScaleTransition(
-            scale: animation, child: child); // Animation effect
-      },
-      child: (product != null)
-          ? RemoveFromCart(
-              onPressed: () async {
-                try {
-                  await BlocProvider.of<DeleteFromCartCubit>(context)
-                      .deleteFromCart(productModel: widget.product);
-                  if (mounted) {
-                    setState(() {
-                      BlocProvider.of<FetchCartProductsCubit>(context)
-                          .fetchCartProducts();
-                    });
-                  }
-                } catch (e) {
-                  //
-                }
-                setState(
-                  () {},
-                );
-              },
-            )
-          : AddToCart(
-              onPressed: () async {
-                try {
-                  await BlocProvider.of<AddToCartCubit>(context)
-                      .addToCart(productModle: widget.product);
+    return (!widget.isCheckout)
+        ? AnimatedSwitcher(
+            duration: const Duration(
+              milliseconds: 300,
+            ), // Animation duration
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return ScaleTransition(
+                  scale: animation, child: child); // Animation effect
+            },
+            child: (product != null)
+                ? RemoveFromCart(
+                    onPressed: () async {
+                      try {
+                        await BlocProvider.of<DeleteFromCartCubit>(context)
+                            .deleteFromCart(productModel: widget.product);
+                        if (mounted) {
+                          setState(() {
+                            BlocProvider.of<FetchCartProductsCubit>(context)
+                                .fetchCartProducts();
+                          });
+                        }
+                      } catch (e) {
+                        //
+                      }
+                      setState(
+                        () {},
+                      );
+                    },
+                  )
+                : AddToCart(
+                    onPressed: () async {
+                      try {
+                        await BlocProvider.of<AddToCartCubit>(context)
+                            .addToCart(productModle: widget.product);
 
-                  if (mounted) {
-                    setState(() {
-                      BlocProvider.of<FetchCartProductsCubit>(context)
-                          .fetchCartProducts();
-                    });
-                  }
-                } catch (e) {
-                  //
-                }
-                setState(
-                  () {},
-                );
-              },
-            ),
-    );
+                        if (mounted) {
+                          setState(() {
+                            BlocProvider.of<FetchCartProductsCubit>(context)
+                                .fetchCartProducts();
+                          });
+                        }
+                      } catch (e) {
+                        //
+                      }
+                      setState(
+                        () {},
+                      );
+                    },
+                  ),
+          )
+        : CheckoutButton(
+            product: widget.product,
+          );
   }
 }
