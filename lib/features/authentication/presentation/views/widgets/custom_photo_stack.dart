@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
+
+import '../../manager/sign_up_with_email_cubit/sign_up_with_email_cubit.dart';
 
 class CustomPhotoStack extends StatefulWidget {
   const CustomPhotoStack({
@@ -22,10 +25,14 @@ class _CustomPhotoStackState extends State<CustomPhotoStack> {
           source: ImageSource.gallery,
         );
       } catch (e) {
-        print(e.toString());
+        //
       }
       if (image != null) {
         selectedImage = File(image.path);
+        if (context.mounted) {
+          BlocProvider.of<SignUpWithEmailCubit>(context).profileImage =
+              selectedImage;
+        }
         setState(() {});
       }
     }
@@ -56,11 +63,13 @@ class _CustomPhotoStackState extends State<CustomPhotoStack> {
                 setState(() {});
                 await selectImage();
               },
-              highlightColor: Colors.grey.shade300,
-              icon: const Icon(
+              highlightColor: Colors.grey.shade400,
+              icon: Icon(
                 Icons.add_a_photo_outlined,
-                color: AppColors.primaryColor,
-                size: 26,
+                color: (selectedImage != null)
+                    ? Colors.grey.shade200
+                    : AppColors.primaryColor,
+                size: (selectedImage != null) ? 22 : 26,
               ),
             ),
           ),

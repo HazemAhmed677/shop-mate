@@ -1,4 +1,6 @@
 // ignore: depend_on_referenced_packages
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -6,7 +8,7 @@ part 'sign_up_with_email_states.dart';
 
 class SignUpWithEmailCubit extends Cubit<SignUpWithEmailState> {
   SignUpWithEmailCubit() : super(SignUpWithEmailInitial());
-
+  File? profileImage;
   Future<void> userRegister(
       {required String email,
       required String password,
@@ -22,7 +24,9 @@ class SignUpWithEmailCubit extends Cubit<SignUpWithEmailState> {
       await userCredential.user!.updateProfile(
         displayName: name,
       );
-
+      if (profileImage != null) {
+        await userCredential.user!.updatePhotoURL(profileImage!.path);
+      }
       emit(SignUpWithEmailSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
