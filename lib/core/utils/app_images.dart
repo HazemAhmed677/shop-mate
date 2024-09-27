@@ -1,5 +1,6 @@
 class AppImages {
   static const String testImage = 'assets/images/hamdan.jpg';
+  static const String noProfileImage = 'assets/images/no_profile_image.avif';
 
   /// Assets for imagesGoogle
   /// assets/images/google.svg

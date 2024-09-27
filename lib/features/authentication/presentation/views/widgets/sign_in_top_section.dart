@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_mate/core/manager/switch_views_cubit/switch_views_cubit.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/email_and_password_part.dart';
 import 'package:shop_mate/features/authentication/presentation/views/widgets/sign_word.dart';
 
@@ -54,6 +55,7 @@ class _SignInTopSectionState extends State<SignInTopSection> {
               if (state is SignInWithEmailSuccess) {
                 showSnackBar(
                     context: context, e: 'Signed in successfully', flag: true);
+                BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
                 GoRouter.of(context).go(AppRouters.home);
               } else if (state is SignInWithEmailFailure) {
                 showSnackBar(context: context, e: state.errorMsg);

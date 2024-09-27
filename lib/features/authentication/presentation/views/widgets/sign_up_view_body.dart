@@ -22,7 +22,14 @@ class SignUpViewBody extends StatefulWidget {
 class _SignUpViewBodyState extends State<SignUpViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-  String email = '', password = '', name = '';
+  TextEditingController textEditingController = TextEditingController();
+  late String email, password, name;
+  @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,9 +41,9 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           physics: const BouncingScrollPhysics(),
           slivers: [
             const SliverToBoxAdapter(child: SignUpTopSection()),
-            SliverToBoxAdapter(child: const CustomPhotoStack()),
-            SliverToBoxAdapter(
-              child: const SizedBox(
+            const SliverToBoxAdapter(child: CustomPhotoStack()),
+            const SliverToBoxAdapter(
+              child: SizedBox(
                 height: 22,
               ),
             ),
@@ -54,6 +61,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                   onChanged3: (value) {
                     password = value;
                   },
+                  textEditingController: textEditingController,
                 ),
               ),
             ),
@@ -76,20 +84,22 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     context: context,
                     e: state.errorMsg,
                   );
+                  print('name ############## $name');
+                  setState(() {});
                 }
               },
               builder: (context, state) {
                 if (state is SignUpWithEmailLoading) {
-                  return SliverToBoxAdapter(child: const CustomLoadingBar());
+                  return const SliverToBoxAdapter(child: CustomLoadingBar());
                 }
                 return SliverToBoxAdapter(
                   child: CustomActionButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
                         autovalidateMode = AutovalidateMode.disabled;
-                        BlocProvider.of<SwitchViewsCubit>(context).setIndex(1);
-                        BlocProvider.of<SignUpWithEmailCubit>(context)
+                        BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
+                        await BlocProvider.of<SignUpWithEmailCubit>(context)
                             .userRegister(
                                 email: email, password: password, name: name);
                       } else {

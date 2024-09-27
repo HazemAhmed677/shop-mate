@@ -61,7 +61,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
               child: CustomScrollView(
                 physics: const BouncingScrollPhysics(),
                 slivers: [
-                  SliverToBoxAdapter(child: const SignInTopSection()),
+                  const SliverToBoxAdapter(child: SignInTopSection()),
                   SliverFillRemaining(
                     hasScrollBody: false,
                     child: Column(

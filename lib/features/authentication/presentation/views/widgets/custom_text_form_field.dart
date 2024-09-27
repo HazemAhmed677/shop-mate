@@ -10,12 +10,14 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.validator,
     required this.onChanged,
+    this.textEditingController,
   });
   final String hint;
   final bool obscure;
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
   final void Function(String) onChanged;
+  final TextEditingController? textEditingController;
   @override
   Widget build(BuildContext context) {
     return TextFormField(

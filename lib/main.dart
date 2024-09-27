@@ -29,12 +29,12 @@ import 'core/manager/delete_from_favorites_cubit/delete_product_cubit.dart';
 import 'core/manager/fetch_favorites_cubit.dart/fetch_all_favorite_products_cubit.dart';
 
 void main() async {
-  Bloc.observer = SimpleBlocObserver();
-  setup();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Bloc.observer = SimpleBlocObserver();
+  setup();
   await Hive.initFlutter();
   Hive.registerAdapter(
     ProductModelAdapter(),

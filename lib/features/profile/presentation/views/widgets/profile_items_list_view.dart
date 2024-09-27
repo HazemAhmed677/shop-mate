@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shop_mate/core/utils/app_colors.dart';
@@ -17,7 +18,13 @@ class ProfileItemsListView extends StatelessWidget {
               leadingIcon: Icons.person,
               title: 'Your Profile',
               bottomDivider: true,
-              onTap: () {},
+              onTap: () async {
+                await FirebaseAuth.instance.currentUser!.reload();
+                print(
+                    'image = ${FirebaseAuth.instance.currentUser!.providerData[0].photoURL}');
+
+                print('name = ${FirebaseAuth.instance.currentUser!}');
+              },
             );
           } else if (index == 1) {
             return ProfileItem(

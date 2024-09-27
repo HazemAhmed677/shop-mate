@@ -9,10 +9,12 @@ class NameAndEmailPart extends StatelessWidget {
       {super.key,
       required this.onChanged1,
       required this.onChanged2,
-      required this.onChanged3});
+      required this.onChanged3,
+      required this.textEditingController});
   final void Function(String) onChanged1;
   final void Function(String) onChanged2;
   final void Function(String) onChanged3;
+  final TextEditingController textEditingController;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,9 +24,10 @@ class NameAndEmailPart extends StatelessWidget {
           height: 6,
         ),
         CustomTextFormField(
+          textEditingController: textEditingController,
           hint: 'Hazem Ahmed',
           validator: (value) {
-            if (value == null || value.isEmpty) {
+            if (value == null || value == '') {
               return 'Please enter your name';
             } else {
               return null;
