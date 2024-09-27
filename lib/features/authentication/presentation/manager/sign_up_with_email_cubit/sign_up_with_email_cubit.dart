@@ -30,9 +30,9 @@ class SignUpWithEmailCubit extends Cubit<SignUpWithEmailState> {
           'name': name, // optional: store timestamp
         });
 
-        print('User data added to Firestore successfully');
+        //
       } catch (e) {
-        print('Error storing user data in Firestore: $e');
+        //
       }
 
       if (profileImage != null) {

@@ -20,10 +20,6 @@ class ProfileItemsListView extends StatelessWidget {
               bottomDivider: true,
               onTap: () async {
                 await FirebaseAuth.instance.currentUser!.reload();
-                print(
-                    'image = ${FirebaseAuth.instance.currentUser!.providerData[0].photoURL}');
-
-                print('name = ${FirebaseAuth.instance.currentUser!}');
               },
             );
           } else if (index == 1) {

@@ -32,7 +32,6 @@ class SignInWithGoogleCubit extends Cubit<SignInWithGoogleState> {
           errorMsg: e.toString(),
         ),
       );
-      print(e.toString());
     }
   }
 }

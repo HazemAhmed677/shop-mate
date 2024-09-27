@@ -84,7 +84,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     context: context,
                     e: state.errorMsg,
                   );
-                  print('name ############## $name');
                   setState(() {});
                 }
               },
