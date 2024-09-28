@@ -20,7 +20,7 @@ class SignUpTopSection extends StatelessWidget {
         Text(
           'with your social account.',
           style: AppStyles.semiBoldPoppins28(context).copyWith(
-            fontSize: 14,
+            fontSize: getResponsiveText(context: context, base: 14),
             color: Colors.grey,
           ),
         ),

@@ -50,7 +50,7 @@ class _LogoWithNameState extends State<LogoWithName>
                 'S',
                 style: AppStyles.semiBold24(context).copyWith(
                   color: AppColors.white,
-                  fontSize: 32,
+                  fontSize: getResponsiveText(context: context, base: 32),
                 ),
               ),
             ),
@@ -66,7 +66,7 @@ class _LogoWithNameState extends State<LogoWithName>
             child: Text(
               'ShopMate',
               style: AppStyles.semiBold24(context).copyWith(
-                fontSize: 36,
+                fontSize: getResponsiveText(context: context, base: 36),
               ),
             ),
           ),
@@ -78,7 +78,7 @@ class _LogoWithNameState extends State<LogoWithName>
             child: Text(
               '.',
               style: AppStyles.semiBold24(context).copyWith(
-                fontSize: 36,
+                fontSize: getResponsiveText(context: context, base: 36),
                 color: AppColors.primaryColor,
               ),
             ),

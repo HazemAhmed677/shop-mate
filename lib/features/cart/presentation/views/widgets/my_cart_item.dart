@@ -78,7 +78,8 @@ class MyCartItem extends StatelessWidget {
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                           style: AppStyles.semiBoldPoppins28(context).copyWith(
-                            fontSize: 16,
+                            fontSize:
+                                getResponsiveText(context: context, base: 16),
                           ),
                         ),
                         const SizedBox(
@@ -93,7 +94,8 @@ class MyCartItem extends StatelessWidget {
                                   : "",
                               style:
                                   AppStyles.semiBoldPoppins28(context).copyWith(
-                                fontSize: 16,
+                                fontSize: getResponsiveText(
+                                    context: context, base: 16),
                                 color: Colors.grey.shade400,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -110,7 +112,8 @@ class MyCartItem extends StatelessWidget {
                               r'$',
                               style:
                                   AppStyles.semiBoldPoppins28(context).copyWith(
-                                fontSize: 16,
+                                fontSize: getResponsiveText(
+                                    context: context, base: 16),
                               ),
                             ),
                             (product.price == null)
@@ -119,7 +122,8 @@ class MyCartItem extends StatelessWidget {
                                     product.price.toString(),
                                     style: AppStyles.semiBoldPoppins28(context)
                                         .copyWith(
-                                      fontSize: 16,
+                                      fontSize: getResponsiveText(
+                                          context: context, base: 16),
                                     ),
                                   ),
                           ],

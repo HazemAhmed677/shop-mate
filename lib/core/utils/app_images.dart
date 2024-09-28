@@ -28,4 +28,6 @@ class AppImages {
   static const String noImage = 'assets/images/no_image.png';
 
   static const String back = 'assets/images/back.svg';
+
+  static const String card = 'assets/images/masterCardsvg.svg';
 }

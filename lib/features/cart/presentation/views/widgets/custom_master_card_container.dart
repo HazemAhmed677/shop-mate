@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_mate/core/utils/app_images.dart';
 
 import '../../../../../core/utils/app_styles.dart';
 
@@ -12,7 +13,7 @@ class CustomMasterCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(
@@ -27,7 +28,7 @@ class CustomMasterCard extends StatelessWidget {
         child: Row(
           children: [
             SvgPicture.asset(
-              'assets/images/masterCardsvg.svg',
+              AppImages.card,
               height: 35,
             ),
             const SizedBox(
@@ -39,13 +40,13 @@ class CustomMasterCard extends StatelessWidget {
                 Text(
                   'Credit Card',
                   style: AppStyles.regular24(context).copyWith(
-                    fontSize: 18,
+                    fontSize: getResponsiveText(context: context, base: 18),
                   ),
                 ),
                 Text(
                   'Mastercard **78',
                   style: AppStyles.regular24(context).copyWith(
-                    fontSize: 16,
+                    fontSize: getResponsiveText(context: context, base: 16),
                   ),
                 )
               ],

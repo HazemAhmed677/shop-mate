@@ -21,7 +21,7 @@ class ThankViewBody extends StatelessWidget {
         vertical: 24,
       ),
       child: Container(
-        width: double.infinity,
+        width: MediaQuery.sizeOf(context).width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: const Color(0xffEDEDED),
@@ -39,7 +39,7 @@ class ThankViewBody extends StatelessWidget {
                 top: -40,
                 child: CustomCheckAvatar(),
               ),
-              const ThankYouElements(),
+              ThankYouElements(product: productModel),
               Positioned(
                 left: -22 - 17.5,
                 bottom: MediaQuery.sizeOf(context).height * 0.2,

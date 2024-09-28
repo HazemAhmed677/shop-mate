@@ -63,7 +63,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       'Skip',
                       style: AppStyles.regular24(context).copyWith(
                         color: AppColors.primaryColor,
-                        fontSize: 18,
+                        fontSize: getResponsiveText(context: context, base: 18),
                       ),
                     ),
                   ),
@@ -114,10 +114,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                       onPressed: () async {
                         if (currentIndex < 2) {
                           await pageController.nextPage(
-                              curve: Curves.easeInOut,
-                              duration: const Duration(
-                                milliseconds: 400,
-                              ));
+                            curve: Curves.easeInOut,
+                            duration: const Duration(
+                              milliseconds: 400,
+                            ),
+                          );
                         } else {
                           GoRouter.of(context).push(AppRouters.signIn);
                         }

@@ -131,7 +131,8 @@ class _GridViewItemState extends State<CustomFavoritesGridViewItem> {
                         widget.product.title!,
                         overflow: TextOverflow.ellipsis,
                         style: AppStyles.regular24(context).copyWith(
-                          fontSize: 14,
+                          fontSize:
+                              getResponsiveText(context: context, base: 14),
                         ),
                       ),
                     ),
@@ -154,13 +155,13 @@ class _GridViewItemState extends State<CustomFavoritesGridViewItem> {
                     Text(
                       r"$",
                       style: AppStyles.semiBoldPoppins28(context).copyWith(
-                        fontSize: 12,
+                        fontSize: getResponsiveText(context: context, base: 12),
                       ),
                     ),
                     Text(
                       "${widget.product.price}",
                       style: AppStyles.semiBoldPoppins28(context).copyWith(
-                        fontSize: 12,
+                        fontSize: getResponsiveText(context: context, base: 12),
                       ),
                     ),
                   ],

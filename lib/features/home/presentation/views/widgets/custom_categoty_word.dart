@@ -16,13 +16,13 @@ class CustomCategoryWord extends StatelessWidget {
         Text(
           'Category',
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 22,
+            fontSize: getResponsiveText(context: context, base: 22),
           ),
         ),
         Text(
           'See All',
           style: AppStyles.semiBoldInter16(context).copyWith(
-            fontSize: 18,
+            fontSize: getResponsiveText(context: context, base: 18),
             color: AppColors.primaryColor,
           ),
         )

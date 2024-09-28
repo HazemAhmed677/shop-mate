@@ -12,7 +12,7 @@ class WordOfTextfield extends StatelessWidget {
       child: Text(
         text,
         style: AppStyles.regular24(context).copyWith(
-          fontSize: 16,
+          fontSize: getResponsiveText(context: context, base: 16),
         ),
       ),
     );

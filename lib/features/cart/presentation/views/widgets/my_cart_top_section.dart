@@ -23,7 +23,7 @@ class MyCartTopSection extends StatelessWidget {
               child: Text(
                 'My Cart',
                 style: AppStyles.semiBoldInter16(context).copyWith(
-                  fontSize: 20,
+                  fontSize: getResponsiveText(context: context, base: 20),
                 ),
               ),
             ),

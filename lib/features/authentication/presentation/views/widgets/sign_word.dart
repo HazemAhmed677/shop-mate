@@ -26,7 +26,7 @@ class SignWord extends StatelessWidget {
         Text(
           subTitle,
           style: AppStyles.semiBoldPoppins28(context).copyWith(
-            fontSize: 14,
+            fontSize: getResponsiveText(context: context, base: 14),
             color: Colors.grey,
           ),
         ),

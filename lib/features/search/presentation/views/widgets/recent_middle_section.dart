@@ -23,7 +23,7 @@ class _RecentMiddleSectionState extends State<RecentMiddleSection> {
             Text(
               'Recent',
               style: AppStyles.semiBoldPoppins28(context).copyWith(
-                fontSize: 18,
+                fontSize: getResponsiveText(context: context, base: 18),
               ),
             ),
             const Spacer(),
@@ -45,7 +45,7 @@ class _RecentMiddleSectionState extends State<RecentMiddleSection> {
                 child: Text(
                   'Clear All',
                   style: AppStyles.semiBoldPoppins28(context).copyWith(
-                    fontSize: 18,
+                    fontSize: getResponsiveText(context: context, base: 18),
                     color: AppColors.primaryColor,
                   ),
                 ),

@@ -15,15 +15,15 @@ class FlashSaleRow extends StatelessWidget {
         Text(
           'Flash Sale',
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 18,
+            fontSize: getResponsiveText(context: context, base: 18),
           ),
         ),
         const Spacer(),
-        const Text(
+        Text(
           'Closing at : ',
           style: TextStyle(
             color: Colors.grey,
-            fontSize: 14,
+            fontSize: getResponsiveText(context: context, base: 14),
           ),
         ),
         //

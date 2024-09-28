@@ -29,7 +29,7 @@ class CustomProductDetailsColumn extends StatelessWidget {
           // Text(
           //   'Select Size',
           //   style: AppStyles.semiBoldInter16.copyWith(
-          //     fontSize: 20,
+          //     fontSize: getResponsiveText(context: context, base: 20),
           //   ),
           // ),
           // const SizedBox(

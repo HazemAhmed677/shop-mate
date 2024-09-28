@@ -35,7 +35,7 @@ class ProfileItem extends StatelessWidget {
             title: Text(
               title,
               style: AppStyles.semiBoldPoppins28(context).copyWith(
-                fontSize: 16,
+                fontSize: getResponsiveText(context: context, base: 16),
                 fontWeight: FontWeight.w100,
               ),
             ),

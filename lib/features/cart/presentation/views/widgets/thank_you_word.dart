@@ -15,7 +15,7 @@ class ThankYouWord extends StatelessWidget {
         Text(
           'Thank you!',
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 25,
+            fontSize: getResponsiveText(context: context, base: 25),
           ),
         ),
         const SizedBox(
@@ -23,10 +23,13 @@ class ThankYouWord extends StatelessWidget {
         ),
         Opacity(
           opacity: 0.8,
-          child: Text(
-            'Your transaction was successful',
-            style: AppStyles.regular24(context).copyWith(
-              fontSize: 20,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              'Your transaction was successful',
+              style: AppStyles.regular24(context).copyWith(
+                fontSize: getResponsiveText(context: context, base: 20),
+              ),
             ),
           ),
         ),

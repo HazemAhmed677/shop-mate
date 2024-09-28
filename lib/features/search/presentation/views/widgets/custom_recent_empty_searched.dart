@@ -21,7 +21,7 @@ class CustomRecentEmptySearched extends StatelessWidget {
               child: Text(
                 text,
                 style: AppStyles.semiBoldPoppins28(context).copyWith(
-                  fontSize: 16,
+                  fontSize: getResponsiveText(context: context, base: 16),
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                 ),

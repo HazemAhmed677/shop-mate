@@ -46,7 +46,7 @@ class _GridViewItemState extends State<GridViewItemLoading> {
               Text(
                 'Brown Jacket',
                 style: AppStyles.regular24(context).copyWith(
-                  fontSize: 14,
+                  fontSize: getResponsiveText(context: context, base: 14),
                 ),
               ),
             ],
@@ -62,7 +62,7 @@ class _GridViewItemState extends State<GridViewItemLoading> {
           child: Text(
             r"$200",
             style: AppStyles.semiBoldPoppins28(context).copyWith(
-              fontSize: 12,
+              fontSize: getResponsiveText(context: context, base: 12),
             ),
           ),
         ),

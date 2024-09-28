@@ -20,7 +20,7 @@ class ProfileTopSection extends StatelessWidget {
             child: Text(
               'Profile',
               style: AppStyles.semiBoldInter16(context).copyWith(
-                fontSize: 20,
+                fontSize: getResponsiveText(context: context, base: 20),
               ),
             ),
           ),
@@ -43,31 +43,31 @@ class ProfileTopSection extends StatelessWidget {
           height: 18,
         ),
         Center(
-          child:
-              (FirebaseAuth.instance.currentUser!.providerData[0].providerId ==
-                      'google.com')
-                  ? Text(
-                      FirebaseAuth.instance.currentUser!.displayName!,
+          child: (FirebaseAuth
+                      .instance.currentUser!.providerData[0].providerId ==
+                  'google.com')
+              ? Text(
+                  FirebaseAuth.instance.currentUser!.displayName!,
+                  style: AppStyles.regular24(context).copyWith(
+                    fontSize: getResponsiveText(context: context, base: 20),
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                  future: FirebaseFirestore.instance
+                      .collection('usernames')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .get(),
+                  builder: (context, snapshot) {
+                    return Text(
+                      snapshot.data?.data()!['name'] ?? '',
                       style: AppStyles.regular24(context).copyWith(
-                        fontSize: 20,
+                        fontSize: getResponsiveText(context: context, base: 20),
                         fontWeight: FontWeight.bold,
                       ),
-                    )
-                  : FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                      future: FirebaseFirestore.instance
-                          .collection('usernames')
-                          .doc(FirebaseAuth.instance.currentUser!.uid)
-                          .get(),
-                      builder: (context, snapshot) {
-                        return Text(
-                          snapshot.data?.data()!['name'] ?? '',
-                          style: AppStyles.regular24(context).copyWith(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        );
-                      },
-                    ),
+                    );
+                  },
+                ),
         ),
         const SizedBox(
           height: 22,

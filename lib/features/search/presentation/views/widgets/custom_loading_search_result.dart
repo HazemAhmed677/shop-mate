@@ -24,14 +24,14 @@ class CustomLoadingSearchResult extends StatelessWidget {
                     Text(
                       r'Result for "Jacket"',
                       style: AppStyles.semiBoldPoppins28(context).copyWith(
-                        fontSize: 18,
+                        fontSize: getResponsiveText(context: context, base: 18),
                       ),
                     ),
                     const Spacer(),
                     Text(
                       '6,245 founds',
                       style: AppStyles.semiBoldPoppins28(context).copyWith(
-                        fontSize: 18,
+                        fontSize: getResponsiveText(context: context, base: 18),
                       ),
                     ),
                   ],

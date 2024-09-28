@@ -39,7 +39,7 @@ class CustomBottomModalSheet extends StatelessWidget {
           Text(
             'Logout',
             style: AppStyles.semiBoldPoppins28(context).copyWith(
-              fontSize: 24,
+              fontSize: getResponsiveText(context: context, base: 24),
               color: Colors.grey,
             ),
           ),
@@ -51,7 +51,7 @@ class CustomBottomModalSheet extends StatelessWidget {
           Text(
             'Are you sure you want to log out?',
             style: AppStyles.semiBoldPoppins28(context).copyWith(
-              fontSize: 18,
+              fontSize: getResponsiveText(context: context, base: 18),
               color: Colors.grey,
             ),
           ),
@@ -85,6 +85,7 @@ class CustomBottomModalSheet extends StatelessWidget {
                         context: context,
                         e: 'You have been logged out',
                         flag: true,
+                        delay: 1500,
                       );
                       context.pop();
                       context.go(AppRouters.streaming);

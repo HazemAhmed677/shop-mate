@@ -20,6 +20,12 @@ class ProfileViewBody extends StatelessWidget {
             child: ProfileTopSection(),
           ),
           ProfileItemsListView(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: SizedBox(
+              height: 100,
+            ),
+          )
         ],
       ),
     );

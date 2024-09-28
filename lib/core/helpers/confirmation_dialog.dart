@@ -18,7 +18,7 @@ void showConfirmationDialog(BuildContext context) {
         title: Text(
           'Are you sure to clear all data?',
           style: AppStyles.semiBoldPoppins28(context).copyWith(
-            fontSize: 16,
+            fontSize: getResponsiveText(context: context, base: 16),
             color: AppColors.white,
           ),
         ),
@@ -33,7 +33,7 @@ void showConfirmationDialog(BuildContext context) {
             child: Text(
               'Cancel',
               style: AppStyles.semiBoldPoppins28(context).copyWith(
-                fontSize: 15,
+                fontSize: getResponsiveText(context: context, base: 15),
                 color: AppColors.white,
               ),
             ),
@@ -50,7 +50,7 @@ void showConfirmationDialog(BuildContext context) {
             child: Text(
               'Confirm',
               style: AppStyles.semiBoldPoppins28(context).copyWith(
-                fontSize: 15,
+                fontSize: getResponsiveText(context: context, base: 15),
                 color: Colors.red.shade300,
               ),
             ),

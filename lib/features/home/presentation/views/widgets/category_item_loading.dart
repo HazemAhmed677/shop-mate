@@ -27,7 +27,7 @@ class CategoryItemLoading extends StatelessWidget {
         child: Text(
           'Audio',
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 16,
+            fontSize: getResponsiveText(context: context, base: 16),
           ),
         ),
       ),

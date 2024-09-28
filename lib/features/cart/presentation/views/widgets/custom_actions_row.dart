@@ -37,7 +37,7 @@ class _CustomActionsRowState extends State<CustomActionsRow> {
             child: Text(
               amount.toString(),
               style: AppStyles.regular24(context).copyWith(
-                fontSize: 14,
+                fontSize: getResponsiveText(context: context, base: 14),
               ),
             ),
           ),

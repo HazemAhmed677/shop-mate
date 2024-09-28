@@ -18,7 +18,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
               capitalizeFirstLetter(product.brand!),
               style: AppStyles.regular24(context).copyWith(
                 color: Colors.grey,
-                fontSize: 18,
+                fontSize: getResponsiveText(context: context, base: 18),
               ),
             ),
             const Spacer(),
@@ -33,7 +33,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         Text(
           "${product.title}",
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 22,
+            fontSize: getResponsiveText(context: context, base: 22),
           ),
         ),
         const SizedBox(
@@ -42,7 +42,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         Text(
           "Product Details",
           style: AppStyles.semiBoldInter16(context).copyWith(
-            fontSize: 20,
+            fontSize: getResponsiveText(context: context, base: 20),
           ),
         ),
         const SizedBox(
@@ -51,7 +51,7 @@ class ProductDetailsColumnTopSection extends StatelessWidget {
         Text(
           '${product.description}',
           style: AppStyles.semiBoldInter16(context).copyWith(
-            fontSize: 16,
+            fontSize: getResponsiveText(context: context, base: 16),
             color: Colors.grey,
           ),
         ),

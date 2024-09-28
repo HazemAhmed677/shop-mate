@@ -35,7 +35,7 @@ class CustomSizeContainer extends StatelessWidget {
         child: Text(
           size,
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 14,
+            fontSize: getResponsiveText(context: context, base: 14),
             color: (isActive) ? AppColors.white : Colors.black,
           ),
         ),

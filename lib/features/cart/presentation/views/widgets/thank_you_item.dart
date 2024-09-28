@@ -11,13 +11,15 @@ class ThankYouItem extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: AppStyles.regular24(context).copyWith(fontSize: 18),
+          style: AppStyles.regular24(context).copyWith(
+              fontSize: getResponsiveText(context: context, base: 18)),
         ),
         const Spacer(),
         Text(
           text2,
-          style: AppStyles.semiBold24(context).copyWith(
-            fontSize: 18,
+          style: AppStyles.semiBoldPoppins28(context).copyWith(
+            fontSize: getResponsiveText(context: context, base: 18),
+            fontWeight: FontWeight.bold,
           ),
         )
       ],

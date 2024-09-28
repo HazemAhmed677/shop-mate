@@ -16,7 +16,7 @@ class CustomLocation extends StatelessWidget {
           'Location',
           style: AppStyles.regular24(context).copyWith(
             color: Colors.grey,
-            fontSize: 20,
+            fontSize: getResponsiveText(context: context, base: 20),
           ),
         ),
         const SizedBox(
@@ -34,7 +34,7 @@ class CustomLocation extends StatelessWidget {
             Text(
               'Cairo, Egypt',
               style: AppStyles.semiBoldInter16(context).copyWith(
-                fontSize: 18,
+                fontSize: getResponsiveText(context: context, base: 18),
               ),
             ),
             const SizedBox(

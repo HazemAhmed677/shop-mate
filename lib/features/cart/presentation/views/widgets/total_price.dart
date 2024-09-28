@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/models/products_model/product_model.dart';
 import '../../../../../core/utils/app_styles.dart';
 
 class TotalPrice extends StatelessWidget {
   const TotalPrice({
     super.key,
+    required this.product,
   });
-
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -13,11 +15,27 @@ class TotalPrice extends StatelessWidget {
       children: [
         Text(
           'Total',
-          style: AppStyles.semiBold24(context),
+          style: AppStyles.semiBoldPoppins28(context).copyWith(
+            fontSize: getResponsiveText(context: context, base: 24),
+          ),
         ),
-        Text(
-          r'$50.97',
-          style: AppStyles.semiBold24(context),
+        Row(
+          children: [
+            Text(
+              r'$',
+              style: AppStyles.semiBoldPoppins28(context).copyWith(
+                fontSize: getResponsiveText(context: context, base: 24),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              product.price.toString(),
+              style: AppStyles.semiBoldPoppins28(context).copyWith(
+                fontSize: getResponsiveText(context: context, base: 24),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
       ],
     );

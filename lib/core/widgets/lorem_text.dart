@@ -20,7 +20,7 @@ class LoremText extends StatelessWidget {
               'Lorem ipsum dolor sit amet, consectetur',
               style: AppStyles.semiBoldInter16(context).copyWith(
                 color: Colors.grey,
-                fontSize: 18,
+                fontSize: getResponsiveText(context: context, base: 18),
               ),
             ),
           ),
@@ -30,7 +30,7 @@ class LoremText extends StatelessWidget {
               'adipiscing elit, sed do eiusmod tempor incididunt',
               style: AppStyles.semiBoldInter16(context).copyWith(
                 color: Colors.grey,
-                fontSize: 18,
+                fontSize: getResponsiveText(context: context, base: 18),
               ),
             ),
           ),

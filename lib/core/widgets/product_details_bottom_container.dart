@@ -47,7 +47,7 @@ class ProductDetailsBottomContainer extends StatelessWidget {
                   'Total Price',
                   style: AppStyles.semiBoldInter16(context).copyWith(
                     color: Colors.grey,
-                    fontSize: 18,
+                    fontSize: getResponsiveText(context: context, base: 18),
                   ),
                 ),
                 const SizedBox(
@@ -58,13 +58,13 @@ class ProductDetailsBottomContainer extends StatelessWidget {
                     Text(
                       r'$',
                       style: AppStyles.semiBoldInter16(context).copyWith(
-                        fontSize: 20,
+                        fontSize: getResponsiveText(context: context, base: 20),
                       ),
                     ),
                     Text(
                       '${product.price}',
                       style: AppStyles.semiBoldInter16(context).copyWith(
-                        fontSize: 20,
+                        fontSize: getResponsiveText(context: context, base: 18),
                       ),
                     ),
                   ],

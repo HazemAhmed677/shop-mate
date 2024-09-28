@@ -38,7 +38,7 @@ class CategoryItem extends StatelessWidget {
             category,
           ),
           style: AppStyles.regular24(context).copyWith(
-            fontSize: 16,
+            fontSize: getResponsiveText(context: context, base: 16),
             color: (isActive) ? AppColors.white : Colors.black,
           ),
         ),

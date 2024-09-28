@@ -28,7 +28,7 @@ class CustomBarcode extends StatelessWidget {
           child: Center(
             child: Text(
               'PAID',
-              style: AppStyles.semiBold24(context).copyWith(
+              style: AppStyles.semiBoldPoppins28(context).copyWith(
                 color: const Color(0xff34A853),
               ),
             ),
