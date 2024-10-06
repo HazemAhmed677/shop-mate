@@ -15,6 +15,7 @@ class ProfileViewBody extends StatelessWidget {
         horizontal: 22,
       ),
       child: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: ProfileTopSection(),

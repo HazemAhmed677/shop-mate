@@ -48,7 +48,7 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
             top: 22,
             child: CustomDetailsIcon(
               onTap: () {
-                GoRouter.of(context).pop();
+                context.pop();
               },
               icon: const Icon(
                 IconlyLight.arrow_left,
@@ -67,21 +67,17 @@ class _CustomProdustDetailsStackState extends State<CustomProdustDetailsStack> {
                     await BlocProvider.of<AddToFavoriteCubit>(context)
                         .addProduct(productModle: widget.product);
 
-                    if (mounted) {
-                      setState(() {
-                        BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
-                            .fetchAllProduct();
-                      });
+                    if (context.mounted) {
+                      BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
+                          .fetchAllProduct();
                     }
                   } else {
                     await BlocProvider.of<DeleteFromFavoriteCubit>(context)
                         .deleteProduct(productModel: widget.product);
 
-                    if (mounted) {
-                      setState(() {
-                        BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
-                            .fetchAllProduct();
-                      });
+                    if (context.mounted) {
+                      BlocProvider.of<FetchAllFavoriteProductsCubit>(context)
+                          .fetchAllProduct();
                     }
                   }
                 } catch (e) {

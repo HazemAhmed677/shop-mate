@@ -36,85 +36,90 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
       padding: const EdgeInsets.symmetric(
         horizontal: 26.0,
       ),
-      child: SafeArea(
-        child: CustomScrollView(
-          physics: const BouncingScrollPhysics(),
-          slivers: [
-            const SliverToBoxAdapter(child: SignUpTopSection()),
-            const SliverToBoxAdapter(child: CustomPhotoStack()),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Form(
-                autovalidateMode: autovalidateMode,
-                key: formKey,
-                child: NameAndEmailPart(
-                  onChanged1: (value) {
-                    name = value;
-                  },
-                  onChanged2: (value) {
-                    email = value;
-                  },
-                  onChanged3: (value) {
-                    password = value;
-                  },
-                  textEditingController: textEditingController,
+      child: Padding(
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: SafeArea(
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              const SliverToBoxAdapter(child: SignUpTopSection()),
+              const SliverToBoxAdapter(child: CustomPhotoStack()),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 22,
                 ),
               ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 22,
-              ),
-            ),
-            BlocConsumer<SignUpWithEmailCubit, SignUpWithEmailState>(
-              listener: (context, state) {
-                if (state is SignUpWithEmailSuccess) {
-                  BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
-                  context.go(AppRouters.home);
-                  showSnackBar(
-                      context: context,
-                      e: 'Signed up successfully',
-                      flag: true);
-                } else if (state is SignUpWithEmailFaliure) {
-                  showSnackBar(
-                    context: context,
-                    e: state.errorMsg,
-                  );
-                  setState(() {});
-                }
-              },
-              builder: (context, state) {
-                if (state is SignUpWithEmailLoading) {
-                  return const SliverToBoxAdapter(child: CustomLoadingBar());
-                }
-                return SliverToBoxAdapter(
-                  child: CustomActionButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                        autovalidateMode = AutovalidateMode.disabled;
-                        BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
-                        await BlocProvider.of<SignUpWithEmailCubit>(context)
-                            .userRegister(
-                                email: email, password: password, name: name);
-                      } else {
-                        autovalidateMode = AutovalidateMode.always;
-                      }
-                      setState(() {});
+              SliverToBoxAdapter(
+                child: Form(
+                  autovalidateMode: autovalidateMode,
+                  key: formKey,
+                  child: NameAndEmailPart(
+                    onChanged1: (value) {
+                      name = value;
                     },
-                    text: 'Sign Up',
+                    onChanged2: (value) {
+                      email = value;
+                    },
+                    onChanged3: (value) {
+                      password = value;
+                    },
+                    textEditingController: textEditingController,
                   ),
-                );
-              },
-            ),
-            const SliverToBoxAdapter(
-              child: SignUpBottomSection(),
-            )
-          ],
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 22,
+                ),
+              ),
+              BlocConsumer<SignUpWithEmailCubit, SignUpWithEmailState>(
+                listener: (context, state) {
+                  if (state is SignUpWithEmailSuccess) {
+                    BlocProvider.of<SwitchViewsCubit>(context).setIndex(0);
+                    context.go(AppRouters.home);
+                    showSnackBar(
+                        context: context,
+                        e: 'Signed up successfully',
+                        flag: true);
+                  } else if (state is SignUpWithEmailFaliure) {
+                    showSnackBar(
+                      context: context,
+                      e: state.errorMsg,
+                    );
+                    setState(() {});
+                  }
+                },
+                builder: (context, state) {
+                  if (state is SignUpWithEmailLoading) {
+                    return const SliverToBoxAdapter(child: CustomLoadingBar());
+                  }
+                  return SliverToBoxAdapter(
+                    child: CustomActionButton(
+                      onPressed: () async {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          autovalidateMode = AutovalidateMode.disabled;
+                          BlocProvider.of<SwitchViewsCubit>(context)
+                              .setIndex(0);
+                          await BlocProvider.of<SignUpWithEmailCubit>(context)
+                              .userRegister(
+                                  email: email, password: password, name: name);
+                        } else {
+                          autovalidateMode = AutovalidateMode.always;
+                        }
+                        setState(() {});
+                      },
+                      text: 'Sign Up',
+                    ),
+                  );
+                },
+              ),
+              const SliverToBoxAdapter(
+                child: SignUpBottomSection(),
+              )
+            ],
+          ),
         ),
       ),
     );

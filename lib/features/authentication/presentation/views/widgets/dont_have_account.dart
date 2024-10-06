@@ -15,7 +15,7 @@ class DontHaveAccount extends StatelessWidget {
         Text(
           'Don\'t have an account? ',
           style: AppStyles.regular24(context).copyWith(
-            fontSize: getResponsiveText(context: context, base: 15),
+            fontSize: getResponsiveText(context: context, base: 18),
             color: Colors.grey.shade700,
           ),
         ),
@@ -30,7 +30,7 @@ class DontHaveAccount extends StatelessWidget {
             child: Text(
               'Sign Up',
               style: AppStyles.regular24(context).copyWith(
-                  fontSize: getResponsiveText(context: context, base: 15),
+                  fontSize: getResponsiveText(context: context, base: 18),
                   decoration: TextDecoration.underline,
                   decorationColor: AppColors.primaryColor,
                   color: AppColors.primaryColor),
