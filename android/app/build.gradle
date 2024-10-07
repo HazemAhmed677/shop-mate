@@ -12,7 +12,14 @@ android {
     namespace = "com.example.shop_mate"
     compileSdk = 34
     ndkVersion = flutter.ndkVersion
+    flavorDimensions "default"
 
+    productFlavors {
+        development {   
+            dimension "default"
+            resValue "string", "app_name", "sshop_mate development"
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

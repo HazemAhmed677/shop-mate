@@ -44,7 +44,7 @@ class CheckoutButton extends StatelessWidget {
                   await triggerStripeGateWay(context);
                 },
                 child: Text(
-                  'Checkout',
+                  'Checkoutt',
                   style: AppStyles.regular24(context).copyWith(
                     color: AppColors.white,
                     fontSize: getResponsiveText(context: context, base: 24),

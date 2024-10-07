@@ -25,6 +25,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             height: 32,
           ),
         ),
+        const SizedBox.shrink(),
         SliverToBoxAdapter(
           child: CustomProductDetailsColumn(
             product: product,

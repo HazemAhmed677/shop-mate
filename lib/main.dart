@@ -47,7 +47,7 @@ void main() async {
   Stripe.publishableKey = kPublishableKey;
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const ShopMateApp(),
     ),
   );
