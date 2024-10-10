@@ -1,0 +1,15 @@
+default_platform(:android)
+
+platform :android do
+  desc "My awesome app"
+  lane :distribute do
+    firebase_app_distribution(
+      app: "1:456143632018:android:09716acc827f3c78fe184b",
+      firebase_cli_token: '1//09PfPUNHQB0r_CgYIARAAGAkSNwF-L9Ir7_x6eds3IywVkjHZCzCdU8vrfy5aNxEp7u045GQ93lJ8nFSgBHYqe2QYGYX453iUWhg',
+      android_artifact_type: 'APK',
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
+      testers: "hazmahmd677@gmail.com, 2021170151@cis.asu.edu.eg",
+      release_notes: "Lots of amazing new features to test out!",
+      )
+  end
+end
